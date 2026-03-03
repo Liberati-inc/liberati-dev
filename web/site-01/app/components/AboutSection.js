@@ -15,7 +15,7 @@ export default function AboutSection() {
             <span className={styles.eyebrowLabel} data-node-id="5587:4534">What We Do</span>
           </div>
           <h2 className={styles.title} data-node-id="5587:4535">
-            We partner<br />with<br />brands &amp;<br />beyond
+            We partner with brands &amp; beyond
           </h2>
         </div>
 
