@@ -10,7 +10,8 @@
   --brand: #ae1e22;
   --brand-2: #6e6e6e;
   --light: #c3c3c3;
-  --light-fade: rgba(231, 231, 231, 0.2);
+  --light-fade: #e7e7e71a;
+  --brand-text: #343232;
   --radius\/main: 2px;
 
   /* — Extended Tokens (supplemental, not in Figma variables panel) — */
