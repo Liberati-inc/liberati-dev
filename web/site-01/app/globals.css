@@ -1,9 +1,72 @@
-* {
+/* ============================================================
+   DESIGN TOKENS
+   Variable names match Figma variables exactly.
+   Update values here — changes propagate throughout the site.
+   ============================================================ */
+:root {
+  /* — Figma Variables — */
+  --theme\/text: #f2eae1;
+  --theme\/background-2ndary: #111010;
+  --brand: #ae1e22;
+  --brand-2: #6e6e6e;
+  --light: #c3c3c3;
+  --light-fade: rgba(231, 231, 231, 0.2);
+  --radius\/main: 2px;
+
+  /* — Extended Tokens (supplemental, not in Figma variables panel) — */
+  --bg-dark: #0a0a0a;
+  --brand-muted: rgba(174, 30, 34, 0.5);
+  --border-subtle: rgba(255, 255, 255, 0.1);
+  --border-social: rgba(255, 255, 255, 0.2);
+  --text-body: #94a3b8;
+  --text-scroll-indicator: #f1f5f9;
+
+  /* — Typography — */
+  --font-family: var(--font-manrope), 'Manrope', sans-serif;
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+
+  /* — Layout — */
+  --section-x: 160px;
+  --section-y: 96px;
+  --nav-x: 80px;
+  --container-max: 1280px;
+}
+
+/* ============================================================
+   RESET
+   ============================================================ */
+*,
+*::before,
+*::after {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  margin: 0;
-  font-family: system-ui, sans-serif;
-  padding: 2rem;
+  background-color: var(--theme\/background-2ndary);
+  color: var(--theme\/text);
+  font-family: var(--font-family);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font: inherit;
 }

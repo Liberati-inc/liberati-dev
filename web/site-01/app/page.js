@@ -1,8 +1,21 @@
+import Header from './components/Header';
+import HeroSection from './components/HeroSection';
+import AboutSection from './components/AboutSection';
+import ServicesSection from './components/ServicesSection';
+import ProjectSection from './components/ProjectSection';
+import Footer from './components/Footer';
+
 export default function Home() {
   return (
-    <main>
-      <h1>Site 01</h1>
-      <p>Minimal Next.js on Vercel</p>
-    </main>
+    <>
+      <Header />
+      <main>
+        <HeroSection />
+        <AboutSection />
+        <ServicesSection />
+        <ProjectSection />
+      </main>
+      <Footer />
+    </>
   );
 }

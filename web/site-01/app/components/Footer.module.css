@@ -1,0 +1,46 @@
+.footer {
+  background-color: var(--bg-dark);
+  border-top: 1px solid var(--light-fade);
+  padding: 49px var(--section-x) 48px;
+}
+
+.container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.copyright {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.copyrightIcon {
+  width: 20px;
+  height: 16px;
+}
+
+.copyrightText {
+  font-size: 12px;
+  font-weight: var(--font-weight-bold);
+  color: var(--brand-2);
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  line-height: 16px;
+}
+
+.links {
+  display: flex;
+  gap: 32px;
+}
+
+.link {
+  font-size: 12px;
+  font-weight: var(--font-weight-bold);
+  color: var(--brand-2);
+  text-transform: uppercase;
+  line-height: 16px;
+}

@@ -1,0 +1,86 @@
+.section {
+  padding: var(--section-y) var(--section-x);
+}
+
+.container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  gap: 64px;
+  min-height: 292px;
+}
+
+.heading {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.eyebrowLine {
+  display: block;
+  width: 48px;
+  height: 2px;
+  background-color: var(--brand);
+  flex-shrink: 0;
+}
+
+.eyebrowLabel {
+  font-size: 14px;
+  font-weight: var(--font-weight-bold);
+  color: var(--brand);
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  line-height: 20px;
+}
+
+.title {
+  font-size: 60px;
+  font-weight: var(--font-weight-extrabold);
+  font-style: normal;
+  line-height: 1;
+  letter-spacing: -3px;
+  text-transform: uppercase;
+  color: var(--theme\/text);
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding-top: 0;
+}
+
+.bio {
+  font-size: 20px;
+  font-weight: var(--font-weight-light);
+  line-height: 32.5px;
+  color: var(--light);
+}
+
+.socialLinks {
+  display: flex;
+  gap: 24px;
+}
+
+.socialLink {
+  width: 48px;
+  height: 48px;
+  border: 1px solid var(--border-social);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.socialIcon {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}

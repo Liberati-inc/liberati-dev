@@ -1,0 +1,98 @@
+.section {
+  background-color: var(--bg-dark);
+  border-top: 1px solid var(--light-fade);
+  padding: 97px var(--section-x) 96px;
+}
+
+.container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+}
+
+.servicesGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 48px;
+}
+
+.service {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.serviceHeader {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.serviceIcon {
+  width: 25px;
+  height: 25px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.serviceTitle {
+  font-size: 24px;
+  font-weight: var(--font-weight-bold);
+  color: var(--theme\/text);
+  letter-spacing: -0.6px;
+  text-transform: uppercase;
+  line-height: 32px;
+  white-space: nowrap;
+}
+
+.serviceDesc {
+  font-size: 16px;
+  font-weight: var(--font-weight-light);
+  line-height: 24px;
+  color: var(--light);
+}
+
+.serviceList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  list-style: none;
+}
+
+.serviceListItem {
+  font-size: 14px;
+  font-weight: var(--font-weight-regular);
+  color: var(--light-fade);
+  letter-spacing: 0.35px;
+  text-transform: uppercase;
+  line-height: 20px;
+}
+
+.footer {
+  border-top: 1px solid var(--light-fade);
+  padding-top: 49px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ctaButton {
+  background-color: var(--brand);
+  color: #fff;
+  padding: 16px 40px;
+  font-size: 14px;
+  font-weight: var(--font-weight-bold);
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  line-height: 20px;
+  border-radius: var(--radius\/main);
+}
+
+.footnote {
+  font-size: 12px;
+  font-weight: var(--font-weight-regular);
+  color: var(--brand-muted);
+  line-height: 16px;
+}

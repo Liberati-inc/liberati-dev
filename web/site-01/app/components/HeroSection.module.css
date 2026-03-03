@@ -1,0 +1,72 @@
+.hero {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 0 16px;
+}
+
+.bgWrap {
+  position: absolute;
+  inset: 0;
+}
+
+.bgImage {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.bgGradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(10, 10, 10, 0.2), rgba(10, 10, 10, 0.9));
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  max-width: 1024px;
+  padding-top: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.heading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 96px;
+  font-weight: var(--font-weight-extrabold);
+  font-style: normal;
+  line-height: 1;
+  letter-spacing: -4.8px;
+  text-transform: uppercase;
+  color: var(--theme\/text);
+  text-align: center;
+}
+
+.headingLine {
+  display: block;
+}
+
+.accent {
+  font-style: normal;
+  color: var(--brand);
+}
+
+.scrollIndicator {
+  position: absolute;
+  bottom: 39px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--text-scroll-indicator);
+}
