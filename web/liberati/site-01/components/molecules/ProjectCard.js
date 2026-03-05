@@ -34,12 +34,16 @@ export default function ProjectCard({
   useEffect(() => {
     if (!isLanding) return;
     const onEnter = () => setHeroHovered(true);
-    const onLeave = () => setHeroHovered(false);
-    document.body.addEventListener("mousemove", onEnter);
-    document.body.addEventListener("mouseleave", onLeave);
+    const onLeave = (e) => {
+      if (!e.relatedTarget || !document.contains(e.relatedTarget)) {
+        setHeroHovered(false);
+      }
+    };
+    document.addEventListener("mousemove", onEnter);
+    document.addEventListener("mouseout", onLeave);
     return () => {
-      document.body.removeEventListener("mousemove", onEnter);
-      document.body.removeEventListener("mouseleave", onLeave);
+      document.removeEventListener("mousemove", onEnter);
+      document.removeEventListener("mouseout", onLeave);
     };
   }, [isLanding]);
 
