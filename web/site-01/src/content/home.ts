@@ -4,6 +4,9 @@ export const heroCopy = {
     "High-end visuals for global brands that demand distinction. We transform concepts into immersive digital experiences.",
 };
 
+/** When true, landing hero picks a random video and excludes the last-shown one on reload (cookie memory). */
+export const heroRandomize = true;
+
 export const aboutCopy = {
   eyebrow: "What We Do",
   heading: "We partner with\nbrands & beyond",

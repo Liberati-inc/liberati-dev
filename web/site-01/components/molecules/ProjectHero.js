@@ -5,11 +5,13 @@ import { type, typeRole } from "@/content/typography";
 import ProjectLink from "@/components/atoms/ProjectLink";
 
 /**
- * Project hero: full-bleed video or still, no overlay.
+ * Project hero: full-bleed video or still, optional overlay.
  * Use as featured project thumbnail, project detail header loop, etc.
  * - loop: Vimeo autoplay muted loop (like landing hero).
  * - preview: same as loop, for featured carousel / thumbnails.
  * - manual: poster + play button; on click plays video.
+ * - alignOverlay="page": overlay uses same horizontal padding as PageContainer (px-6 lg:px-10)
+ *   so title/subtext align with content below (e.g. projects page gallery).
  */
 export default function ProjectHero({
   vimeoId,
@@ -19,13 +21,19 @@ export default function ProjectHero({
   subtext,
   ctaHref,
   ctaLabel = "VIEW PROJECT",
+  aspectRatio,
+  alignOverlay,
 }) {
   const [playing, setPlaying] = useState(false);
   const hasVideo = vimeoId && (playMode === "loop" || playMode === "preview" || playing);
   const posterUrl = stillImage || (vimeoId ? `https://vumbnail.com/${vimeoId}.jpg` : null);
+  const is16x9 = aspectRatio === "16:9";
+  const sectionClass = is16x9
+    ? "relative w-full aspect-video flex flex-col justify-end overflow-hidden"
+    : "relative h-[85vh] w-full flex flex-col justify-end overflow-hidden";
 
   return (
-    <section className="relative h-[85vh] w-full flex flex-col justify-end overflow-hidden">
+    <section className={sectionClass}>
       <div className="absolute inset-0 z-0">
         {hasVideo ? (
           <div className="absolute inset-0 overflow-hidden">
@@ -69,7 +77,11 @@ export default function ProjectHero({
         )}
       </div>
       {(title || subtext || ctaHref) && (
-        <div className="relative z-10 px-6 md:px-16 pb-20 max-w-7xl mx-auto w-full">
+        <div
+          className={`relative z-10 pb-20 max-w-7xl mx-auto w-full ${
+            alignOverlay === "page" ? "px-6 lg:px-10" : "px-6 md:px-16"
+          }`}
+        >
           <div className="max-w-3xl">
             {title && (
               <h1 className={`${type.scale.h1} ${type.mod.uppercase} mb-6 text-white`}>

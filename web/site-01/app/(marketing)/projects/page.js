@@ -1,0 +1,73 @@
+import { cookies } from "next/headers";
+import PageContainer from "@/components/atoms/PageContainer";
+import SiteHeader from "@/components/organisms/marketing/SiteHeader";
+import ProjectHero from "@/components/molecules/ProjectHero";
+import ProjectGallery from "@/components/organisms/marketing/ProjectGallery";
+import Footer from "@/components/organisms/marketing/Footer";
+import SetLastHeroCookie from "./SetLastHeroCookie";
+import { getProjectBySlug, projects } from "@/content/projects";
+import {
+  projectsHero,
+  galleryCategories,
+  galleryCategoryClasses,
+  gallerySections,
+} from "@/content/projectsPage";
+
+const LAST_HERO_COOKIE = "last_projects_hero";
+
+function getHeroProject(projectsList, config, excludeSlug) {
+  if (config.randomize && projectsList.length > 0) {
+    const pool = excludeSlug
+      ? projectsList.filter((p) => p.slug !== excludeSlug)
+      : projectsList;
+    const list = pool.length > 0 ? pool : projectsList;
+    const i = Math.floor(Math.random() * list.length);
+    return list[i];
+  }
+  return getProjectBySlug(config.projectSlug);
+}
+
+export default async function ProjectsPage() {
+  const cookieStore = await cookies();
+  const lastSlug = cookieStore.get(LAST_HERO_COOKIE)?.value;
+  const heroProject = getHeroProject(projects, projectsHero, lastSlug);
+
+  return (
+    <div className="bg-obsidian text-white min-h-screen">
+      {projectsHero.randomize && heroProject?.slug && (
+        <SetLastHeroCookie slug={heroProject.slug} />
+      )}
+      <SiteHeader />
+
+      <main>
+        {heroProject && (
+          <ProjectHero
+            vimeoId={heroProject.vimeoId}
+            stillImage={heroProject.stillImage}
+            playMode="preview"
+            title={heroProject.title}
+            subtext={heroProject.meta}
+            ctaHref={`/project/${heroProject.slug}`}
+            ctaLabel="VIEW PROJECT"
+            aspectRatio="16:9"
+            alignOverlay="page"
+          />
+        )}
+
+        <section className="py-16">
+          <PageContainer>
+            <ProjectGallery
+              projects={projects}
+              filterItems={galleryCategories}
+              filterActiveKey="brands"
+              galleryCategoryClasses={galleryCategoryClasses}
+              gallerySections={gallerySections}
+            />
+          </PageContainer>
+        </section>
+      </main>
+
+      <Footer />
+    </div>
+  );
+}

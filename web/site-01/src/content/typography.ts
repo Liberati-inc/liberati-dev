@@ -42,7 +42,9 @@ export const typeRole = {
   // Marketing eyebrows (e.g. "What We Do")
   eyebrow: `${type.scale.micro} ${type.mod.red} ${type.mod.uppercase} ${type.mod.wideTrack}`,
 
-  // Footer meta
+  // Footer Section Labels
+  footerTitle:`${type.scale.micro} ${type.mod.uppercase} ${type.mod.wideTrack} `,
+  footerLink: `${type.scale.micro} ${type.mod.whiteSoft} ${type.mod.widestTrack} list-none space-y-4`,
   footerMeta: `${type.scale.micro} ${type.mod.whiteSoft} ${type.mod.widestTrack} ${type.mod.uppercase}`,
   footerMetaUpper: `${type.scale.micro} ${type.mod.whiteSoft} ${type.mod.widestTrack} ${type.mod.uppercase}`,
 } as const;

@@ -5,7 +5,7 @@ import { type, typeRole } from "@/content/typography";
 
 export default function AboutSection() {
   return (
-    <section className="bg-obsidian py-24">
+    <section id="about" className="bg-obsidian py-48">
       <div className="max-w-7xl mx-auto px-6 lg:px-10 grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
         <div className="space-y-8">
           <EyebrowLabel>{aboutCopy.eyebrow}</EyebrowLabel>

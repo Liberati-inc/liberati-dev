@@ -21,11 +21,13 @@ export default function Footer() {
                 sizeClass="h-5 w-auto"
                 colorClass="text-liberatiRed"
               />
-              <SvgIcon
-                variant="wordmark"
-                sizeClass="h-4 w-auto"
-                colorClass="text-white"
-              />
+              <a href="/" className="inline-flex items-center" aria-label="Liberati home">
+                <SvgIcon
+                  variant="wordmark"
+                  sizeClass="h-4 w-auto"
+                  colorClass="text-white"
+                />
+              </a>
             </div>
             <p className={`${typeServices.body} max-w-sm`}>
               {footerCopy.tagline}
@@ -44,10 +46,10 @@ export default function Footer() {
           </div>
           {footerLinkGroups.map((group) => (
             <div key={group.id}>
-              <h6 className="text-sm font-bold uppercase tracking-[0.2em] mb-6">
+              <h6 className={`${typeRole.footerTitle} mb-6`}>
                 {group.title}
               </h6>
-              <ul className="space-y-4">
+              <ul className={`${typeRole.footerLink}`}>
                 {group.links.map((link) => (
                   <li key={link.label}>
                     <TextNavButton href={link.href ?? "#"}>

@@ -31,3 +31,12 @@ export function getRandomHeroVimeoId(): string {
   if (list.length === 0) return "";
   return list[Math.floor(Math.random() * list.length)];
 }
+
+/** Returns a random Vimeo ID excluding the given one (for cookie memory). Falls back to full list if pool empty. */
+export function getHeroVimeoIdExcluding(excludeId: string | undefined): string {
+  const list = heroVimeoIds;
+  if (list.length === 0) return "";
+  const pool = excludeId ? list.filter((id) => id !== excludeId) : list;
+  const pickFrom = pool.length > 0 ? pool : list;
+  return pickFrom[Math.floor(Math.random() * pickFrom.length)];
+}

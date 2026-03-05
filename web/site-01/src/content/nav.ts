@@ -2,8 +2,8 @@ import type { NavItem, SocialLink } from "./types";
 
 // Top nav categories (Brands, Series & Film, Interactive)
 export const mainNav: NavItem[] = [
-  { id: "brands", label: "Brands", href: "#brands" },
-  { id: "series-film", label: "Series & Film", href: "#series-film" },
+  { id: "about", label: "About", href: "/#about" },
+  { id: "projects", label: "Projects", href: "/projects" },
   { id: "interactive", label: "Interactive", href: "#interactive" },
 ];
 

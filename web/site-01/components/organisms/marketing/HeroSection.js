@@ -9,8 +9,8 @@ import { getRandomHeroVimeoId } from "@/content/videos";
 const HERO_FALLBACK_IMAGE =
   "https://lh3.googleusercontent.com/aida-public/AB6AXuDgfeF8BlBclNhBPSZsb22BP0TEBZiW5JbqHv3TyfYp5wcbvlz66DSXAj8_aA0DLDFCRmPVsOzZJQsKDYbQr_pELbWz59agD6otNzcXcajaFN8NoDDljpB88fu3JdWj96Q8MgmbD4zsdF4pWWHOH8lb6zfneusgUWwjL_5pa4QptBwkd_R7Awt4VRUb1kcb1igaZX0xe9SFWE7G0QLPYvu45Ha3sAJoK8k793lSqlvfLxQaSboQrTreIIF2943cULmUX3bRZgluaQFv";
 
-export default function HeroSection() {
-  const vimeoId = getRandomHeroVimeoId();
+export default function HeroSection({ vimeoId: vimeoIdProp }) {
+  const vimeoId = vimeoIdProp ?? getRandomHeroVimeoId();
 
   return (
     <section className="relative h-[85vh] w-full overflow-hidden flex items-center justify-center">

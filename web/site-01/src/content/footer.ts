@@ -13,8 +13,8 @@ export const footerLinkGroups: FooterLinkGroup[] = [
     id: "navigation",
     title: "Navigation",
     links: [
-      { label: "Work", href: "#work" },
-      { label: "Services", href: "#services" },
+      { label: "About", href: "/#about" },
+      { label: "Projects", href: "/projects" },
       { label: "Contact", href: "#contact" },
     ],
   },

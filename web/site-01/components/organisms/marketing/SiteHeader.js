@@ -15,11 +15,13 @@ export default function SiteHeader() {
       <PageContainer className="flex items-center justify-between py-4">
         <div className="flex items-center gap-3">
           <SvgIcon variant="wing" sizeClass="h-6 w-auto" />
-          <SvgIcon
-            variant="wordmark"
-            sizeClass="h-4 w-auto"
-            colorClass="text-white"
-          />
+          <a href="/" className="inline-flex items-center" aria-label="Liberati home">
+            <SvgIcon
+              variant="wordmark"
+              sizeClass="h-4 w-auto"
+              colorClass="text-white"
+            />
+          </a>
         </div>
 
         <div className="hidden items-center gap-12 md:flex">
