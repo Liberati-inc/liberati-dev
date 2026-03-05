@@ -4,6 +4,8 @@ export const heroCopy = {
     "High-end visuals for global brands that demand distinction. We transform concepts into immersive digital experiences.",
 };
 
+export const heroFallbackImage =
+  "";
 /** When true, landing hero picks a random video and excludes the last-shown one on reload (cookie memory). */
 export const heroRandomize = true;
 

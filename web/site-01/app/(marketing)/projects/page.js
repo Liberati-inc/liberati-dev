@@ -1,7 +1,7 @@
 import { cookies } from "next/headers";
 import PageContainer from "@/components/atoms/PageContainer";
 import SiteHeader from "@/components/organisms/marketing/SiteHeader";
-import ProjectHero from "@/components/molecules/ProjectHero";
+import ProjectCard from "@/components/molecules/ProjectCard";
 import ProjectGallery from "@/components/organisms/marketing/ProjectGallery";
 import Footer from "@/components/organisms/marketing/Footer";
 import SetLastHeroCookie from "./SetLastHeroCookie";
@@ -42,16 +42,16 @@ export default async function ProjectsPage() {
 
       <main>
         {heroProject && (
-          <ProjectHero
+          <ProjectCard
+            variant="hero"
             vimeoId={heroProject.vimeoId}
             stillImage={heroProject.stillImage}
-            playMode="preview"
+            playMode="auto"
+            loop
             title={heroProject.title}
-            subtext={heroProject.meta}
-            ctaHref={`/project/${heroProject.slug}`}
-            ctaLabel="VIEW PROJECT"
-            aspectRatio="4:1"
-            alignOverlay="page"
+            meta={heroProject.meta}
+            href={`/project/${heroProject.slug}`}
+            ctaLabel={heroProject.ctaLabel}
           />
         )}
 

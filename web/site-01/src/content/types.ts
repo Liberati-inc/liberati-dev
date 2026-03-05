@@ -97,6 +97,8 @@ export interface Project {
   vimeoId?: string;
   /** Card fallback image when no video. */
   stillImage?: string;
+  /** Hero CTA label override; blank = "VIEW PROJECT". */
+  ctaLabel?: string;
   description?: string;
   /** Project category. */
   class?: ProjectClass;

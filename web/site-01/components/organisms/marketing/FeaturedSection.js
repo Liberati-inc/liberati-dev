@@ -3,7 +3,7 @@
 import { useState } from "react";
 import EyebrowLabel from "@/components/atoms/EyebrowLabel";
 import NavArrowButton from "@/components/atoms/NavArrowButton";
-import ProjectHero from "@/components/molecules/ProjectHero";
+import ProjectCard from "@/components/molecules/ProjectCard";
 import { featuredCopy, featuredProjectSlugs } from "@/content/home";
 import { getProjectBySlug } from "@/content/projects";
 
@@ -33,15 +33,17 @@ export default function FeaturedSection() {
               <NavArrowButton direction="next" onClick={goNext} ariaLabel="Next project" />
             </>
           )}
-          <ProjectHero
+          <ProjectCard
             key={project.slug}
+            variant="hero"
             vimeoId={project.vimeoId}
             stillImage={project.stillImage}
-            playMode="preview"
+            playMode="auto"
+            loop
+            blackTintOpacity={30}
             title={project.title}
-            subtext={project.meta}
-            ctaHref={`/project/${project.slug}`}
-            ctaLabel="VIEW PROJECT"
+            meta={project.meta}
+            href={`/project/${project.slug}`}
           />
         </div>
       </div>

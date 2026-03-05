@@ -25,10 +25,12 @@ export default async function Home() {
       {heroRandomize && heroVimeoId && (
         <SetLastLandingHeroCookie vimeoId={heroVimeoId} />
       )}
-      <SiteHeader />
+      <SiteHeader slideOnScroll />
 
       <main id="top" className="space-y-0">
-        <HeroSection vimeoId={heroVimeoId ?? undefined} />
+        <div className="h-screen w-full">
+          <HeroSection vimeoId={heroVimeoId ?? undefined} />
+        </div>
         <AboutSection />
         <ServicesSection
           services={services}

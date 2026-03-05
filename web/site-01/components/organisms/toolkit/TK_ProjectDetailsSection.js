@@ -1,5 +1,5 @@
 import SectionLabel from "@/components/atoms/SectionLabel";
-import ProjectHero from "@/components/molecules/ProjectHero";
+import ProjectCard from "@/components/molecules/ProjectCard";
 import ProjectBriefSection from "@/components/organisms/marketing/ProjectBriefSection";
 import ProjectBlocksSection from "@/components/organisms/marketing/ProjectBlocksSection";
 import { typeServices } from "@/content/typography";
@@ -51,20 +51,23 @@ export default function TK_ProjectDetailsSection() {
         <SectionLabel>3.4 Project Details</SectionLabel>
         <div className="space-y-0">
           <p className={`${typeServices.meta} mb-4`}>
-            ProjectHero, ProjectBriefSection, ProjectBlocksSection
+            ProjectCard (hero variant), ProjectBriefSection, ProjectBlocksSection
           </p>
           <div className="rounded overflow-hidden">
-            <ProjectHero
+            <ProjectCard
+              variant="hero"
               vimeoId="727899592"
-              playMode="manual"
+              playMode="auto"
+              loop
+              blackTintOpacity={30}
               title="Project Title"
-              subtext="Optional tagline or project description."
+              meta="Optional tagline or project description."
             />
           </div>
           <ProjectBriefSection brief={approvedBrief} />
           <ProjectBlocksSection blocks={sampleBlocks} />
           <p className={`mt-8 ${typeServices.meta}`}>
-            ProjectHero — components/organisms/marketing/ProjectHero
+            ProjectCard (hero variant) — components/molecules/ProjectCard
             <br />
             ProjectBriefSection — components/organisms/marketing/ProjectBriefSection
             <br />
