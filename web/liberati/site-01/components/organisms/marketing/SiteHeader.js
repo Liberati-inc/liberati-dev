@@ -1,34 +1,24 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import SvgIcon from "@/components/atoms/SvgIcon";
 import PrimaryButton from "@/components/atoms/PrimaryButton";
 import PageContainer from "@/components/atoms/PageContainer";
 import TextNavButton from "@/components/atoms/TextNavButton";
+import { useHeaderVisibility } from "@/components/providers/HeaderVisibilityProvider";
 import { mainNav } from "@/content/nav";
 import { headerPrimaryCta } from "@/content/cta";
 
 /**
- * Toolkit header bar — same atoms/structure as TopNavSection.
- * slideOnHover: only on landing; header slides in when mouse is over the browser. Else always visible.
+ * Site header. On landing, visibility from HeaderVisibilityProvider (mouse + scroll).
  * Hamburger menu for mobile (below md).
  */
 export default function SiteHeader({ slideOnScroll = false }) {
-  const slideOnHover = slideOnScroll;
-  const [visible, setVisible] = useState(!slideOnHover);
+  const pathname = usePathname();
+  const { headerVisible } = useHeaderVisibility();
   const [menuOpen, setMenuOpen] = useState(false);
-
-  useEffect(() => {
-    if (!slideOnHover) return;
-    const show = () => setVisible(true);
-    const hide = () => setVisible(false);
-    document.body.addEventListener("mousemove", show);
-    document.body.addEventListener("mouseleave", hide);
-    return () => {
-      document.body.removeEventListener("mousemove", show);
-      document.body.removeEventListener("mouseleave", hide);
-    };
-  }, [slideOnHover]);
+  const visible = !slideOnScroll || headerVisible;
 
   useEffect(() => {
     if (menuOpen) {
@@ -64,11 +54,17 @@ export default function SiteHeader({ slideOnScroll = false }) {
 
           <div className="hidden items-center gap-12 md:flex">
             <nav className="flex items-center gap-12">
-              {mainNav.map((item) => (
-                <TextNavButton key={item.id} href={item.href}>
-                  {item.label}
-                </TextNavButton>
-              ))}
+              {mainNav.map((item) => {
+                const active =
+                  item.href === "/projects"
+                    ? pathname?.startsWith("/projects")
+                    : pathname === "/" && item.href.startsWith("/#");
+                return (
+                  <TextNavButton key={item.id} href={item.href} active={active}>
+                    {item.label}
+                  </TextNavButton>
+                );
+              })}
             </nav>
 
             <PrimaryButton href={headerPrimaryCta.href} className="py-2 px-6">
@@ -78,11 +74,15 @@ export default function SiteHeader({ slideOnScroll = false }) {
 
           <button
             type="button"
-            onClick={() => setMenuOpen(true)}
+            onClick={() => setMenuOpen((prev) => !prev)}
             className="flex md:hidden p-3 -mr-3 min-w-[44px] min-h-[44px] items-center justify-center text-white hover:text-liberatiRed transition-colors"
-            aria-label="Open menu"
+            aria-label={menuOpen ? "Close menu" : "Open menu"}
           >
-            <SvgIcon variant="menu" sizeClass="w-6 h-6" colorClass="currentColor" />
+            <SvgIcon
+              variant={menuOpen ? "close" : "menu"}
+              sizeClass="w-6 h-6"
+              colorClass="currentColor"
+            />
           </button>
         </PageContainer>
       </header>
@@ -99,15 +99,6 @@ export default function SiteHeader({ slideOnScroll = false }) {
         aria-hidden={!menuOpen}
       >
         <div className="flex flex-col min-h-screen pt-20 pb-8 px-6" onClick={(e) => e.stopPropagation()}>
-          <button
-            type="button"
-            onClick={closeMenu}
-            className="absolute top-4 right-6 p-3 min-w-[44px] min-h-[44px] flex items-center justify-center text-white hover:text-liberatiRed transition-colors"
-            aria-label="Close menu"
-          >
-            <SvgIcon variant="close" sizeClass="w-6 h-6" colorClass="currentColor" />
-          </button>
-
           <nav className="flex flex-col gap-2">
             {mainNav.map((item) => (
               <a

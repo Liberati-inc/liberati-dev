@@ -70,6 +70,16 @@ body {
   min-height: 100dvh;
 }
 
+/* Hide scrollbars site-wide */
+* {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+*::-webkit-scrollbar {
+  display: none;
+}
+
 ::selection {
   background-color: var(--brand);
   color: #ffffff;
@@ -130,6 +140,33 @@ textarea:-webkit-autofill {
     min-height: 100dvh;
     height: -webkit-fill-available;
     height: 100dvh;
+  }
+}
+
+/* Hero video: full viewport cover (landing) */
+.hero-video-cover {
+  min-height: 100vh;
+  min-height: 100dvh;
+  min-width: 100vw;
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .hero-video-cover {
+    min-height: -webkit-fill-available;
+  }
+}
+
+/* Hero video: compact (non-landing) — fills container; iOS override below */
+.hero-video-cover-compact {
+  min-height: 100%;
+  min-width: 100%;
+}
+
+/* iOS: smaller scale for compact hero to avoid over-zoom (adjust % as needed) */
+@media (hover: none) and (pointer: coarse) {
+  .hero-video-cover-compact {
+    min-height: 90%;
+    min-width: 90%;
   }
 }
 

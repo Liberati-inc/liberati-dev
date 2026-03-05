@@ -6,9 +6,9 @@ export default function TextNavButton({
   active = false,
   className = "",
 }) {
-  const base = `${typeRole.navLink} transition-colors`;
-  const idleColors = "text-mutedGray hover:text-white";
-  const activeColors = "text-liberatiRed";
+  const base = `${typeRole.navLink} transition-colors inline-block pb-1.5 border-b-2`;
+  const idleColors = "text-mutedGray hover:text-white border-transparent";
+  const activeColors = "text-mutedGray border-liberatiRed";
 
   const colors = active ? activeColors : idleColors;
 

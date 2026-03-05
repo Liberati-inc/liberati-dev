@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import SvgIcon from "@/components/atoms/SvgIcon";
+import { useHeaderVisibility } from "@/components/providers/HeaderVisibilityProvider";
 import ProjectLink from "@/components/atoms/ProjectLink";
 import PrimaryButton from "@/components/atoms/PrimaryButton";
 import SecondaryButton from "@/components/atoms/SecondaryButton";
@@ -27,6 +28,7 @@ export default function ProjectCard({
 }) {
   const [playing, setPlaying] = useState(false);
   const [heroHovered, setHeroHovered] = useState(false);
+  const { headerVisible } = useHeaderVisibility();
   const thumbUrl =
     stillImage ?? (vimeoId ? `https://vumbnail.com/${vimeoId}.jpg` : null);
   const showLoop = loop && vimeoId;
@@ -49,16 +51,14 @@ export default function ProjectCard({
 
   if (variant === "hero") {
     return (
-      <section
-        className={`relative w-full flex flex-col justify-end overflow-hidden ${
-          "h-full min-h-full"
-        }`}
-      >
+      <section className="relative w-full flex flex-col justify-end overflow-hidden h-full min-h-full">
         <div className="absolute inset-0 z-0 overflow-hidden w-full h-full">
           <MediaSurface
             vimeoId={showLoop ? vimeoId : undefined}
             imageUrl={thumbUrl || undefined}
-            className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 aspect-video min-h-full min-w-full"
+            className={`absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 aspect-video ${
+              isLanding ? "hero-video-cover" : "hero-video-cover-compact"
+            }`}
             playMode={playMode}
             loop={loop}
             blackTintOpacity={blackTintOpacity}
@@ -84,7 +84,7 @@ export default function ProjectCard({
               <>
                 <div
                   className={`flex items-center gap-3 mb-6 transition-opacity duration-500 ${
-                    heroHovered ? "opacity-0" : "opacity-100"
+                    headerVisible || heroHovered ? "opacity-0" : "opacity-100"
                   }`}
                 >
                   <SvgIcon variant="wing" sizeClass="h-8 w-auto" colorClass="text-liberatiRed" />

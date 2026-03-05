@@ -29,7 +29,7 @@ export default async function Home() {
 
       <main id="top" className="space-y-0">
         <div className="h-screen-safe w-full">
-          <HeroSection vimeoId={heroVimeoId ?? undefined} overlayOpacity={.6} />
+          <HeroSection vimeoId={heroVimeoId ?? undefined} overlayOpacity={0.6} />
         </div>
         <AboutSection />
         <ServicesSection

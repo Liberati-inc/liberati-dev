@@ -1,5 +1,6 @@
 import { Manrope } from 'next/font/google';
 import "./globals.css";
+import { HeaderVisibilityProvider } from "@/components/providers/HeaderVisibilityProvider";
 
 export const viewport = {
   width: 'device-width',
@@ -28,7 +29,9 @@ export default function RootLayout({ children }) {
           rel="stylesheet"
         />
       </head>
-      <body>{children}</body>
+      <body>
+        <HeaderVisibilityProvider>{children}</HeaderVisibilityProvider>
+      </body>
     </html>
   );
 }
