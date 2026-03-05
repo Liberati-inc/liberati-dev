@@ -7,16 +7,19 @@ import { typeServices } from "@/content/typography";
  * When onSelect is provided, tabs are buttons and call onSelect(key); otherwise they are Links.
  */
 export default function GalleryCategoryFilter({ items, activeKey, onSelect }) {
-  const baseClass = `px-4 py-2 ${typeServices.meta} border-b-2 transition-colors`;
+  const baseClass = `px-4 py-2 ${typeServices.meta} transition-colors`;
 
   return (
-    <div className="flex flex-wrap gap-2 md:gap-4 border-b border-liberatiRed/10 pb-2">
+    <div className="flex flex-wrap gap-2 md:gap-4 border-b border-mutedGray/10 pb-2">
       {items.map((item) => {
         const isActive = activeKey === item.key;
         const itemClass = `${baseClass} ${
           isActive
-            ? "border-liberatiRed text-liberatiRed"
-            : "border-transparent text-mutedGray hover:text-white"
+            ? "text-liberatiRed"
+            : "text-mutedGray hover:text-white group"
+        }`;
+        const underlineClass = `inline-block pb-1.5 border-b-2 ${
+          isActive ? "border-liberatiRed" : "border-transparent "
         }`;
         if (onSelect) {
           return (
@@ -26,13 +29,13 @@ export default function GalleryCategoryFilter({ items, activeKey, onSelect }) {
               onClick={() => onSelect(item.key)}
               className={itemClass}
             >
-              {item.label}
+              <span className={underlineClass}>{item.label}</span>
             </button>
           );
         }
         return (
           <Link key={item.key} href={item.href ?? "#"} className={itemClass}>
-            {item.label}
+            <span className={underlineClass}>{item.label}</span>
           </Link>
         );
       })}

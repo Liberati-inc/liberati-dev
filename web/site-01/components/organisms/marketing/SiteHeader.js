@@ -15,7 +15,7 @@ export default function SiteHeader() {
       <PageContainer className="flex items-center justify-between py-4">
         <div className="flex items-center gap-3">
           <SvgIcon variant="wing" sizeClass="h-6 w-auto" />
-          <a href="/" className="inline-flex items-center" aria-label="Liberati home">
+          <a href="/#top" className="inline-flex items-center" aria-label="Liberati home">
             <SvgIcon
               variant="wordmark"
               sizeClass="h-4 w-auto"
@@ -33,7 +33,7 @@ export default function SiteHeader() {
             ))}
           </nav>
 
-          <PrimaryButton className="py-2 px-6">
+          <PrimaryButton href={headerPrimaryCta.href} className="py-2 px-6">
             {headerPrimaryCta.label}
           </PrimaryButton>
         </div>

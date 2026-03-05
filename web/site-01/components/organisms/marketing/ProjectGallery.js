@@ -5,7 +5,7 @@ import ProjectsGalleryHeader from "@/components/molecules/ProjectsGalleryHeader"
 import GalleryCategoryFilter from "@/components/molecules/GalleryCategoryFilter";
 import ProjectCard from "@/components/molecules/ProjectCard";
 import { getProjectsByClass } from "@/content/projects";
-import { gallerySection } from "@/content/projectsPage";
+import { gallerySection, galleryDefaultKey } from "@/content/projectsPage";
 
 /**
  * Projects gallery section: header (title + description), optional category filter, grid of ProjectCards.
@@ -21,7 +21,7 @@ export default function ProjectGallery({
   gallerySections,
   className = "",
 }) {
-  const [activeKey, setActiveKey] = useState(initialFilterKey ?? "brands");
+  const [activeKey, setActiveKey] = useState(initialFilterKey ?? galleryDefaultKey);
 
   const { projects, sectionCopy } = useMemo(() => {
     if (galleryCategoryClasses && gallerySections) {

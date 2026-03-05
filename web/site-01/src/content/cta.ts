@@ -2,16 +2,19 @@ import type { CTA } from "./types";
 
 export const heroPrimaryCta: CTA = {
   id: "hero-view-showreel",
-  label: "View Showreel",
+  label: "Learn More",
+  href: "/#about",
 };
 
 export const heroSecondaryCta: CTA = {
   id: "hero-our-work",
   label: "Our Work",
+  href: "/projects",
 };
 
 export const headerPrimaryCta: CTA = {
   id: "header-get-in-touch",
   label: "Get in Touch",
+  href: "/#contact",
 };
 

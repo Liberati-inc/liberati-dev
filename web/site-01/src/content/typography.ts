@@ -29,7 +29,7 @@ export const typeRole = {
   body: `${type.scale.body} ${type.mod.muted}`,
 
   // Navigation / chrome
-  navLink: `${type.scale.h4} ${type.mod.mediumTrack}`,
+  navLink: `text-sm font-bold ${type.mod.mediumTrack}`,
   primaryCta: `${type.scale.micro} ${type.mod.widestTrack} ${type.mod.uppercase}`,
 
   // Small system labels / disclaimers

@@ -27,7 +27,7 @@ export default async function Home() {
       )}
       <SiteHeader />
 
-      <main className="space-y-24">
+      <main id="top" className="space-y-0">
         <HeroSection vimeoId={heroVimeoId ?? undefined} />
         <AboutSection />
         <ServicesSection

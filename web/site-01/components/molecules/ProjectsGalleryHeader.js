@@ -7,7 +7,7 @@ import { type, typeServices } from "@/content/typography";
 export default function ProjectsGalleryHeader({ title, description }) {
   return (
     <div>
-      <h2 className={`${type.scale.h2} ${type.mod.uppercase} ${type.mod.white} tracking-tighter mb-2`}>
+      <h2 className={`${type.scale.h1} ${type.mod.uppercase} ${type.mod.white} tracking-tighter mb-2`}>
         {title}
       </h2>
       {description && <p className={`${typeServices.body} max-w-md`}>{description}</p>}

@@ -12,11 +12,14 @@ export const projectsHero = {
 
 /** Filter tab categories for the gallery (key used for active state / routing). */
 export const galleryCategories = [
+  { key: "all", label: "ALL PROJECTS", href: "#all" },
   { key: "brands", label: "BRANDS", href: "#brands" },
   { key: "series", label: "SERIES & FILM", href: "#series" },
   { key: "interactive", label: "INTERACTIVE", href: "#interactive" },
-  { key: "all", label: "ALL", href: "#all" },
 ];
+
+/** Default active gallery category key on the projects page. */
+export const galleryDefaultKey = "all";
 
 /**
  * Which project classes (content/projects) belong in each gallery category.
@@ -32,10 +35,16 @@ export const galleryCategoryClasses: Record<string, ProjectClass[] | null> = {
 
 /** Section title + description per category. Key must match galleryCategories[].key. */
 export const gallerySections = {
-  brands: {
-    title: "Brands In Motion",
+  all: {
+    title: "ALL PROJECTS",
     description:
-      "A curated selection of cinematic storytelling, exploring the boundaries of visual narrative.",
+    "We craft various works across 2D/3D design, animation, production, and VFX.",
+    // "The full range of motion, film, and interactive work.",
+  },
+  brands: {
+    title: "BRANDS",
+    description:
+      "A curated selection of brand specific works, exploring the boundaries of visual narratives.",
   },
   series: {
     title: "SERIES & FILM",
@@ -45,13 +54,9 @@ export const gallerySections = {
   interactive: {
     title: "INTERACTIVE",
     description:
-      "Digital experiences, installations, and interactive storytelling.",
+      "Digital experiences, installations, and interactive applications.",
   },
-  all: {
-    title: "ALL WORK",
-    description:
-      "The full range of motion, film, and interactive work.",
-  },
+
 };
 
 /**

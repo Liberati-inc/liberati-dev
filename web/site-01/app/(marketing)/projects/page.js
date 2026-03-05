@@ -11,6 +11,7 @@ import {
   galleryCategories,
   galleryCategoryClasses,
   gallerySections,
+  galleryDefaultKey,
 } from "@/content/projectsPage";
 
 const LAST_HERO_COOKIE = "last_projects_hero";
@@ -49,7 +50,7 @@ export default async function ProjectsPage() {
             subtext={heroProject.meta}
             ctaHref={`/project/${heroProject.slug}`}
             ctaLabel="VIEW PROJECT"
-            aspectRatio="16:9"
+            aspectRatio="4:1"
             alignOverlay="page"
           />
         )}
@@ -59,7 +60,7 @@ export default async function ProjectsPage() {
             <ProjectGallery
               projects={projects}
               filterItems={galleryCategories}
-              filterActiveKey="brands"
+              filterActiveKey={galleryDefaultKey}
               galleryCategoryClasses={galleryCategoryClasses}
               gallerySections={gallerySections}
             />

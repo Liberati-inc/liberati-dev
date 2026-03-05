@@ -27,23 +27,28 @@ export default function ProjectHero({
   const [playing, setPlaying] = useState(false);
   const hasVideo = vimeoId && (playMode === "loop" || playMode === "preview" || playing);
   const posterUrl = stillImage || (vimeoId ? `https://vumbnail.com/${vimeoId}.jpg` : null);
-  const is16x9 = aspectRatio === "16:9";
-  const sectionClass = is16x9
-    ? "relative w-full aspect-video flex flex-col justify-end overflow-hidden"
-    : "relative h-[85vh] w-full flex flex-col justify-end overflow-hidden";
+  const hasAspect = !!aspectRatio;
+
+  let sectionClass = "relative h-[85vh] w-full flex flex-col justify-end overflow-hidden";
+  let sectionStyle = undefined;
+
+  if (hasAspect) {
+    sectionClass = "relative w-full flex flex-col justify-end overflow-hidden";
+    const str = String(aspectRatio);
+    const [w, h] = str.split(/[:/]/).map(Number);
+    if (w > 0 && h > 0) {
+      sectionStyle = { aspectRatio: `${w} / ${h}` };
+    }
+  }
 
   return (
-    <section className={sectionClass}>
+    <section className={sectionClass} style={sectionStyle}>
       <div className="absolute inset-0 z-0">
         {hasVideo ? (
           <div className="absolute inset-0 overflow-hidden">
             <iframe
               src={`https://player.vimeo.com/video/${vimeoId}?background=1&autoplay=1&muted=1&loop=1`}
-              className="absolute top-1/2 left-1/2 w-[max(100%,177.78vh)] h-[max(56.25vw,100vh)] min-w-full min-h-full -translate-x-1/2 -translate-y-1/2 pointer-events-none"
-              style={{
-                width: "max(100%, 177.78vh)",
-                height: "max(56.25vw, 100vh)",
-              }}
+              className="absolute top-1/2 left-1/2 w-[250%] h-[250%] -translate-x-1/2 -translate-y-1/2 pointer-events-none"
               allow="autoplay; fullscreen"
               title="Project hero"
             />
@@ -84,7 +89,7 @@ export default function ProjectHero({
         >
           <div className="max-w-3xl">
             {title && (
-              <h1 className={`${type.scale.h1} ${type.mod.uppercase} mb-6 text-white`}>
+              <h1 className={`${type.scale.h2} ${type.mod.uppercase} mb-6 text-white`}>
                 {title}
               </h1>
             )}

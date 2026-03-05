@@ -21,7 +21,7 @@ export default function Footer() {
                 sizeClass="h-5 w-auto"
                 colorClass="text-liberatiRed"
               />
-              <a href="/" className="inline-flex items-center" aria-label="Liberati home">
+              <a href="/#top" className="inline-flex items-center" aria-label="Liberati home">
                 <SvgIcon
                   variant="wordmark"
                   sizeClass="h-4 w-auto"

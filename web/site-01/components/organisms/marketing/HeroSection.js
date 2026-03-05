@@ -27,10 +27,10 @@ export default function HeroSection({ vimeoId: vimeoIdProp }) {
           {heroCopy.body}
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <PrimaryButton>
+          <PrimaryButton href={heroPrimaryCta.href}>
             {heroPrimaryCta.label}
           </PrimaryButton>
-          <SecondaryButton>
+          <SecondaryButton href={heroSecondaryCta.href}>
             {heroSecondaryCta.label}
           </SecondaryButton>
         </div>
