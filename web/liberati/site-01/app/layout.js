@@ -1,6 +1,12 @@
 import { Manrope } from 'next/font/google';
 import "./globals.css";
 
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  viewportFit: 'cover',
+};
+
 const manrope = Manrope({
   subsets: ['latin'],
   weight: ['300', '400', '700', '800'],

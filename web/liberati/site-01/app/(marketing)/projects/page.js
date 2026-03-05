@@ -42,7 +42,8 @@ export default async function ProjectsPage() {
 
       <main>
         {heroProject && (
-          <ProjectCard
+          <div className="h-[32vh] w-full">
+            <ProjectCard
             variant="hero"
             vimeoId={heroProject.vimeoId}
             stillImage={heroProject.stillImage}
@@ -53,6 +54,7 @@ export default async function ProjectsPage() {
             href={`/project/${heroProject.slug}`}
             ctaLabel={heroProject.ctaLabel}
           />
+          </div>
         )}
 
         <section className="py-16">

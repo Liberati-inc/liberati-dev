@@ -8,7 +8,7 @@ export const heroPrimaryCta: CTA = {
 
 export const heroSecondaryCta: CTA = {
   id: "hero-our-work",
-  label: "Our Work",
+  label: "Projects",
   href: "/projects",
 };
 

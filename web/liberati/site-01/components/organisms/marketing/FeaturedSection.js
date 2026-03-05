@@ -33,7 +33,8 @@ export default function FeaturedSection() {
               <NavArrowButton direction="next" onClick={goNext} ariaLabel="Next project" />
             </>
           )}
-          <ProjectCard
+          <div className="h-[85vh] w-full">
+            <ProjectCard
             key={project.slug}
             variant="hero"
             vimeoId={project.vimeoId}
@@ -44,7 +45,9 @@ export default function FeaturedSection() {
             title={project.title}
             meta={project.meta}
             href={`/project/${project.slug}`}
+            ctaLabel={project.ctaLabel}
           />
+          </div>
         </div>
       </div>
     </section>

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import SvgIcon from "@/components/atoms/SvgIcon";
 import ProjectLink from "@/components/atoms/ProjectLink";
 import PrimaryButton from "@/components/atoms/PrimaryButton";
@@ -17,6 +17,7 @@ export default function ProjectCard({
   loop = true,
   playMode = "auto",
   blackTintOpacity,
+  overlayOpacity,
   href,
   heading,
   body,
@@ -25,19 +26,31 @@ export default function ProjectCard({
   ctaLabel,
 }) {
   const [playing, setPlaying] = useState(false);
+  const [heroHovered, setHeroHovered] = useState(false);
   const thumbUrl =
     stillImage ?? (vimeoId ? `https://vumbnail.com/${vimeoId}.jpg` : null);
   const showLoop = loop && vimeoId;
   const isLanding = Boolean(heading);
+  useEffect(() => {
+    if (!isLanding) return;
+    const onEnter = () => setHeroHovered(true);
+    const onLeave = () => setHeroHovered(false);
+    document.body.addEventListener("mousemove", onEnter);
+    document.body.addEventListener("mouseleave", onLeave);
+    return () => {
+      document.body.removeEventListener("mousemove", onEnter);
+      document.body.removeEventListener("mouseleave", onLeave);
+    };
+  }, [isLanding]);
 
   if (variant === "hero") {
     return (
       <section
         className={`relative w-full flex flex-col justify-end overflow-hidden ${
-          isLanding ? "h-full" : "h-[85vh]"
+          "h-full min-h-full"
         }`}
       >
-        <div className="absolute inset-0 z-0 overflow-hidden">
+        <div className="absolute inset-0 z-0 overflow-hidden w-full h-full">
           <MediaSurface
             vimeoId={showLoop ? vimeoId : undefined}
             imageUrl={thumbUrl || undefined}
@@ -48,16 +61,35 @@ export default function ProjectCard({
           />
         </div>
         {isLanding && (
-          <div className="absolute inset-0 bg-gradient-to-b from-black/100 via-black/30 to-obsidian z-10 pointer-events-none" />
+          <div
+            className="absolute inset-0 z-10 pointer-events-none"
+            style={{
+              background: `linear-gradient(to bottom, rgb(0 0 0 / 1), rgb(0 0 0 / ${overlayOpacity ?? 0.4}), #0A0A0A)`,
+            }}
+          />
         )}
         <div
           className={`relative z-10 max-w-7xl mx-auto w-full px-6 lg:px-10 ${
-            isLanding ? "pb-96" : "pb-9"
+            isLanding
+              ? "pb-[calc(4rem+env(safe-area-inset-bottom,0px))] md:pb-[calc(6rem+env(safe-area-inset-bottom,0px))] lg:pb-96"
+              : "pb-9"
           }`}
         >
-          <div className="max-w-3xl">
+          <div className={isLanding ? "max-w-5xl" : "max-w-2xl"}>
             {isLanding ? (
               <>
+                <div
+                  className={`flex items-center gap-3 mb-6 transition-opacity duration-500 ${
+                    heroHovered ? "opacity-0" : "opacity-100"
+                  }`}
+                >
+                  <SvgIcon variant="wing" sizeClass="h-8 w-auto" colorClass="text-liberatiRed" />
+                  <SvgIcon
+                    variant="wordmark"
+                    sizeClass="h-5 w-auto"
+                    colorClass="text-white"
+                  />
+                </div>
                 {heading && (
                   <h1 className={`${type.scale.h0} ${type.mod.uppercase} mb-4 text-left`}>
                     {heading}

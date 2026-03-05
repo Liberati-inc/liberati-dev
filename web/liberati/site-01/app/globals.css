@@ -61,6 +61,13 @@ body {
 
 html {
   scroll-behavior: smooth;
+  min-height: 100%;
+}
+
+html,
+body {
+  min-height: 100vh;
+  min-height: 100dvh;
 }
 
 ::selection {
@@ -99,6 +106,31 @@ textarea:-webkit-autofill {
   -webkit-box-shadow: 0 0 0px 1000px var(--theme\/background-2ndary) inset;
   -webkit-text-fill-color: var(--theme\/text);
   transition: background-color 9999s ease-in-out 0s;
+}
+
+/* ============================================================
+   iOS / Mobile viewport fix
+   ============================================================ */
+.h-screen-safe {
+  min-height: 100vh;
+  height: 100vh;
+}
+
+@supports (height: 100dvh) {
+  .h-screen-safe {
+    min-height: 100dvh;
+    height: 100dvh;
+  }
+}
+
+/* Touch devices (iOS, iPad): -webkit-fill-available for older Safari */
+@media (hover: none) and (pointer: coarse) {
+  .h-screen-safe {
+    min-height: -webkit-fill-available;
+    min-height: 100dvh;
+    height: -webkit-fill-available;
+    height: 100dvh;
+  }
 }
 
 /* ============================================================

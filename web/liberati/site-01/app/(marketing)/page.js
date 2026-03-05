@@ -28,8 +28,8 @@ export default async function Home() {
       <SiteHeader slideOnScroll />
 
       <main id="top" className="space-y-0">
-        <div className="h-screen w-full">
-          <HeroSection vimeoId={heroVimeoId ?? undefined} />
+        <div className="h-screen-safe w-full">
+          <HeroSection vimeoId={heroVimeoId ?? undefined} overlayOpacity={.6} />
         </div>
         <AboutSection />
         <ServicesSection
