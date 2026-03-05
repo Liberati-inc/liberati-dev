@@ -1,0 +1,122 @@
+Liberati Cursor Export: Component & Token Specification
+
+This document provides the structured code-ready specifications for the Liberati portfolio, optimized for a Next.js 14+ and Tailwind CSS environment.
+
+1. Global Design Tokens (tailwind.config.js)
+
+module.exports = {
+  theme: {
+    extend: {
+      colors: {
+        'obsidian': '#0A0A0A',
+        'liberati-red': '#AE1E22',
+        'muted-gray': '#A0A0A0',
+        'pure-white': '#FFFFFF',
+      },
+      fontFamily: {
+        'manrope': ['Manrope', 'sans-serif'],
+      },
+      borderRadius: {
+        'liberati': '4px',
+      },
+    },
+  },
+}
+
+2. Core Components (Atoms & Molecules)
+
+PrimaryButton.tsx
+
+
+
+
+
+Style: bg-liberati-red, text-pure-white, uppercase, font-bold, rounded-liberati, px-6, py-3.
+
+
+
+States: Hover: brightness-110, active: scale-95.
+
+NavLink.tsx
+
+
+
+
+
+Style: text-pure-white, uppercase, text-sm, tracking-widest, transition-opacity hover:opacity-70.
+
+ServiceCard.tsx
+
+
+
+
+
+Structure: 
+
+
+
+
+
+Container: flex flex-col, bg-obsidian, p-8. No borders.
+
+
+
+Icon: Liberati Red (#AE1E22).
+
+
+
+Heading: Pure White (#FFFFFF), uppercase, text-xl, mt-4.
+
+
+
+List: Muted Gray (#A0A0A0), text-sm, list-none, space-y-2.
+
+SectionHeader.tsx (e.g., Oil & Gas Infographics)
+
+
+
+
+
+Style: text-pure-white, uppercase, text-xs, tracking-[0.2em], flex items-center gap-4.
+
+
+
+Graphic: A 1px solid white/gray line extending to fill space.
+
+3. Complex Modules (Organisms)
+
+ProjectDetailHero.tsx
+
+
+
+
+
+Structure: Relative container, full-width video (Vimeo), aspect-video.
+
+
+
+Overlays: Centered play button (Watch Film) with red icon and white text.
+
+BriefCards.tsx (Context/Strategy/Solution)
+
+
+
+
+
+Structure: 3-column grid, responsive (stacks on mobile).
+
+
+
+Style: Title in Liberati Red, Body in Muted Gray/White.
+
+4. Layout Strategy
+
+
+
+
+
+Layout.tsx Wrapper: Handles global Navigation (No Avatar) and the Minimalist Footer.
+
+
+
+Standard Padding: Section containers should use px-8 to px-16 for that "Cinematic Minimalist" spaciousness

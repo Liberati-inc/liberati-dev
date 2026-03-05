@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#AE1E22",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#0A0A0A", // Updated to Obsidian as requested
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Manrope', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display">
+<!-- Top Navigation -->
+<header class="sticky top-0 z-50 w-full border-b border-white/10 bg-background-dark/80 backdrop-blur-md">
+<div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-10">
+<div class="flex items-center gap-3">
+<div class="text-primary flex items-center justify-center">
+<svg class="size-8" fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_6_330)">
+<path clip-rule="evenodd" d="M24 0.757355L47.2426 24L24 47.2426L0.757355 24L24 0.757355ZM21 35.7574V12.2426L9.24264 24L21 35.7574Z" fill="currentColor" fill-rule="evenodd"></path>
+</g>
+<defs><clippath id="clip0_6_330"><rect fill="white" height="48" width="48"></rect></clippath></defs>
+</svg>
+</div>
+<span class="text-xl font-extrabold tracking-tighter text-white">LIBERATI</span>
+</div>
+<nav class="hidden md:flex items-center gap-10">
+<a class="text-sm font-medium text-slate-300 hover:text-primary transition-colors" href="#">Work</a>
+<a class="text-sm font-medium text-slate-300 hover:text-primary transition-colors" href="#">About</a>
+<a class="text-sm font-medium text-slate-300 hover:text-primary transition-colors" href="#">Services</a>
+<a class="text-sm font-medium text-slate-300 hover:text-primary transition-colors" href="#">Contact</a>
+</nav>
+<button class="bg-primary hover:bg-red-700 text-white px-6 py-2 text-sm font-bold rounded tracking-wide transition-all uppercase">
+                Get in Touch
+            </button>
+</div>
+</header>
+<main>
+<!-- Cinematic Hero Section -->
+<section class="relative h-[85vh] w-full overflow-hidden flex items-center justify-center">
+<div class="absolute inset-0 z-0">
+<div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/20 to-background-dark z-10"></div>
+<div class="w-full h-full bg-slate-900" data-alt="Cinematic abstract motion background with dark red accents" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDgfeF8BlBclNhBPSZsb22BP0TEBZiW5JbqHv3TyfYp5wcbvlz66DSXAj8_aA0DLDFCRmPVsOzZJQsKDYbQr_pELbWz59agD6otNzcXcajaFN8NoDDljpB88fu3JdWj96Q8MgmbD4zsdF4pWWHOH8lb6zfneusgUWwjL_5pa4QptBwkd_R7Awt4VRUb1kcb1igaZX0xe9SFWE7G0QLPYvu45Ha3sAJoK8k793lSqlvfLxQaSboQrTreIIF2943cULmUX3bRZgluaQFv'); background-size: cover; background-position: center;"></div>
+</div>
+<div class="relative z-20 max-w-5xl px-6 text-center">
+<h1 class="text-5xl md:text-8xl font-black text-white leading-[0.9] tracking-tighter mb-6 uppercase">
+                    Cinematic <br/> <span class="text-primary">Motion</span> &amp; Design
+                </h1>
+<p class="text-lg md:text-xl text-slate-300 max-w-2xl mx-auto mb-10 font-light">
+                    High-end visuals for global brands that demand distinction. We transform concepts into immersive digital experiences.
+                </p>
+<div class="flex flex-col sm:flex-row gap-4 justify-center">
+<button class="bg-primary hover:bg-red-700 text-white px-10 py-4 text-base font-bold rounded-lg tracking-widest transition-all uppercase">
+                        View Showreel
+                    </button>
+<button class="bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 text-white px-10 py-4 text-base font-bold rounded-lg tracking-widest transition-all uppercase">
+                        Our Work
+                    </button>
+</div>
+</div>
+</section>
+<!-- About Section -->
+<section class="py-24 px-6 lg:px-10 border-y border-white/5 bg-background-dark">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-end gap-12">
+<div class="max-w-3xl">
+<div class="text-primary mb-6">
+<span class="material-symbols-outlined text-5xl">south_east</span>
+</div>
+<h2 class="text-4xl md:text-7xl font-black text-white leading-tight tracking-tighter uppercase">
+                        WE PARTNER WITH BRANDS <br/> &amp; BEYOND
+                    </h2>
+</div>
+<div class="pb-2">
+<p class="text-slate-400 text-lg mb-8 max-w-md">
+                        We are a design-led studio specializing in the intersection of high-end motion graphics and modern digital interfaces.
+                    </p>
+<button class="group flex items-center gap-3 text-white font-bold tracking-widest uppercase py-3 border-b-2 border-primary">
+                        Learn More <span class="material-symbols-outlined transition-transform group-hover:translate-x-1">arrow_forward</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Services Section (Updated to Match Screen 26 style) -->
+<section class="py-24 px-6 lg:px-10 bg-background-dark">
+<div class="max-w-7xl mx-auto">
+<div class="mb-16">
+<h3 class="text-primary font-bold tracking-widest uppercase text-sm mb-4">Capabilities</h3>
+<h2 class="text-4xl font-bold text-white tracking-tight">Design &amp; Tech Synergy</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Direction Card -->
+<div class="group bg-zinc-900/50 border border-zinc-800 p-8 rounded-xl hover:border-primary transition-colors flex flex-col h-full">
+<div class="text-primary mb-8">
+<span class="material-symbols-outlined text-4xl">architecture</span>
+</div>
+<h4 class="text-2xl font-bold text-white mb-6 uppercase tracking-tight">Direction</h4>
+<ul class="space-y-4 flex-grow">
+<li class="flex items-start gap-3 text-slate-400">
+<span class="text-primary mt-1 material-symbols-outlined text-sm">circle</span>
+<span>Creative Strategy &amp; Consulting</span>
+</li>
+<li class="flex items-start gap-3 text-slate-400">
+<span class="text-primary mt-1 material-symbols-outlined text-sm">circle</span>
+<span>Brand Identity &amp; Systems</span>
+</li>
+<li class="flex items-start gap-3 text-slate-400">
+<span class="text-primary mt-1 material-symbols-outlined text-sm">circle</span>
+<span>Art Direction for Digital</span>
+</li>
+<li class="flex items-start gap-3 text-slate-400">
+<span class="text-primary mt-1 material-symbols-outlined text-sm">circle</span>
+<span>Conceptual Storyboarding</span>
+</li>
+</ul>
+</div>
+<!-- Motion Card -->
+<div class="group bg-zinc-900/50 border border-zinc-800 p-8 rounded-xl hover:border-primary transition-colors flex flex-col h-full">
+<div class="text-primary mb-8">
+<span class="material-symbols-outlined text-4xl">movie_filter</span>
+</div>
+<h4 class="text-2xl font-bold text-white mb-6 uppercase tracking-tight">Motion</h4>
+<ul class="space-y-4 flex-grow">
+<li class="flex items-start gap-3 text-slate-400">
+<span class="text-primary mt-1 material-symbols-outlined text-sm">circle</span>
+<span>2D/3D Motion Graphics</span>
+</li>
+<li class="flex items-start gap-3 text-slate-400">
+<span class="text-primary mt-1 material-symbols-outlined text-sm">circle</span>
+<span>Visual Effects (VFX)</span>
+</li>
+<li class="flex items-start gap-3 text-slate-400">
+<span class="text-primary mt-1 material-symbols-outlined text-sm">circle</span>
+<span>Product Visualizations</span>
+</li>
+<li class="flex items-start gap-3 text-slate-400">
+<span class="text-primary mt-1 material-symbols-outlined text-sm">circle</span>
+<span>Broadcast Design</span>
+</li>
+</ul>
+</div>
+<!-- Interactive Card -->
+<div class="group bg-zinc-900/50 border border-zinc-800 p-8 rounded-xl hover:border-primary transition-colors flex flex-col h-full">
+<div class="text-primary mb-8">
+<span class="material-symbols-outlined text-4xl">ads_click</span>
+</div>
+<h4 class="text-2xl font-bold text-white mb-6 uppercase tracking-tight">Interactive</h4>
+<ul class="space-y-4 flex-grow">
+<li class="flex items-start gap-3 text-slate-400">
+<span class="text-primary mt-1 material-symbols-outlined text-sm">circle</span>
+<span>Immersive Web Experiences</span>
+</li>
+<li class="flex items-start gap-3 text-slate-400">
+<span class="text-primary mt-1 material-symbols-outlined text-sm">circle</span>
+<span>UI/UX Design Systems</span>
+</li>
+<li class="flex items-start gap-3 text-slate-400">
+<span class="text-primary mt-1 material-symbols-outlined text-sm">circle</span>
+<span>XR &amp; AR Prototyping</span>
+</li>
+<li class="flex items-start gap-3 text-slate-400">
+<span class="text-primary mt-1 material-symbols-outlined text-sm">circle</span>
+<span>Frontend Development</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<!-- Brands in Motion Section -->
+<section class="py-24 px-6 lg:px-10 bg-background-dark border-t border-white/5">
+<div class="max-w-7xl mx-auto">
+<div class="flex justify-between items-end mb-12">
+<div>
+<h3 class="text-primary font-bold tracking-widest uppercase text-sm mb-4">Portfolio</h3>
+<h2 class="text-4xl font-bold text-white tracking-tight">Brands in Motion</h2>
+</div>
+<a class="text-slate-400 hover:text-white transition-colors text-sm font-bold uppercase tracking-widest" href="#">Explore All</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+<div class="relative group cursor-pointer overflow-hidden rounded-lg aspect-video">
+<div class="absolute inset-0 bg-slate-800 z-0" data-alt="Digital art featuring floating glass elements and neon light" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCPTPSqf2DBU13QCuNsbJWHpydcEHMQMmWuC62efGMIegTgayYkqxwyyBoyeOgVFCyVToLIV6jt38QEk_-OSRWu8k6gVYqd0N6YNXOMYQU7fu7sRlNCQglauwGp0kGc2va_xKmkBhYOKKa1Pvd-rJuvbRd0upkkttPqWMHIyZ9QpIIzA_YKwXQlxvcb9HzJR_4Gi8CLXezKFyHRBoGF0vYOJF3soWuUrlcVNDSgxgzAMTBxOx1a-4VG7pACdfCLvcSA-4JbS999gbhr'); background-size: cover; background-position: center;"></div>
+<div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-all z-10"></div>
+<div class="absolute bottom-0 left-0 p-8 z-20">
+<p class="text-primary font-bold text-xs tracking-[0.2em] mb-2">MOTION / 01</p>
+<h5 class="text-2xl font-black text-white uppercase italic tracking-tighter">PARALLELS 03</h5>
+</div>
+</div>
+<div class="relative group cursor-pointer overflow-hidden rounded-lg aspect-video">
+<div class="absolute inset-0 bg-slate-800 z-0" data-alt="Abstract vibrant flowing color gradient with smooth transitions" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuANTYw7T5L879kUDwZUxcF8zmEUaX1lJnjzl5Rnrkf48QHPK6FG10KUOQg0CwILeIxfvPQlVpxOjBW-UYtYzJ84p4m_BEeuTOdCS6vgtyIZUHqq7NVIDKWWD9ZnVvJqjnnS0NGZkW2ZNVNePz7WAjDzM0ZZALKcy206V7V7_tyfkKPjFuyOtjlW-nJfQ_HLZP3xjxf_NAb9H3xk-A9veOo64NU77UkDQaU_iKeG_nluGvnuU0PPwUxMO7D_izHqkR8dOKGWYWs4pdCD'); background-size: cover; background-position: center;"></div>
+<div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-all z-10"></div>
+<div class="absolute bottom-0 left-0 p-8 z-20">
+<p class="text-primary font-bold text-xs tracking-[0.2em] mb-2">BRANDING / 02</p>
+<h5 class="text-2xl font-black text-white uppercase italic tracking-tighter">SPECTRUM LABS</h5>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="py-32 px-6 lg:px-10 bg-primary overflow-hidden relative">
+<div class="absolute top-0 right-0 -mr-20 -mt-20 opacity-10">
+<span class="material-symbols-outlined text-[400px]">auto_awesome</span>
+</div>
+<div class="max-w-4xl mx-auto text-center relative z-10">
+<h2 class="text-4xl md:text-6xl font-black text-white mb-8 uppercase tracking-tighter">Ready to evolve your brand's digital presence?</h2>
+<button class="bg-background-dark text-white hover:bg-zinc-900 px-12 py-5 text-lg font-bold rounded tracking-widest uppercase transition-all shadow-2xl">
+                    Start a Project
+                </button>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-background-dark py-16 px-6 lg:px-10 border-t border-white/5">
+<div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12">
+<div class="col-span-1 md:col-span-2">
+<div class="flex items-center gap-3 mb-8">
+<div class="text-primary flex items-center justify-center">
+<svg class="size-6" fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_6_330)">
+<path clip-rule="evenodd" d="M24 0.757355L47.2426 24L24 47.2426L0.757355 24L24 0.757355ZM21 35.7574V12.2426L9.24264 24L21 35.7574Z" fill="currentColor" fill-rule="evenodd"></path>
+</g>
+</svg>
+</div>
+<span class="text-lg font-extrabold tracking-tighter text-white">LIBERATI</span>
+</div>
+<p class="text-slate-500 max-w-sm mb-8 leading-relaxed">
+                    A boutique creative studio crafting visually stunning motion designs and digital interfaces for visionary brands.
+                </p>
+<div class="flex gap-4">
+<a class="text-white hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">public</span></a>
+<a class="text-white hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">video_library</span></a>
+<a class="text-white hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">camera</span></a>
+</div>
+</div>
+<div>
+<h6 class="text-white font-bold uppercase tracking-widest text-sm mb-6">Explore</h6>
+<ul class="space-y-4 text-slate-500 text-sm font-medium">
+<li><a class="hover:text-primary transition-colors" href="#">Our Work</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Process</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Journal</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Careers</a></li>
+</ul>
+</div>
+<div>
+<h6 class="text-white font-bold uppercase tracking-widest text-sm mb-6">Contact</h6>
+<ul class="space-y-4 text-slate-500 text-sm font-medium">
+<li>hello@liberati.studio</li>
+<li>+1 (555) 012-3456</li>
+<li>New York / London</li>
+</ul>
+</div>
+</div>
+<div class="max-w-7xl mx-auto mt-16 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-slate-600 text-xs font-bold tracking-widest uppercase">
+<p>© 2024 LIBERATI. All rights reserved.</p>
+<div class="flex gap-8">
+<a class="hover:text-white transition-colors" href="#">Privacy Policy</a>
+<a class="hover:text-white transition-colors" href="#">Terms of Service</a>
+</div>
+</div>
+</footer>
+</body></html>

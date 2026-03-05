@@ -1,0 +1,32 @@
+---
+description: Always read Liberati governance docs (atomic design, SVG rules) before making decisions.
+alwaysApply: true
+---
+
+# Liberati Governance Preread
+
+When working in the `liberati-dev` workspace:
+
+- **Always read or re-skim** the governance docs under the `Governance/` folder before making structural or visual decisions.
+  - Treat that folder as the single source of truth for conventions.
+  - After you add or materially change any governance doc, **update the “Key expectations (summarized)” list below** so this rule always reflects the current guidance.
+
+- **Key expectations (summarized)**:
+  - Follow the atomic/modular hierarchy: tokens → atoms → molecules → organisms → pages.
+  - Prefer refactors that enforce DRY over duplicating patterns.
+  - All UI icons must go through `SvgIcon` (and wrappers like `SvgButton`) using inline SVG paths, not external `<img>` assets.
+  - Shared CTAs and patterns should use their atoms (`PrimaryButton`, `FormField`, `ProjectLink`, etc.), not ad‑hoc markup.
+  - Do not hardcode new UI (buttons, nav arrows, links). Create atom/molecule/organism and add to toolkit first.
+  - Typography tokens defined in `src/content/typography.ts` are the **only** place typography classes are defined; do **not** add extra Tailwind classes (font, size, tracking, casing, color) directly to `type.*` usages in atoms, molecules, organisms, or pages.
+  - When answering questions about existing code, **always read the actual file/lines in question before responding**; never rely on memory, inference, or assumptions when the source of truth is available in the repo.
+  - Toolkit section numbering/labels follow the atomic hierarchy (`1.x` atoms/tokens, `2.x` molecules/layouts, `3.x` organisms) and are **toolkit-only** chrome that must never be rendered on marketing/user-facing pages.
+  - When React‑ifying HTML sections, always look for existing toolkit atoms/molecules (buttons, cards, form fields, typography scales) and reuse them first; only introduce new variants (e.g. H0, SecondaryButton) by adding them to the toolkit and then consuming them.
+  - **Do not hardcode new UI elements** (buttons, nav arrows, links, icons). Create an atom/molecule/organism, add it to the toolkit in the appropriate section (e.g. 1.4 Icon Buttons for nav arrows, 1.2 UI Elements for CTAs), then consume it. This ensures single source of truth and discoverability.
+  - Do not hack atom visuals at call sites (no extra rounding, font overrides, or tracking tweaks on CTAs); if the look needs to change, update the atom + toolkit once, then reuse.
+  - Preserve the original HTML’s responsive behavior (breakpoints, grid/flex patterns) when componentizing; refactors can abstract layout, but should not silently change how sections behave at different viewport sizes.
+  - Keep `/toolkit` grouped and ordered like a design-system browser: tokens/atoms first (color, type, buttons, pills, iconography, form fields), then molecules/layouts (cards, grids, briefs), and finally organisms (navigation, hero, composite layouts) with footer last.
+  - Every showcased toolkit example should include a lightweight label indicating the component name/path, for reference only, not to be copied into marketing pages.
+  - **Push back on requests** when a change would violate proper workflows, industry standards, or this governance: explain why it’s inadvisable and suggest an alternative that fits the codebase and benefits the user; only then implement if the user insists.
+
+Use the `Governance/` files as the **source of truth** for design, component structure, and asset handling in this repo.
+
