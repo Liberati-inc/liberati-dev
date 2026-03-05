@@ -1,3 +1,6 @@
+import SvgIcon from "@/components/atoms/SvgIcon";
+import { type, typeServices } from "@/content/typography";
+
 export default function ProjectCard({ title, meta, stillImage, vimeoId }) {
   const thumb =
     stillImage != null
@@ -11,7 +14,7 @@ export default function ProjectCard({ title, meta, stillImage, vimeoId }) {
           <div className="w-full h-full" style={thumb} />
         ) : (
           <div className="w-full h-full bg-white/5 flex items-center justify-center">
-            <span className="text-white/10 text-xs tracking-widest uppercase">
+            <span className={`${type.scale.micro} ${type.mod.uppercase} ${type.mod.wideTrack} text-white/10`}>
               {vimeoId ? "Video" : "Project Asset Placeholder"}
             </span>
           </div>
@@ -19,14 +22,17 @@ export default function ProjectCard({ title, meta, stillImage, vimeoId }) {
       </div>
       <div className="flex justify-between items-start">
         <div>
-          <h5 className="text-lg font-bold">{title}</h5>
-          <p className="text-[10px] text-mutedGray uppercase tracking-widest mt-1">
+          <h5 className={`${typeServices.projectCardTitle} group-hover:text-liberatiRed transition-colors`}>{title}</h5>
+          <p className={`${typeServices.meta} ${type.mod.uppercase} mt-1`}>
             {meta}
           </p>
         </div>
-        <span className="text-xl group-hover:text-liberatiRed transition-colors">
-          ↗
-        </span>
+        <SvgIcon
+          variant="northEast"
+          sizeClass="w-5 h-5"
+          colorClass="text-white group-hover:text-liberatiRed transition-colors"
+          className="shrink-0"
+        />
       </div>
     </div>
   );

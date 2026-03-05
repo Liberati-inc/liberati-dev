@@ -5,5 +5,6 @@ export * from "./nav";
 export * from "./footer";
 export * from "./home";
 export * from "./projects/index";
+export * from "./projectsPage";
 export * from "./typography";
 

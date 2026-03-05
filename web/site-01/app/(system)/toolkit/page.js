@@ -6,7 +6,9 @@ import TK_IconographySection from "@/components/organisms/toolkit/TK_Iconography
 import TK_IconButtonsSection from "@/components/organisms/toolkit/TK_IconButtonsSection";
 import TK_FormComponentsSection from "@/components/organisms/toolkit/TK_FormComponentsSection";
 import TK_LayoutGridSection from "@/components/organisms/toolkit/TK_LayoutGridSection";
+import TK_GalleryCategoryFilterSection from "@/components/organisms/toolkit/TK_GalleryCategoryFilterSection";
 import TK_ProjectDetailsSection from "@/components/organisms/toolkit/TK_ProjectDetailsSection";
+import TK_ProjectGallerySection from "@/components/organisms/toolkit/TK_ProjectGallerySection";
 import TK_AdditionalSection from "@/components/organisms/toolkit/TK_AdditionalSection";
 import TK_TopNavSection from "@/components/organisms/toolkit/TK_TopNavSection";
 import TK_HeroSection from "@/components/organisms/toolkit/TK_HeroSection";
@@ -29,6 +31,7 @@ export default function ToolkitPage() {
 
         {/* Molecules / layouts */}
         <TK_LayoutGridSection />
+        <TK_GalleryCategoryFilterSection />
         <TK_AdditionalSection />
 
         {/* Organisms */}
@@ -37,6 +40,7 @@ export default function ToolkitPage() {
         <TK_AboutSection />
         <TK_ServicesSection />
         <TK_ProjectDetailsSection />
+        <TK_ProjectGallerySection />
         <TK_Footer />
       </div>
     </main>

@@ -1,238 +1,240 @@
-<!DOCTYPE html><html class="dark" lang="en"><head>
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
-    <script id="tailwind-config">
-            tailwind.config = {
-                darkMode: "class",
-                theme: {
-                    extend: {
-                        colors: {
-                            "primary": "#AE1E22",
-                            "background-light": "#f8f6f6",
-                            "background-dark": "#0A0A0A", // Obsidian Black updated
-                            "muted-gray": "#372a2a",
-                        },
-                        fontFamily: {
-                            "display": ["Manrope"]
-                        },
-                        borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#AE1E22",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#0A0A0A", // Obsidian Black updated
+                        "muted-gray": "#372a2a",
                     },
+                    fontFamily: {
+                        "display": ["Manrope"]
+                    },
+                    borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
                 },
-            }
-        </script>
-    <title>Liberati | Brands Gallery</title>
-    </head>
-    <body class="bg-background-dark font-display text-slate-900 dark:text-slate-100 antialiased">
-    <div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
-    <header class="sticky top-0 z-50 w-full border-b border-muted-gray bg-background-dark/90 backdrop-blur-md px-4 md:px-10 py-4">
-    <div class="max-w-7xl mx-auto flex items-center justify-between">
-    <div class="flex items-center gap-3">
-    <div class="text-primary">
-    <svg class="w-8 h-8" fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-    <path clip-rule="evenodd" d="M24 0.757355L47.2426 24L24 47.2426L0.757355 24L24 0.757355ZM21 35.7574V12.2426L9.24264 24L21 35.7574Z" fill="currentColor" fill-rule="evenodd"></path>
-    </svg>
-    </div>
-    <span class="text-xl font-extrabold tracking-tighter uppercase" style="">Liberati</span>
-    </div>
-    <nav class="hidden md:flex items-center gap-10">
-    <a class="text-sm font-medium hover:text-primary transition-colors uppercase tracking-widest" href="#" style="">Brands</a>
-    <a class="text-sm font-medium hover:text-primary transition-colors uppercase tracking-widest" href="#" style="">Series &amp; Film</a>
-    <a class="text-sm font-medium hover:text-primary transition-colors uppercase tracking-widest" href="#" style="">Interactive</a>
-    </nav>
-    <div class="flex items-center gap-6">
-    <button class="bg-primary hover:bg-red-700 text-white text-xs font-bold uppercase tracking-widest px-6 py-3 rounded transition-all" style="">
-                            Schedule A Call
-                        </button>
-    </div>
-    </div>
-    </header>
-    <main class="flex-1">
-    <section class="relative w-full aspect-[21/9] lg:aspect-[2.35/1] overflow-hidden group">
-    <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" data-alt="Cinematic wide shot of a futuristic landscape" style="background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuDyfKUWKcFucSzPV8ImsieJU1xzSUf0ri21X9lbWL3TwOy5hlb7YiPupcH9rNab_xsD6eQRwfQn0r2GM2FCtUkLUgH-GqMuHDWC3-Yec-j7sYKVkXwUA_ukojM1sTovpOOySgusq0t2rb_4JWwY0IOxOQKWmmPh1IQY0ENxOrcM7dUgQrvMJDeNPRtylzL47o_FBnKUQ8YtXWISnzxhpFTMVq6N4BpBd0rszAmq2k2AT4XQGY27hJ48VuH6wNCFqOjIiKAG19ybNkHW&quot;);">
-    </div>
-    <div class="absolute inset-0 bg-gradient-to-t from-background-dark via-background-dark/20 to-transparent"></div>
-    <div class="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
-    <button class="flex items-center justify-center rounded-full size-20 bg-primary/90 text-white shadow-2xl hover:scale-110 transition-transform mb-8" style="">
-    <span class="material-symbols-outlined text-4xl fill-1" style="">play_arrow</span>
-    </button>
-    <span class="text-primary font-bold tracking-[0.4em] uppercase text-xs mb-4" style="">Featured Selection</span>
-    <h1 class="text-4xl md:text-6xl font-black uppercase tracking-tight text-white mb-6" style="">Beyond The Horizon</h1>
-    <div class="flex gap-4">
-    <button class="bg-white text-black px-8 py-3 font-bold uppercase text-xs tracking-widest hover:bg-primary hover:text-white transition-colors" style="">Watch Trailer</button>
-    <button class="border border-white/30 backdrop-blur-sm text-white px-8 py-3 font-bold uppercase text-xs tracking-widest hover:bg-white/10 transition-colors" style="">Project Details</button>
-    </div>
-    </div>
-    <div class="absolute bottom-6 left-1/2 -translate-x-1/2 w-full max-w-4xl px-12">
-    <div class="flex items-center gap-4">
-    <span class="text-[10px] font-bold text-white/60 w-8" style="">0:42</span>
-    <div class="h-0.5 flex-1 bg-white/20 relative">
-    <div class="absolute inset-y-0 left-0 w-1/3 bg-primary"></div>
-    <div class="absolute left-1/3 top-1/2 -translate-y-1/2 size-3 rounded-full bg-primary border-2 border-white"></div>
-    </div>
-    <span class="text-[10px] font-bold text-white/60 w-8" style="">2:15</span>
-    </div>
-    </div>
-    </section>
-    <section class="px-6 md:px-12 lg:px-40 py-16">
-    <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-8">
-    <div>
-    <h2 class="text-3xl font-black uppercase tracking-tighter mb-2" style="">BRANDS GALLERY</h2>
-    <p class="text-slate-500 dark:text-slate-400 max-w-md" style="">An curated selection of cinematic storytelling, exploring the boundaries of visual narrative.</p>
-    </div>
-    <div class="flex flex-wrap gap-2 md:gap-4 border-b border-primary/10 pb-2"><a class="px-4 py-2 text-xs font-bold uppercase tracking-widest border-b-2 border-primary text-primary" href="#" style="">BRANDS</a><a class="px-4 py-2 text-xs font-bold uppercase tracking-widest border-b-2 border-transparent text-slate-400 hover:text-slate-100 transition-colors" href="#" style=""><a class="px-4 py-2 text-xs font-bold uppercase tracking-widest border-b-2 border-transparent text-slate-400 hover:text-slate-100 transition-colors cursor-text" href="https://app-companion-430619.appspot.com/projects/16492904997263953038?usegapi=1&amp;jsh=m%3B%2F_%2Fscs%2Fabc-static%2F_%2Fjs%2Fk%3Dgapi.lb.en.PCvl17LujMs.O%2Fd%3D1%2Frs%3DAHpOoo-sAn5Asuf3MvShXCH_dsg8tE46Tw%2Fm%3D__features__#" spellcheck="false" data-stitch-added-classes="cursor-text" style="--tw-scale-x: 1; --tw-scale-y: 1; --tw-pan-x: ; --tw-pan-y: ; --tw-pinch-zoom: ; --tw-scroll-snap-strictness: proximity; --tw-gradient-from-position: ; --tw-gradient-via-position: ; --tw-gradient-to-position: ; --tw-ordinal: ; --tw-slashed-zero: ; --tw-numeric-figure: ; --tw-numeric-spacing: ; --tw-numeric-fraction: ; --tw-ring-inset: ; --tw-ring-offset-width: 0px; --tw-ring-offset-color: #fff; --tw-ring-color: rgb(59 130 246 / 0.5); --tw-ring-offset-shadow: 0 0 #0000; --tw-ring-shadow: 0 0 #0000; --tw-shadow: 0 0 #0000; --tw-shadow-colored: 0 0 #0000; --tw-blur: ; --tw-brightness: ; --tw-contrast: ; --tw-grayscale: ; --tw-hue-rotate: ; --tw-invert: ; --tw-saturate: ; --tw-sepia: ; --tw-drop-shadow: ; --tw-backdrop-blur: ; --tw-backdrop-brightness: ; --tw-backdrop-contrast: ; --tw-backdrop-grayscale: ; --tw-backdrop-hue-rotate: ; --tw-backdrop-invert: ; --tw-backdrop-opacity: ; --tw-backdrop-saturate: ; --tw-backdrop-sepia: ; --tw-contain-size: ; --tw-contain-layout: ; --tw-contain-paint: ; --tw-contain-style: ; color: rgb(241, 245, 249); --tw-text-opacity: 1; outline: none !important;">SERIES &amp; FILM</a></a><a class="px-4 py-2 text-xs font-bold uppercase tracking-widest border-b-2 border-transparent text-slate-400 hover:text-slate-100 transition-colors" href="#" style="">INTERACTIVE</a><a class="px-4 py-2 text-xs font-bold uppercase tracking-widest border-b-2 border-transparent text-slate-400 hover:text-slate-100 transition-colors" href="#" style="">ALL</a></div>
-    </div>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12">
-    <div class="group cursor-pointer">
-    <div class="aspect-video overflow-hidden mb-5 bg-primary/5 rounded-lg relative">
-    <div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110" data-alt="Cinematic street photography at night" style="background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuDtRKl5qtvwQeqf8VGuS6UUBMxewtV2qGnyrlEuOQH2BFx_5vEzDC7zZq8jDBjqh9IWJ-9PV5Ku_uusmI6rxfWHtNsmCGcMv5ZEsgks_oFjrQz116nQ9Oaxs1NBOOkOuAU9n_W_Q6J-oEGCcbyxbXO4zNfTOE0MZpDrI_nb7Mf5OIq8FBD1MiBiUMrKWzc0EZYjjvsak33iyQc1G6D9cmSzNvJ2b7lb0dMBQN_ZINg8S4QJMI9dbXT5juKojHLATS7975dLIr6pyzL3&quot;);"></div>
-    <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-    <span class="material-symbols-outlined text-white text-5xl" style="">play_circle</span>
-    </div>
-    </div>
-    <div class="flex justify-between items-start">
-    <div>
-    <h3 class="text-lg font-bold uppercase tracking-tight group-hover:text-primary transition-colors" style="">Echoes of Silence</h3>
-    <p class="text-xs text-slate-500 font-bold uppercase tracking-widest mt-1" style="">Feature Film • 2024</p>
-    </div>
-    <span class="material-symbols-outlined text-primary text-xl" style="">north_east</span>
-    </div>
-    </div>
-    <div class="group cursor-pointer">
-    <div class="aspect-video overflow-hidden mb-5 bg-primary/5 rounded-lg relative">
-    <div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110" data-alt="Modern architecture with dramatic lighting" style="background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuCzBijPYwrH06DDtoXZVz0TcmrsIPih6UXjxsKMInKD49OCH3kqAO4_85G5wL8jbqujp1ujNIgd1GhKGqJ3a2Y-YWnsEJzIKVW-HGtZw_P52TE1t00bSi6OF9s_ON0Ck9Xl2GtHKxS1vUH5uHP4RW2b5Q4r1ziMRKTFRiLqMFyeOjXj-eI7LpToJ960l7YG-upc6WtXKM3TMu4pEaOvQR1I03VBwyfAyLpbrQxZzrkP6Rr63Zgb0kpfvFabStS-se-ypaHP6tqK8tqe&quot;);"></div>
-    <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-    <span class="material-symbols-outlined text-white text-5xl" style="">play_circle</span>
-    </div>
-    </div>
-    <div class="flex justify-between items-start">
-    <div>
-    <h3 class="text-lg font-bold uppercase tracking-tight group-hover:text-primary transition-colors" style="">The Last Frontier</h3>
-    <p class="text-xs text-slate-500 font-bold uppercase tracking-widest mt-1" style="">Limited Series • 2023</p>
-    </div>
-    <span class="material-symbols-outlined text-primary text-xl" style="">north_east</span>
-    </div>
-    </div>
-    <div class="group cursor-pointer">
-    <div class="aspect-video overflow-hidden mb-5 bg-primary/5 rounded-lg relative">
-    <div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110" data-alt="Vibrant neon city lights in rain" style="background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuCON0BqycPBbzuzh1VINCxEb-NsqLQxicTtMNJHMm5J5v2Nrxc0Jk9eA-WOJhH1D0NdydUbuFL03YXcbYdbs33SAssXVfopRm_tcMqp40wgc84oyjh4Ecj5WD7OHDwEtyl9D6fjFC9vX6JS3eq92_zfSmneydEPid8ROGnWvMpFg_6T_ib8x1yDZUg1zrdz1e1bEqwaE9K4uviMLfs498-zIX7-azDp4txW02arWUxO_fsjtjuoarXvCjDVAfR5GfgjnbASFskTSxH2&quot;);"></div>
-    <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-    <span class="material-symbols-outlined text-white text-5xl" style="">play_circle</span>
-    </div>
-    </div>
-    <div class="flex justify-between items-start">
-    <div>
-    <h3 class="text-lg font-bold uppercase tracking-tight group-hover:text-primary transition-colors" style="">Midnight Pulse</h3>
-    <p class="text-xs text-slate-500 font-bold uppercase tracking-widest mt-1" style="">Short Film • 2024</p>
-    </div>
-    <span class="material-symbols-outlined text-primary text-xl" style="">north_east</span>
-    </div>
-    </div>
-    <div class="group cursor-pointer">
-    <div class="aspect-video overflow-hidden mb-5 bg-primary/5 rounded-lg relative">
-    <div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110" data-alt="Sleek sports car in a dark studio" style="background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuArL6Gmpidj9W5Fai2qSFRoGvzlJq701kqleGZfDqHD2XUqAe3_NhpYw0J3V-TMXC7eaP3bgMY_Mb-YDMT9w1VLGIl81uIV8A3hOsUwOJEjMVebQQS2K0LUCxJAvEdp6u2n85ZexnX3MinoSbx2KCbP2PcEOGetiwaL0J-QdUs0PkdTHGz_tb8FJx6UqvPFMwN-XYq0uh_ksZG_3y8rzYzxqFimctZSFi1xtn0ew5CkG6MNAsp5k9-3pFEYhkJhf5iPSTpMmNJGa29R&quot;);"></div>
-    <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-    <span class="material-symbols-outlined text-white text-5xl" style="">play_circle</span>
-    </div>
-    </div>
-    <div class="flex justify-between items-start">
-    <div>
-    <h3 class="text-lg font-bold uppercase tracking-tight group-hover:text-primary transition-colors" style="">Urban Solitude</h3>
-    <p class="text-xs text-slate-500 font-bold uppercase tracking-widest mt-1" style="">Documentary • 2022</p>
-    </div>
-    <span class="material-symbols-outlined text-primary text-xl" style="">north_east</span>
-    </div>
-    </div>
-    <div class="group cursor-pointer">
-    <div class="aspect-video overflow-hidden mb-5 bg-primary/5 rounded-lg relative">
-    <div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110" data-alt="Abstract golden hour mountain silhouettes" style="background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuBEJijDoIQedTNNb1SRMB0VQXMKR76Bh2j0-MRCOV3BhpvJML1xN8sapreIb-PL0vrqlH_bU90kq1rAsNE75yohlk_33O-fEFZQqfuHcpbUmu8-ZeWkAMsA5vKLtCQfcd-hHLJxbEIGc02zK2cTpykmn52bDcIeAClQTJcg3LgOqkIRZ2qoJHeYpnhe0zSsvzLhGlG_3Skx4SDzhn-D-hhUqMXqVeoy-Jx5UXsRHomjcS0A8_2Bop6sO3mG7zwISKwQv7VbKn3bZMQz&quot;);"></div>
-    <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-    <span class="material-symbols-outlined text-white text-5xl" style="">play_circle</span>
-    </div>
-    </div>
-    <div class="flex justify-between items-start">
-    <div>
-    <h3 class="text-lg font-bold uppercase tracking-tight group-hover:text-primary transition-colors" style="">Golden Hour</h3>
-    <p class="text-xs text-slate-500 font-bold uppercase tracking-widest mt-1" style="">Feature Film • 2023</p>
-    </div>
-    <span class="material-symbols-outlined text-primary text-xl" style="">north_east</span>
-    </div>
-    </div>
-    <div class="group cursor-pointer">
-    <div class="aspect-video overflow-hidden mb-5 bg-primary/5 rounded-lg relative">
-    <div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110" data-alt="Close up of eyes with high contrast" style="background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuAU2rOvZqpCuw-JKRyrmO5SAj731KV3GJ1scDOGab7riOqDoqae4xuw9tzQj7pYLPJnQenY5x_A4qfVxwvjjQlSb_vRA9xxT-3uirvfV2spQQ8tov3OzOzJQRULd3pKggpHmK7O3vbAT8CHDRT7hFBDzLFi0s5lYGIPjfjohLHbWKdZ8yrlRmBKM0xfXrfp7Ro5qHiOVepTx9Il2EMRSONTCz-ScQ6FI-pznWPf-T85EFhqeV7wq_xRAQRxaFK-STO8fQFPLSSgeDu4&quot;);"></div>
-    <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-    <span class="material-symbols-outlined text-white text-5xl" style="">play_circle</span>
-    </div>
-    </div>
-    <div class="flex justify-between items-start">
-    <div>
-    <h3 class="text-lg font-bold uppercase tracking-tight group-hover:text-primary transition-colors" style="">The Visionary</h3>
-    <p class="text-xs text-slate-500 font-bold uppercase tracking-widest mt-1" style="">Series • 2024</p>
-    </div>
-    <span class="material-symbols-outlined text-primary text-xl" style="">north_east</span>
-    </div>
-    </div>
-    </div>
-    <div class="mt-20 flex justify-center">
-    <button class="px-10 py-4 border-2 border-primary text-primary font-black uppercase text-sm tracking-[0.2em] hover:bg-primary hover:text-white transition-all" style="">
-                            Load More Work
-                        </button>
-    </div>
-    </section>
-    </main>
-    <footer class="bg-primary/5 border-t border-primary/10 px-6 md:px-12 lg:px-40 py-16 dark:bg-background-dark">
-    <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
-    <div class="col-span-1 md:col-span-2">
-    <div class="flex items-center gap-3 text-primary mb-6">
-    <div class="size-6">
-    <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-    <path clip-rule="evenodd" d="M24 0.757355L47.2426 24L24 47.2426L0.757355 24L24 0.757355ZM21 35.7574V12.2426L9.24264 24L21 35.7574Z" fill="currentColor" fill-rule="evenodd"></path>
-    </svg>
-    </div>
-    <h2 class="text-xl font-black uppercase tracking-tighter" style="">Liberati</h2>
-    </div>
-    <p class="text-slate-500 dark:text-slate-400 max-w-sm mb-8" style="">Redefining the cinematic experience through minimalist visual storytelling and uncompromising creative vision.</p>
-    <div class="flex gap-4">
-    <a class="size-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all" href="#" style="">
-    <span class="material-symbols-outlined text-xl" style="">share</span>
-    </a>
-    <a class="size-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all" href="#" style="">
-    <span class="material-symbols-outlined text-xl" style="">mail</span>
-    </a>
-    <a class="size-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all" href="#" style="">
-    <span class="material-symbols-outlined text-xl" style="">language</span>
-    </a>
-    </div>
-    </div>
-    <div>
-    <h4 class="text-sm font-black uppercase tracking-widest mb-6" style="">Explore</h4>
-    <ul class="space-y-4">
-    <li class="" style=""><a class="text-slate-500 hover:text-primary transition-colors text-sm font-semibold uppercase tracking-widest" href="#" style="">The Studio</a></li>
-    <li class="" style=""><a class="text-slate-500 hover:text-primary transition-colors text-sm font-semibold uppercase tracking-widest" href="#" style="">Our Series</a></li>
-    <li class="" style=""><a class="text-slate-500 hover:text-primary transition-colors text-sm font-semibold uppercase tracking-widest" href="#" style="">Film Works</a></li>
-    <li class="" style=""><a class="text-slate-500 hover:text-primary transition-colors text-sm font-semibold uppercase tracking-widest" href="#" style="">Exhibitions</a></li>
-    </ul>
-    </div>
-    <div>
-    <h4 class="text-sm font-black uppercase tracking-widest mb-6" style="">Support</h4>
-    <ul class="space-y-4">
-    <li class="" style=""><a class="text-slate-500 hover:text-primary transition-colors text-sm font-semibold uppercase tracking-widest" href="#" style="">Privacy</a></li>
-    <li class="" style=""><a class="text-slate-500 hover:text-primary transition-colors text-sm font-semibold uppercase tracking-widest" href="#" style="">Terms</a></li>
-    <li class="" style=""><a class="text-slate-500 hover:text-primary transition-colors text-sm font-semibold uppercase tracking-widest" href="#" style="">FAQ</a></li>
-    <li class="" style=""><a class="text-slate-500 hover:text-primary transition-colors text-sm font-semibold uppercase tracking-widest" href="#" style="">Contact</a></li>
-    </ul>
-    </div>
-    </div>
-    <div class="mt-16 pt-8 border-t border-primary/10 flex flex-col md:flex-row justify-between items-center gap-4">
-    <p class="text-xs text-slate-500 font-bold uppercase tracking-widest" style="">© 2024 Liberati Production. All Rights Reserved.</p>
-    <div class="flex gap-8">
-    <span class="text-[10px] text-slate-500 font-bold uppercase tracking-[0.2em]" style="">Designed for Immersion</span>
-    </div>
-    </div>
-    </footer>
-    </div>
-    </body></html>
+            },
+        }
+    </script>
+<title>Liberati | Brands Gallery</title>
+</head>
+<body class="bg-background-dark font-display text-slate-900 dark:text-slate-100 antialiased">
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+<!-- Organism: Global Navigation --><header class="sticky top-0 z-50 w-full border-b border-muted-gray bg-background-dark/90 backdrop-blur-md px-4 md:px-10 py-4">
+<div class="max-w-7xl mx-auto flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="text-primary">
+<svg class="w-8 h-8" fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M24 0.757355L47.2426 24L24 47.2426L0.757355 24L24 0.757355ZM21 35.7574V12.2426L9.24264 24L21 35.7574Z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+<span class="text-xl font-extrabold tracking-tighter uppercase" style="">Liberati</span>
+</div>
+<nav class="hidden md:flex items-center gap-10">
+<a class="text-sm font-medium hover:text-primary transition-colors uppercase tracking-widest" href="#" style="">Brands</a>
+<a class="text-sm font-medium hover:text-primary transition-colors uppercase tracking-widest" href="#" style="">Series &amp; Film</a>
+<a class="text-sm font-medium hover:text-primary transition-colors uppercase tracking-widest" href="#" style="">Interactive</a>
+</nav>
+<div class="flex items-center gap-6">
+<!-- Atom: Primary Button --><button class="bg-primary hover:bg-red-700 text-white text-xs font-bold uppercase tracking-widest px-6 py-3 rounded transition-all" style="">
+                        Schedule A Call
+                    </button>
+</div>
+</div>
+</header>
+<main class="flex-1">
+<!-- Organism: Featured Selection Hero --><section class="relative w-full aspect-[21/9] lg:aspect-[2.35/1] overflow-hidden group">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" data-alt="Cinematic wide shot of a futuristic landscape" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDyfKUWKcFucSzPV8ImsieJU1xzSUf0ri21X9lbWL3TwOy5hlb7YiPupcH9rNab_xsD6eQRwfQn0r2GM2FCtUkLUgH-GqMuHDWC3-Yec-j7sYKVkXwUA_ukojM1sTovpOOySgusq0t2rb_4JWwY0IOxOQKWmmPh1IQY0ENxOrcM7dUgQrvMJDeNPRtylzL47o_FBnKUQ8YtXWISnzxhpFTMVq6N4BpBd0rszAmq2k2AT4XQGY27hJ48VuH6wNCFqOjIiKAG19ybNkHW");'>
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-background-dark via-background-dark/20 to-transparent"></div>
+<div class="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
+<!-- Atom: Play Button --><button class="flex items-center justify-center rounded-full size-20 bg-primary/90 text-white shadow-2xl hover:scale-110 transition-transform mb-8" style="">
+<span class="material-symbols-outlined text-4xl fill-1" style="">play_arrow</span>
+</button>
+<span class="text-primary font-bold tracking-[0.4em] uppercase text-xs mb-4" style="">Featured Selection</span>
+<h1 class="text-4xl md:text-6xl font-black uppercase tracking-tight text-white mb-6" style="">Beyond The Horizon</h1>
+<div class="flex gap-4">
+<!-- Atom: Primary Button --><button class="bg-white text-black px-8 py-3 font-bold uppercase text-xs tracking-widest hover:bg-primary hover:text-white transition-colors" style="">Watch Trailer</button>
+<!-- Atom: Secondary Button --><button class="border border-white/30 backdrop-blur-sm text-white px-8 py-3 font-bold uppercase text-xs tracking-widest hover:bg-white/10 transition-colors" style="">Project Details</button>
+</div>
+</div>
+<div class="absolute bottom-6 left-1/2 -translate-x-1/2 w-full max-w-4xl px-12">
+<div class="flex items-center gap-4">
+<span class="text-[10px] font-bold text-white/60 w-8" style="">0:42</span>
+<div class="h-0.5 flex-1 bg-white/20 relative">
+<div class="absolute inset-y-0 left-0 w-1/3 bg-primary"></div>
+<div class="absolute left-1/3 top-1/2 -translate-y-1/2 size-3 rounded-full bg-primary border-2 border-white"></div>
+</div>
+<span class="text-[10px] font-bold text-white/60 w-8" style="">2:15</span>
+</div>
+</div>
+</section>
+<!-- Organism: Brands Gallery Grid --><section class="px-6 md:px-12 lg:px-40 py-16">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-8">
+<div>
+<h2 class="text-3xl font-black uppercase tracking-tighter mb-2" style="">BRANDS GALLERY</h2>
+<p class="text-slate-500 dark:text-slate-400 max-w-md" style="">An curated selection of cinematic storytelling, exploring the boundaries of visual narrative.</p>
+</div>
+<!-- Molecule: Gallery Category Filter --><div class="flex flex-wrap gap-2 md:gap-4 border-b border-primary/10 pb-2"><a class="px-4 py-2 text-xs font-bold uppercase tracking-widest border-b-2 border-primary text-primary" href="#" style="">BRANDS</a><a class="px-4 py-2 text-xs font-bold uppercase tracking-widest border-b-2 border-transparent text-slate-400 hover:text-slate-100 transition-colors" href="#" style=""><a class="px-4 py-2 text-xs font-bold uppercase tracking-widest border-b-2 border-transparent text-slate-400 hover:text-slate-100 transition-colors cursor-text" data-stitch-added-classes="cursor-text" href="https://app-companion-430619.appspot.com/projects/16492904997263953038?usegapi=1&amp;jsh=m%3B%2F_%2Fscs%2Fabc-static%2F_%2Fjs%2Fk%3Dgapi.lb.en.PCvl17LujMs.O%2Fd%3D1%2Frs%3DAHpOoo-sAn5Asuf3MvShXCH_dsg8tE46Tw%2Fm%3D__features__#" spellcheck="false" style="--tw-scale-x: 1; --tw-scale-y: 1; --tw-pan-x: ; --tw-pan-y: ; --tw-pinch-zoom: ; --tw-scroll-snap-strictness: proximity; --tw-gradient-from-position: ; --tw-gradient-via-position: ; --tw-gradient-to-position: ; --tw-ordinal: ; --tw-slashed-zero: ; --tw-numeric-figure: ; --tw-numeric-spacing: ; --tw-numeric-fraction: ; --tw-ring-inset: ; --tw-ring-offset-width: 0px; --tw-ring-offset-color: #fff; --tw-ring-color: rgb(59 130 246 / 0.5); --tw-ring-offset-shadow: 0 0 #0000; --tw-ring-shadow: 0 0 #0000; --tw-shadow: 0 0 #0000; --tw-shadow-colored: 0 0 #0000; --tw-blur: ; --tw-brightness: ; --tw-contrast: ; --tw-grayscale: ; --tw-hue-rotate: ; --tw-invert: ; --tw-saturate: ; --tw-sepia: ; --tw-drop-shadow: ; --tw-backdrop-blur: ; --tw-backdrop-brightness: ; --tw-backdrop-contrast: ; --tw-backdrop-grayscale: ; --tw-backdrop-hue-rotate: ; --tw-backdrop-invert: ; --tw-backdrop-opacity: ; --tw-backdrop-saturate: ; --tw-backdrop-sepia: ; --tw-contain-size: ; --tw-contain-layout: ; --tw-contain-paint: ; --tw-contain-style: ; color: rgb(241, 245, 249); --tw-text-opacity: 1; outline: none !important;">SERIES &amp; FILM</a></a><a class="px-4 py-2 text-xs font-bold uppercase tracking-widest border-b-2 border-transparent text-slate-400 hover:text-slate-100 transition-colors" href="#" style="">INTERACTIVE</a><a class="px-4 py-2 text-xs font-bold uppercase tracking-widest border-b-2 border-transparent text-slate-400 hover:text-slate-100 transition-colors" href="#" style="">ALL</a></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12">
+<!-- Molecule: Project Card --><div class="group cursor-pointer">
+<div class="aspect-video overflow-hidden mb-5 bg-primary/5 rounded-lg relative">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110" data-alt="Cinematic street photography at night" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDtRKl5qtvwQeqf8VGuS6UUBMxewtV2qGnyrlEuOQH2BFx_5vEzDC7zZq8jDBjqh9IWJ-9PV5Ku_uusmI6rxfWHtNsmCGcMv5ZEsgks_oFjrQz116nQ9Oaxs1NBOOkOuAU9n_W_Q6J-oEGCcbyxbXO4zNfTOE0MZpDrI_nb7Mf5OIq8FBD1MiBiUMrKWzc0EZYjjvsak33iyQc1G6D9cmSzNvJ2b7lb0dMBQN_ZINg8S4QJMI9dbXT5juKojHLATS7975dLIr6pyzL3");'></div>
+<div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-5xl" style="">play_circle</span>
+</div>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h3 class="text-lg font-bold uppercase tracking-tight group-hover:text-primary transition-colors" style="">Echoes of Silence</h3>
+<p class="text-xs text-slate-500 font-bold uppercase tracking-widest mt-1" style="">Feature Film • 2024</p>
+</div>
+<span class="material-symbols-outlined text-primary text-xl" style="">north_east</span>
+</div>
+</div>
+<!-- Molecule: Project Card --><div class="group cursor-pointer">
+<div class="aspect-video overflow-hidden mb-5 bg-primary/5 rounded-lg relative">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110" data-alt="Modern architecture with dramatic lighting" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCzBijPYwrH06DDtoXZVz0TcmrsIPih6UXjxsKMInKD49OCH3kqAO4_85G5wL8jbqujp1ujNIgd1GhKGqJ3a2Y-YWnsEJzIKVW-HGtZw_P52TE1t00bSi6OF9s_ON0Ck9Xl2GtHKxS1vUH5uHP4RW2b5Q4r1ziMRKTFRiLqMFyeOjXj-eI7LpToJ960l7YG-upc6WtXKM3TMu4pEaOvQR1I03VBwyfAyLpbrQxZzrkP6Rr63Zgb0kpfvFabStS-se-ypaHP6tqK8tqe");'></div>
+<div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-5xl" style="">play_circle</span>
+</div>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h3 class="text-lg font-bold uppercase tracking-tight group-hover:text-primary transition-colors" style="">The Last Frontier</h3>
+<p class="text-xs text-slate-500 font-bold uppercase tracking-widest mt-1" style="">Limited Series • 2023</p>
+</div>
+<span class="material-symbols-outlined text-primary text-xl" style="">north_east</span>
+</div>
+</div>
+<!-- Molecule: Project Card --><div class="group cursor-pointer">
+<div class="aspect-video overflow-hidden mb-5 bg-primary/5 rounded-lg relative">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110" data-alt="Vibrant neon city lights in rain" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCON0BqycPBbzuzh1VINCxEb-NsqLQxicTtMNJHMm5J5v2Nrxc0Jk9eA-WOJhH1D0NdydUbuFL03YXcbYdbs33SAssXVfopRm_tcMqp40wgc84oyjh4Ecj5WD7OHDwEtyl9D6fjFC9vX6JS3eq92_zfSmneydEPid8ROGnWvMpFg_6T_ib8x1yDZUg1zrdz1e1bEqwaE9K4uviMLfs498-zIX7-azDp4txW02arWUxO_fsjtjuoarXvCjDVAfR5GfgjnbASFskTSxH2");'></div>
+<div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-5xl" style="">play_circle</span>
+</div>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h3 class="text-lg font-bold uppercase tracking-tight group-hover:text-primary transition-colors" style="">Midnight Pulse</h3>
+<p class="text-xs text-slate-500 font-bold uppercase tracking-widest mt-1" style="">Short Film • 2024</p>
+</div>
+<span class="material-symbols-outlined text-primary text-xl" style="">north_east</span>
+</div>
+</div>
+<!-- Molecule: Project Card --><div class="group cursor-pointer">
+<div class="aspect-video overflow-hidden mb-5 bg-primary/5 rounded-lg relative">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110" data-alt="Sleek sports car in a dark studio" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuArL6Gmpidj9W5Fai2qSFRoGvzlJq701kqleGZfDqHD2XUqAe3_NhpYw0J3V-TMXC7eaP3bgMY_Mb-YDMT9w1VLGIl81uIV8A3hOsUwOJEjMVebQQS2K0LUCxJAvEdp6u2n85ZexnX3MinoSbx2KCbP2PcEOGetiwaL0J-QdUs0PkdTHGz_tb8FJx6UqvPFMwN-XYq0uh_ksZG_3y8rzYzxqFimctZSFi1xtn0ew5CkG6MNAsp5k9-3pFEYhkJhf5iPSTpMmNJGa29R");'></div>
+<div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-5xl" style="">play_circle</span>
+</div>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h3 class="text-lg font-bold uppercase tracking-tight group-hover:text-primary transition-colors" style="">Urban Solitude</h3>
+<p class="text-xs text-slate-500 font-bold uppercase tracking-widest mt-1" style="">Documentary • 2022</p>
+</div>
+<span class="material-symbols-outlined text-primary text-xl" style="">north_east</span>
+</div>
+</div>
+<!-- Molecule: Project Card --><div class="group cursor-pointer">
+<div class="aspect-video overflow-hidden mb-5 bg-primary/5 rounded-lg relative">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110" data-alt="Abstract golden hour mountain silhouettes" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBEJijDoIQedTNNb1SRMB0VQXMKR76Bh2j0-MRCOV3BhpvJML1xN8sapreIb-PL0vrqlH_bU90kq1rAsNE75yohlk_33O-fEFZQqfuHcpbUmu8-ZeWkAMsA5vKLtCQfcd-hHLJxbEIGc02zK2cTpykmn52bDcIeAClQTJcg3LgOqkIRZ2qoJHeYpnhe0zSsvzLhGlG_3Skx4SDzhn-D-hhUqMXqVeoy-Jx5UXsRHomjcS0A8_2Bop6sO3mG7zwISKwQv7VbKn3bZMQz");'></div>
+<div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-5xl" style="">play_circle</span>
+</div>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h3 class="text-lg font-bold uppercase tracking-tight group-hover:text-primary transition-colors" style="">Golden Hour</h3>
+<p class="text-xs text-slate-500 font-bold uppercase tracking-widest mt-1" style="">Feature Film • 2023</p>
+</div>
+<span class="material-symbols-outlined text-primary text-xl" style="">north_east</span>
+</div>
+</div>
+<!-- Molecule: Project Card --><div class="group cursor-pointer">
+<div class="aspect-video overflow-hidden mb-5 bg-primary/5 rounded-lg relative">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110" data-alt="Close up of eyes with high contrast" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAU2rOvZqpCuw-JKRyrmO5SAj731KV3GJ1scDOGab7riOqDoqae4xuw9tzQj7pYLPJnQenY5x_A4qfVxwvjjQlSb_vRA9xxT-3uirvfV2spQQ8tov3OzOzJQRULd3pKggpHmK7O3vbAT8CHDRT7hFBDzLFi0s5lYGIPjfjohLHbWKdZ8yrlRmBKM0xfXrfp7Ro5qHiOVepTx9Il2EMRSONTCz-ScQ6FI-pznWPf-T85EFhqeV7wq_xRAQRxaFK-STO8fQFPLSSgeDu4");'></div>
+<div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-5xl" style="">play_circle</span>
+</div>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h3 class="text-lg font-bold uppercase tracking-tight group-hover:text-primary transition-colors" style="">The Visionary</h3>
+<p class="text-xs text-slate-500 font-bold uppercase tracking-widest mt-1" style="">Series • 2024</p>
+</div>
+<span class="material-symbols-outlined text-primary text-xl" style="">north_east</span>
+</div>
+</div>
+</div>
+<div class="mt-20 flex justify-center">
+<!-- Atom: Outline Button --><button class="px-10 py-4 border-2 border-primary text-primary font-black uppercase text-sm tracking-[0.2em] hover:bg-primary hover:text-white transition-all" style="">
+                        Load More Work
+                    </button>
+</div>
+</section>
+</main>
+<!-- Organism: Minimalist Brand Footer --><footer class="bg-primary/5 border-t border-primary/10 px-6 md:px-12 lg:px-40 py-16 dark:bg-background-dark">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+<div class="col-span-1 md:col-span-2">
+<div class="flex items-center gap-3 text-primary mb-6">
+<div class="size-6">
+<svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M24 0.757355L47.2426 24L24 47.2426L0.757355 24L24 0.757355ZM21 35.7574V12.2426L9.24264 24L21 35.7574Z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+<h2 class="text-xl font-black uppercase tracking-tighter" style="">Liberati</h2>
+</div>
+<p class="text-slate-500 dark:text-slate-400 max-w-sm mb-8" style="">Redefining the cinematic experience through minimalist visual storytelling and uncompromising creative vision.</p>
+<div class="flex gap-4">
+<!-- Atom: Social Icon Link --><a class="size-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all" href="#" style="">
+<span class="material-symbols-outlined text-xl" style="">share</span>
+</a>
+<!-- Atom: Social Icon Link --><a class="size-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all" href="#" style="">
+<span class="material-symbols-outlined text-xl" style="">mail</span>
+</a>
+<!-- Atom: Social Icon Link --><a class="size-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all" href="#" style="">
+<span class="material-symbols-outlined text-xl" style="">language</span>
+</a>
+</div>
+</div>
+<div>
+<h4 class="text-sm font-black uppercase tracking-widest mb-6" style="">Explore</h4>
+<ul class="space-y-4">
+<li class="" style=""><a class="text-slate-500 hover:text-primary transition-colors text-sm font-semibold uppercase tracking-widest" href="#" style="">The Studio</a></li>
+<li class="" style=""><a class="text-slate-500 hover:text-primary transition-colors text-sm font-semibold uppercase tracking-widest" href="#" style="">Our Series</a></li>
+<li class="" style=""><a class="text-slate-500 hover:text-primary transition-colors text-sm font-semibold uppercase tracking-widest" href="#" style="">Film Works</a></li>
+<li class="" style=""><a class="text-slate-500 hover:text-primary transition-colors text-sm font-semibold uppercase tracking-widest" href="#" style="">Exhibitions</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-sm font-black uppercase tracking-widest mb-6" style="">Support</h4>
+<ul class="space-y-4">
+<li class="" style=""><a class="text-slate-500 hover:text-primary transition-colors text-sm font-semibold uppercase tracking-widest" href="#" style="">Privacy</a></li>
+<li class="" style=""><a class="text-slate-500 hover:text-primary transition-colors text-sm font-semibold uppercase tracking-widest" href="#" style="">Terms</a></li>
+<li class="" style=""><a class="text-slate-500 hover:text-primary transition-colors text-sm font-semibold uppercase tracking-widest" href="#" style="">FAQ</a></li>
+<li class="" style=""><a class="text-slate-500 hover:text-primary transition-colors text-sm font-semibold uppercase tracking-widest" href="#" style="">Contact</a></li>
+</ul>
+</div>
+</div>
+<div class="mt-16 pt-8 border-t border-primary/10 flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="text-xs text-slate-500 font-bold uppercase tracking-widest" style="">© 2024 Liberati Production. All Rights Reserved.</p>
+<div class="flex gap-8">
+<span class="text-[10px] text-slate-500 font-bold uppercase tracking-[0.2em]" style="">Designed for Immersion</span>
+</div>
+</div>
+</footer>
+</div>
+</body></html>
