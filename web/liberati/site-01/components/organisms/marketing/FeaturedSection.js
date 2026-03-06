@@ -33,19 +33,18 @@ export default function FeaturedSection() {
               <NavArrowButton direction="next" onClick={goNext} ariaLabel="Next project" />
             </>
           )}
-          <div className="h-[85vh] w-full">
+          <div className="h-[25vh] w-full">
             <ProjectCard
             key={project.slug}
             variant="hero"
             vimeoId={project.vimeoId}
             stillImage={project.stillImage}
-            playMode="auto"
-            loop
             blackTintOpacity={30}
             title={project.title}
             meta={project.meta}
             href={`/project/${project.slug}`}
             ctaLabel={project.ctaLabel}
+            overlayPadding="px-8 lg:px-32 pb-12"  // adjust as needed
           />
           </div>
         </div>

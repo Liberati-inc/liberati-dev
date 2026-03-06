@@ -58,34 +58,63 @@ export type ProjectClass =
 /** Layout hint for block-level organisms (full-bleed, split, stacked). */
 export type ProjectBlockLayout = "full" | "split" | "stack";
 
-/** Content blocks for project detail pages. Map to molecules/organisms by type. */
+/** Block display variant: hero (overlay), video (embed only), thumb (card). Matches ProjectCard. */
+export type ProjectBlockVariant = "hero" | "video" | "thumb";
+
+/** Content blocks for project detail pages. contentType = block kind; variant = display style. */
 export type ProjectBlock =
-  | { type: "preview-vimeo"; vimeoId: string }
   | {
-      type: "copy";
+      contentType: "copy";
       header: string;
       subtext?: string;
       layout?: ProjectBlockLayout;
     }
   | {
-      type: "vimeo";
+      contentType: "vimeo";
       vimeoId: string;
       header?: string;
       subtext?: string;
       layout?: ProjectBlockLayout;
+      /** hero = overlay; video = embed only; thumb = card. Default video. */
+      variant?: ProjectBlockVariant;
+      /** Black overlay opacity 0–1. Default 0.4. Fades in/out on scroll. */
+      overlayOpacity?: number;
+      /** Copy position in overlay. Default bottom-left. */
+      overlayPosition?: "bottom-left" | "bottom-right" | "top-left" | "top-right" | "center";
+      /** Override bottom padding for overlay copy (e.g. "pb-8" or "pb-6 md:pb-8" for lower). Default pb-16 md:pb-24. */
+      overlayPaddingBottom?: string;
+      /** Aspect ratio: "16:9" or { width, height }. */
+      aspectRatio?: string | { width: number; height: number };
     }
   | {
-      type: "still";
+      contentType: "still";
       imageUrl: string;
       header?: string;
       subtext?: string;
       layout?: ProjectBlockLayout;
+      /** hero = full-bleed overlay; video = image only; thumb = card. Default video. */
+      variant?: ProjectBlockVariant;
+      /** Black overlay opacity 0–1. Default 0.4. Fades in/out on scroll. */
+      overlayOpacity?: number;
+      /** Copy position in overlay. Default bottom-left. */
+      overlayPosition?: "bottom-left" | "bottom-right" | "top-left" | "top-right" | "center";
+      /** Override bottom padding for overlay copy (e.g. "pb-8" for lower). Default pb-16 md:pb-24. */
+      overlayPaddingBottom?: string;
+      aspectRatio?: string | { width: number; height: number };
     }
   | {
-      type: "gallery";
+      contentType: "gallery";
       sectionTitle?: string;
       images: { imageUrl: string; caption?: string }[];
       layout?: ProjectBlockLayout;
+    }
+  | {
+      contentType: "group";
+      /** cols = side-by-side grid; stack = vertical. Default cols. */
+      layout?: "cols" | "stack";
+      /** Proportional column widths for cols layout. e.g. [2, 1] = first 2× second; [2, 1, 1] = 2:1:1. Length must match blocks. */
+      ratio?: number[];
+      blocks: ProjectBlock[];
     };
 
 /** Full project: card fields + optional class + block-based detail content. */
@@ -99,13 +128,18 @@ export interface Project {
   stillImage?: string;
   /** Hero CTA label override; blank = "VIEW PROJECT". */
   ctaLabel?: string;
+  /** Project description; shown below title + meta in brief section. */
   description?: string;
   /** Project category. */
   class?: ProjectClass;
   /** Hero preview Vimeo (detail page); can duplicate vimeoId or differ. */
   previewVimeoId?: string;
-  /** "loop" = autoplay muted loop (like landing hero); "manual" = play button. */
-  heroPlayMode?: "loop" | "manual";
+  /** Detail page video: "loop" = autoplay muted loop; "manual" = play button. */
+  detailPlayMode?: "loop" | "manual";
+  /** Detail page hero: "hero" = overlay with title/meta; "video" = video only, no overlay. */
+  detailHeroVariant?: "hero" | "video";
+  /** Detail hero video aspect ratio; default "16/9". */
+  heroAspectRatio?: "16/9" | "4/3" | "21/9" | "1/1";
   /** Context / Strategy / Solution section; title + copy editable per project. */
   brief?: ProjectBrief;
   /** Modular content blocks for detail page; order = render order. */

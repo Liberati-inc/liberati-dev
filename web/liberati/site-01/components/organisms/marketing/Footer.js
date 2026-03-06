@@ -4,7 +4,7 @@ import TextNavButton from "@/components/atoms/TextNavButton";
 import SvgButton from "@/components/atoms/SvgButton";
 import { footerCopy, footerLinkGroups } from "@/content/footer";
 import { footerSocial } from "@/content/nav";
-import { typeRole, typeServices } from "@/content/typography";
+import { typeRole, typeServices, type } from "@/content/typography";
 
 export default function Footer() {
   return (
@@ -29,7 +29,7 @@ export default function Footer() {
                 />
               </a>
             </div>
-            <p className={`${typeServices.body} max-w-sm`}>
+            <p className={`${typeServices.body} ${type.mod.muted} max-w-sm`}>
               {footerCopy.tagline}
             </p>
             <div className="mt-6 flex gap-4">

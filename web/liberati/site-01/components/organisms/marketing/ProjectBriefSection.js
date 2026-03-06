@@ -1,13 +1,15 @@
 import BriefCard from "@/components/molecules/BriefCard";
-import { type } from "@/content/typography";
+import { type, typeRole } from "@/content/typography";
 
 /**
  * Context / Strategy / Solution block. Data from project.brief (editable in project .ts).
+ * Header: title, meta (below title), description (below meta).
  */
-export default function ProjectBriefSection({ brief }) {
+export default function ProjectBriefSection({ brief, meta, description }) {
   if (!brief) return null;
 
   const { sectionTitle = "Project Brief", introCopy, context, strategy, solution } = brief;
+  const desc = description ?? introCopy;
 
   return (
     <section className="py-24 px-6 md:px-16 bg-obsidian" data-purpose="project-brief">
@@ -18,8 +20,11 @@ export default function ProjectBriefSection({ brief }) {
           >
             {sectionTitle}
           </h2>
-          {introCopy && (
-            <p className="text-mutedGray text-lg max-w-2xl">{introCopy}</p>
+          {meta && (
+            <p className="text-mutedGray text-sm font-bold uppercase tracking-widest mb-3">{meta}</p>
+          )}
+          {desc && (
+            <p className={`${typeRole.body} ${type.mod.white} max-w-2xl`}>{desc}</p>
           )}
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">

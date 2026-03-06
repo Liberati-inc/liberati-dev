@@ -25,7 +25,7 @@ const approvedBrief = {
 
 const sampleBlocks = [
   {
-    type: "vimeo",
+    contentType: "vimeo",
     vimeoId: "727899592",
     header: "Featured Film",
     subtext: "Optional section headline",
@@ -33,7 +33,7 @@ const sampleBlocks = [
     aspectRatio: "16:9",
   },
   {
-    type: "gallery",
+    contentType: "gallery",
     sectionTitle: "Gallery",
     aspectRatio: "16:9",
     images: [
@@ -57,8 +57,6 @@ export default function TK_ProjectDetailsSection() {
             <ProjectCard
               variant="hero"
               vimeoId="727899592"
-              playMode="auto"
-              loop
               blackTintOpacity={30}
               title="Project Title"
               meta="Optional tagline or project description."

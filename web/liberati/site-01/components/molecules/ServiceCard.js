@@ -1,5 +1,5 @@
 import SvgIcon from "@/components/atoms/SvgIcon";
-import { typeServices } from "@/content/typography";
+import { typeServices, typeRole } from "@/content/typography";
 
 export default function ServiceCard({ iconVariant, title, description, items }) {
   return (
@@ -8,7 +8,7 @@ export default function ServiceCard({ iconVariant, title, description, items }) 
         <SvgIcon variant={iconVariant} />
         <h4 className={typeServices.title}>{title}</h4>
       </div>
-      <p className={`${typeServices.body} mb-6`}>
+      <p className={`${typeRole.body} mb-6`}>
         {description}
       </p>
       <ul className={`${typeServices.meta} space-y-2`}>

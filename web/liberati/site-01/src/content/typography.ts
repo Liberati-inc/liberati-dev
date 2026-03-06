@@ -4,7 +4,7 @@ export const type = {
     h0: "text-5xl md:text-8xl font-extrabold tracking-tighter uppercase",
     h1: "text-6xl md:text-7xl font-extrabold tracking-tighter uppercase",
     h2: "text-4xl md:text-5xl font-bold tracking-tight",
-    h3: "text-2xl md:text-3xl font-semibold tracking-tight",
+    h3: "text-2xl md:text-3xl font-semibold ",
     h4: "text-sm md:text-base font-semibold ",
     body: "text-lg leading-relaxed",
     micro: "text-[10px] font-bold",
@@ -15,6 +15,9 @@ export const type = {
     mediumTrack: "tracking-[0.1em]",
     wideTrack: "tracking-[0.2em]",
     widestTrack: "tracking-[0.3em]",
+    wordSpacingWide: "[word-spacing:0.09em]",
+    wordSpacingWider: "[word-spacing:0.12em]",
+    wordSpacingWidest: "[word-spacing:0.18em]",
     muted: "text-mutedGray",
     white: "text-white",
     whiteSoft: "text-white/30",
@@ -25,8 +28,10 @@ export const type = {
 
 // Global roles composed from scale (+ mods where it makes sense)
 export const typeRole = {
+  //Landing
+  landing:`${type.scale.h0} ${type.mod.wordSpacingWider}`,
   // Core copy
-  body: `${type.scale.body} ${type.mod.muted}`,
+  body: `${type.scale.body} ${type.mod.muted} ${type.mod.wordSpacingWide}`,
 
   // Navigation / chrome
   navLink: `text-sm font-bold ${type.mod.mediumTrack}`,
@@ -40,7 +45,7 @@ export const typeRole = {
   sectionLabel: `${type.scale.h4} ${type.mod.muted} ${type.mod.uppercase} ${type.mod.wideTrack}`,
 
   // Marketing eyebrows (e.g. "What We Do")
-  eyebrow: `${type.scale.micro} ${type.mod.red} ${type.mod.uppercase} ${type.mod.wideTrack}`,
+  eyebrow: `${type.scale.micro} ${type.mod.red} ${type.mod.uppercase} ${type.mod.widestTrack}`,
 
   // Footer Section Labels
   footerTitle:`${type.scale.micro} ${type.mod.uppercase} ${type.mod.wideTrack} `,
@@ -51,8 +56,7 @@ export const typeRole = {
 
 // Domain roles – services/cards, etc.
 export const typeServices = {
-  title: `${type.scale.h3} ${type.mod.white} ${type.mod.uppercase} ${type.mod.mediumTrack}`,
-  body: `${type.scale.body} ${type.mod.muted}`,
+  title: `${type.scale.h3} ${type.mod.white} ${type.mod.uppercase} ${type.mod.tightTrack}`,
   meta: `${type.scale.micro} ${type.mod.muted} ${type.mod.uppercase} ${type.mod.widestTrack}`,
   projectCardTitle: `text-lg font-bold uppercase ${type.mod.mediumTrack} `,
 } as const;

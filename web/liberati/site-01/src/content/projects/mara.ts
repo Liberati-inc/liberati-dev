@@ -7,7 +7,7 @@ export default createProject({
   class: "brand",
   vimeoId: "727899592",
   previewVimeoId: "727899592",
-  heroPlayMode: "loop",
+  detailPlayMode: "loop",
   stillImage: undefined,
   brief: {
     context: {
@@ -27,14 +27,13 @@ export default createProject({
     },
   },
   blocks: [
-    { type: "preview-vimeo", vimeoId: "727899592" },
     {
-      type: "copy",
+      contentType: "copy",
       header: "This is MARA",
       subtext: "Brand and content work.",
       layout: "stack",
     },
-    // { type: "vimeo", vimeoId: "...", header: "MARA IN MOTION", subtext: "Smart Cities", layout: "full" },
-    // { type: "gallery", sectionTitle: "Oil & Gas Infographics", images: [...] },
+    // { contentType: "vimeo", vimeoId: "...", header: "MARA IN MOTION", subtext: "Smart Cities", layout: "full", variant: "video" },
+    // { contentType: "gallery", sectionTitle: "Oil & Gas Infographics", images: [...] },
   ],
 });

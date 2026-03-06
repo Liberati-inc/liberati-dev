@@ -1,8 +1,19 @@
 import type { CTA, Project, ProjectClass } from "../types";
-import katrina from "./katrina";
-import mara from "./mara";
 
-const projectList: Project[] = [katrina, mara];
+// Webpack require.context — auto-discovers project files in this folder
+const projectModules = require.context("./", false, /\.ts$/);
+const rawProjects = projectModules
+  .keys()
+  .filter((k) => !/^\.\/(index|template)\.ts$/i.test(k))
+  .map((k) => projectModules(k).default)
+  .filter((p): p is Project => p != null && typeof p === "object" && "slug" in p);
+// Dedupe by slug (require.context can yield same module twice on case-insensitive FS)
+const seen = new Set<string>();
+const projectList = rawProjects.filter((p) => {
+  if (seen.has(p.slug)) return false;
+  seen.add(p.slug);
+  return true;
+});
 
 export type { Project };
 export type { ProjectBlock, ProjectClass } from "../types";

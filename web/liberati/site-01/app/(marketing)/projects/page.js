@@ -47,8 +47,6 @@ export default async function ProjectsPage() {
             variant="hero"
             vimeoId={heroProject.vimeoId}
             stillImage={heroProject.stillImage}
-            playMode="auto"
-            loop
             title={heroProject.title}
             meta={heroProject.meta}
             href={`/project/${heroProject.slug}`}

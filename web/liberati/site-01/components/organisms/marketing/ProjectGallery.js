@@ -61,6 +61,7 @@ export default function ProjectGallery({
           {projects.map((project) => (
             <ProjectCard
               key={project.slug}
+              href={`/project/${project.slug}`}
               title={project.title}
               meta={project.meta}
               stillImage={project.stillImage}

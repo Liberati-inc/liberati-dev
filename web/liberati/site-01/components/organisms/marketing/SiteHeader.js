@@ -14,11 +14,25 @@ import { headerPrimaryCta } from "@/content/cta";
  * Site header. On landing, visibility from HeaderVisibilityProvider (mouse + scroll).
  * Hamburger menu for mobile (below md).
  */
-export default function SiteHeader({ slideOnScroll = false }) {
+export default function SiteHeader({ slideOnScroll = false, position = "fixed" }) {
   const pathname = usePathname();
   const { headerVisible } = useHeaderVisibility();
   const [menuOpen, setMenuOpen] = useState(false);
+  const [aboutInView, setAboutInView] = useState(false);
   const visible = !slideOnScroll || headerVisible;
+
+  useEffect(() => {
+    if (pathname !== "/") return;
+    const el = document.getElementById("about");
+    if (!el) return;
+    const check = () => {
+      const rect = el.getBoundingClientRect();
+      setAboutInView(rect.top <= 0 && rect.bottom > 0);
+    };
+    check();
+    window.addEventListener("scroll", check, { passive: true });
+    return () => window.removeEventListener("scroll", check);
+  }, [pathname]);
 
   useEffect(() => {
     if (menuOpen) {
@@ -36,8 +50,10 @@ export default function SiteHeader({ slideOnScroll = false }) {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 w-full border-b border-white/10 bg-black/75 backdrop-blur-md transition-transform duration-300 ease-out ${
-          visible ? "translate-y-0" : "-translate-y-full"
+        className={`w-full shrink-0 border-b border-white/10 bg-black/75 backdrop-blur-md transition-transform duration-300 ease-out ${
+          position === "static"
+            ? "relative"
+            : `fixed top-0 left-0 right-0 z-50 ${visible ? "translate-y-0" : "-translate-y-full"}`
         }`}
       >
         <PageContainer className="flex items-center justify-between py-4">
@@ -58,7 +74,9 @@ export default function SiteHeader({ slideOnScroll = false }) {
                 const active =
                   item.href === "/projects"
                     ? pathname?.startsWith("/projects")
-                    : pathname === "/" && item.href.startsWith("/#");
+                    : item.href === "/#about"
+                      ? pathname === "/" && aboutInView
+                      : pathname === "/" && item.href.startsWith("/#");
                 return (
                   <TextNavButton key={item.id} href={item.href} active={active}>
                     {item.label}

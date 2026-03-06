@@ -5,7 +5,7 @@ export const services: Service[] = [
     id: "direction",
     title: "Direction",
     description:
-      "Creative strategy and conceptual development that defines the soul of your project.",
+      "Conceptual development with strategic creative and technical execution.",
     items: ["Art Direction", "Brand Narrative", "Visual Strategy"],
     iconVariant: "direction",
   },

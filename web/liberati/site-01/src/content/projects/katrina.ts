@@ -7,7 +7,7 @@ export default createProject({
   class: "documentary",
   vimeoId: "924881851",
   previewVimeoId: "924881851",
-  heroPlayMode: "manual",
+  detailPlayMode: "manual",
   stillImage: undefined,
   brief: {
     context: {
@@ -27,21 +27,21 @@ export default createProject({
     },
   },
   blocks: [
-    { type: "preview-vimeo", vimeoId: "924881851" },
     {
-      type: "copy",
+      contentType: "copy",
       header: "Race Against Time",
       subtext: "Documentary series for Nat Geo.",
       layout: "stack",
     },
     {
-      type: "vimeo",
+      contentType: "vimeo",
       vimeoId: "924881851",
       header: "Opening",
       subtext: "Optional subtext.",
       layout: "full",
+      variant: "video",
     },
-    // { type: "still", imageUrl: "/path/to/image.jpg", header: "...", layout: "split" },
-    // { type: "gallery", sectionTitle: "Explorations & Stills", images: [{ imageUrl: "...", caption: "..." }] },
+    // { contentType: "still", imageUrl: "/path/to/image.jpg", header: "...", layout: "split" },
+    // { contentType: "gallery", sectionTitle: "Explorations & Stills", images: [{ imageUrl: "...", caption: "..." }] },
   ],
 });
