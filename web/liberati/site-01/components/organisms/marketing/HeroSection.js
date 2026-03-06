@@ -18,6 +18,8 @@ export default function HeroSection({ vimeoId: vimeoIdProp, overlayOpacity }) {
       primaryCta={heroPrimaryCta}
       secondaryCta={heroSecondaryCta}
       overlayOpacity={overlayOpacity}
+      showOverlay
+      contentFadeOnHover={false}
     />
   );
 }

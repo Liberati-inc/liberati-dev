@@ -8,6 +8,7 @@ import ProjectLink from "@/components/atoms/ProjectLink";
 import PrimaryButton from "@/components/atoms/PrimaryButton";
 import SecondaryButton from "@/components/atoms/SecondaryButton";
 import MediaSurface from "@/components/molecules/MediaSurface";
+import FadeOnHover from "@/components/atoms/FadeOnHover";
 import { type, typeRole, typeServices, typeBlockOverlay } from "@/content/typography";
 
 /**
@@ -114,10 +115,9 @@ export default function ProjectCard({
           />
         )}
         {showOverlay && (
-        <div
+        <FadeOnHover
+          when={contentFadeOnHover}
           className={`relative z-10 max-w-7xl w-full ${contentAlignClass} ${
-            contentFadeOnHover ? "opacity-100 md:opacity-0 md:transition-opacity md:duration-500 md:group-hover:opacity-100 " : ""
-          }${
             overlayPadding ??
             (isLanding
               ? "px-6 lg:px-10 pb-[calc(4rem+env(safe-area-inset-bottom,0px))] md:pb-[calc(6rem+env(safe-area-inset-bottom,0px))] lg:pb-96"
@@ -184,7 +184,7 @@ export default function ProjectCard({
               </>
             )}
           </div>
-        </div>
+        </FadeOnHover>
         )}
       </section>
     );

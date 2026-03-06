@@ -12,6 +12,7 @@ When working in the `liberati-dev` workspace:
   - After you add or materially change any governance doc, **update the “Key expectations (summarized)” list below** so this rule always reflects the current guidance.
 
 - **Key expectations (summarized)**:
+  - **No bespoke coding**: Components share the same props; callers pass values. No branching on context (e.g. `isLanding ? x : y`). One component path, props control behavior.
   - Follow the atomic/modular hierarchy: tokens → atoms → molecules → organisms → pages.
   - Prefer refactors that enforce DRY over duplicating patterns.
   - All UI icons must go through `SvgIcon` (and wrappers like `SvgButton`) using inline SVG paths, not external `<img>` assets.

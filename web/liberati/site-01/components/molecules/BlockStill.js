@@ -1,6 +1,7 @@
 import ProjectCard from "@/components/molecules/ProjectCard";
 import BlockOverlay from "@/components/molecules/BlockOverlay";
 import BlockOverlayCopy from "@/components/molecules/BlockOverlayCopy";
+import FadeOnHover from "@/components/atoms/FadeOnHover";
 import { type, typeServices, typeBlockOverlay } from "@/content/typography";
 import { getAspectStyle, getStillOverlayPositionClass, OVERLAY_BOTTOM } from "./blockUtils";
 
@@ -38,12 +39,13 @@ export default function BlockStill({ block, fill }) {
         <BlockOverlay opacity={overlayOpacity} />
         <div className="absolute inset-0 z-[11] bg-gradient-to-t from-black/80 to-transparent pointer-events-none" />
         {(header || subtext) && (
-          <figcaption
-            className={`absolute z-20 max-w-[85%] sm:max-w-2xl opacity-100 md:opacity-0 md:transition-opacity md:duration-500 md:group-hover:opacity-100 ${getStillOverlayPositionClass(block.overlayPosition)} ${block.overlayPaddingBottom ? `px-4 sm:px-6 lg:px-10 ${block.overlayPaddingBottom}` : `px-4 sm:px-6 lg:px-10 ${overlayPadding}`}`}
+          <FadeOnHover
+            as="figcaption"
+            className={`absolute z-20 max-w-[85%] sm:max-w-2xl ${getStillOverlayPositionClass(block.overlayPosition)} ${block.overlayPaddingBottom ? `px-4 sm:px-6 lg:px-10 ${block.overlayPaddingBottom}` : `px-4 sm:px-6 lg:px-10 ${overlayPadding}`}`}
           >
             {header && <p className={`${typeBlockOverlay.title} ${type.mod.white} mb-1 sm:mb-2`}>{header}</p>}
             {subtext && <p className={`${typeServices.meta} ${type.mod.whiteSoft}`}>{subtext}</p>}
-          </figcaption>
+          </FadeOnHover>
         )}
       </figure>
     );

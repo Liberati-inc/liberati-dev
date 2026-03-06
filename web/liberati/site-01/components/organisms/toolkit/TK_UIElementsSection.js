@@ -4,6 +4,7 @@ import SecondaryButton from "@/components/atoms/SecondaryButton";
 import ProjectLink from "@/components/atoms/ProjectLink";
 import TextNavButton from "@/components/atoms/TextNavButton";
 import EyebrowLabel from "@/components/atoms/EyebrowLabel";
+import FadeOnHover from "@/components/atoms/FadeOnHover";
 import FilterPill from "@/components/molecules/FilterPill";
 import { typeRole, typeServices } from "@/content/typography";
 import { servicesCta } from "@/content/services";
@@ -55,6 +56,16 @@ export default function TK_UIElementsSection() {
               EyebrowLabel &mdash; components/atoms/EyebrowLabel
             </p>
           </div>
+
+          {/* FadeOnHover – overlay reveal (parent needs group) */}
+          <div className="group relative w-48 h-24 bg-white/10 rounded overflow-hidden cursor-default">
+            <FadeOnHover className="absolute inset-0 flex items-center justify-center bg-black/60">
+              <span className="text-white text-sm">Hover to reveal</span>
+            </FadeOnHover>
+          </div>
+          <p className={typeServices.meta}>
+            FadeOnHover &mdash; components/atoms/FadeOnHover
+          </p>
 
           {/* Button Atoms – Storybook-style lookup */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">

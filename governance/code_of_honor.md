@@ -10,7 +10,7 @@
   - **Pages / Flows**: Route-level composition only; no new visual logic here.
 - **Cinematic minimalist**: High clarity with deliberate emphasis. Default to subtle; earn every flourish.
 
-### 2. DRY (Don’t Repeat Yourself)
+### 3. DRY (Don’t Repeat Yourself)
 - **One source of truth per concept**:
   - Colors, typography, spacing → tokens (`tailwind.config` + `globals.css`).
   - Icons → `SvgIcon` (and wrappers like `SvgButton`), not hand-written `<svg>` in random files.
@@ -19,7 +19,13 @@
   - If you paste the same JSX or Tailwind string more than twice, extract an atom or molecule.
   - If two organisms diverge only by data, introduce props or configuration, not forks.
 
-### 3. Component Rules
+### 2. No Bespoke Coding – Shared Props
+- **Same props, same component**:
+  - Components must not branch on context (e.g. `isLanding ? false : contentFadeOnHover`). Callers pass the correct prop value; the component treats all callers the same.
+  - Avoid `if (isX) return <A />; return <B />` when A and B are the same component with different props. Use one component path and pass props that control behavior.
+  - If a prop is needed for one caller, expose it for all callers; default it appropriately so existing callers don't break.
+
+### 4. Component Rules
 - **Atoms**:
   - No business logic, side-effects, or data fetching.
   - Styling driven by tokens + Tailwind; no hard-coded magic numbers unless they *are* new tokens.
@@ -35,7 +41,7 @@
   - Own global shells like `PageContainer` or layout wrappers; organisms should not import page‑level containers directly.
   - Never define new visual patterns here; route files should read almost like a table of contents.
 
-### 4. Naming & Structure
+### 5. Naming & Structure
 - **File placement**:
   - `components/atoms/*` – primitives.
   - `components/molecules/*` – small compositions.
@@ -45,7 +51,7 @@
   - Prefer `ServiceCard`, `ProjectGrid`, `SectionLabel` over generic `Card`, `Container`, `Box`.
   - Variants reflect semantics (`"direction"`, `"motion"`) not presentation (`"redIcon"`, `"bigIcon"`).
 
-### 4a. Toolkit Page Conventions
+### 5a. Toolkit Page Conventions
 - **Section headers**:
   - All toolkit sections use a consistent grid layout: label in the first column (`SectionLabel`), content in a `md:col-span-3` wrapper.
   - Numbering follows the atomic hierarchy:
@@ -57,7 +63,7 @@
   - Any primary CTA in the toolkit (e.g. “Schedule a Call”, “Get in Touch”, “Send Message”, “View Showreel”) must use the shared `PrimaryButton` atom, optionally extended via `className` (spacing/width only, not font size or tracking).
   - Secondary/ghost CTAs (e.g. “Our Work”) must use a dedicated secondary button atom (e.g. `SecondaryButton`), and that atom must be surfaced in the toolkit UI elements section as the single source of truth.
 
-### 4b. React‑ifying HTML (landing → toolkit)
+### 5b. React‑ifying HTML (landing → toolkit)
 - When converting a static HTML section (hero, about, services, etc.) into React:
   - **First search existing atoms/molecules/organisms** before writing new JSX. Reuse:
     - `PrimaryButton` / `SecondaryButton` for CTAs
@@ -76,7 +82,7 @@
     - Carry over breakpoint behavior (`sm:`, `md:`, `lg:` grid/flex rules) from the original HTML into the React component unless there is an explicit decision to change the design.
     - Prefer moving common layout patterns into shared helpers (e.g. `PageContainer`, grid molecules), but the end result must respond the same way across viewports as the source HTML.
 
-### 4c. Toolkit grouping & ordering
+### 5c. Toolkit grouping & ordering
 - Treat `/toolkit` as the on-site “storybook”:
   - **Token/atom sections first**: color palette (`01. Color Palette`), typography (`02. Typography`), then core UI atoms/molecules like buttons, pills, iconography, form fields.
   - **Molecule/layout sections next**: service cards, project grids, brief/video/gallery blocks.
@@ -95,7 +101,7 @@
     - When using `type.*` tokens (H0/H1/H2/H3/body) in atoms, molecules, organisms, or pages, **do not append extra Tailwind typography classes** (font weight, size, line-height, letter-spacing, casing, or color) at the call site.
     - If a new typography treatment is needed, add or update a token in `typography.ts` and surface it in the toolkit `TypographySection` before consuming it elsewhere.
 
-### 6. Icons & SVGs
+### 7. Icons & SVGs
 - **Inline, controllable SVGs only**:
   - All UI icons are driven by `SvgIcon` and its `ICONS` map.
   - External `.svg` files are inputs to be inlined once, not consumed directly via `<img>`.
@@ -103,7 +109,7 @@
   - Build `SvgButton`-style atoms that wrap `SvgIcon` for interactive states.
   - Hover/active/disabled are handled with Tailwind classes and tokens, never duplicated per call site.
 
-### 7. State, Data, and Side Effects
+### 8. State, Data, and Side Effects
 - **Keep state at the right level**:
   - Atoms and most molecules should be stateless.
   - Organisms may manage local UI state; persistent or cross-section state belongs higher (page/layout).
@@ -111,7 +117,7 @@
   - Components should be pure functions of props whenever possible.
   - Side effects (fetching, subscriptions) live in route handlers, hooks, or dedicated data modules.
 
-### 8. Collaboration & Review
+### 9. Collaboration & Review
 - **Leave things cleaner**:
   - When you touch a file, align it with these rules where practical, even if you didn’t create it.
 - **Prefer refactors over band-aids**:

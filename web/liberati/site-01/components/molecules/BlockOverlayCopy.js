@@ -1,3 +1,4 @@
+import FadeOnHover from "@/components/atoms/FadeOnHover";
 import { type, typeServices, typeBlockOverlay } from "@/content/typography";
 
 const POSITION_ALIGN = {
@@ -15,9 +16,7 @@ export default function BlockOverlayCopy({ header, subtext, position }) {
   if (!header && !subtext) return null;
   const alignClass = position ? POSITION_ALIGN[position] : "text-center";
   return (
-    <div
-      className={`px-4 sm:px-6 pt-4 opacity-100 md:opacity-0 md:transition-opacity md:duration-500 md:group-hover:opacity-100 ${alignClass}`}
-    >
+    <FadeOnHover className={`px-4 sm:px-6 pt-4 ${alignClass}`}>
       {header && (
         <p className={`${typeServices.meta} mb-2 sm:mb-4`}>{header}</p>
       )}
@@ -26,6 +25,6 @@ export default function BlockOverlayCopy({ header, subtext, position }) {
           {subtext}
         </h3>
       )}
-    </div>
+    </FadeOnHover>
   );
 }
