@@ -8,7 +8,7 @@ import { type, typeRole } from "@/content/typography";
 export default function ProjectBriefSection({ brief, meta, description }) {
   if (!brief) return null;
 
-  const { sectionTitle = "Project Brief", introCopy, context, strategy, solution } = brief;
+  const { sectionTitle = "Project Brief", introCopy, copyDelimiter, context, strategy, solution } = brief;
   const desc = description ?? introCopy;
 
   return (
@@ -28,9 +28,9 @@ export default function ProjectBriefSection({ brief, meta, description }) {
           )}
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-          <BriefCard title={context.title}>{context.copy}</BriefCard>
-          <BriefCard title={strategy.title}>{strategy.copy}</BriefCard>
-          <BriefCard title={solution.title}>{solution.copy}</BriefCard>
+          <BriefCard title={context.title} lineDelimiter={copyDelimiter}>{context.copy}</BriefCard>
+          <BriefCard title={strategy.title} lineDelimiter={copyDelimiter}>{strategy.copy}</BriefCard>
+          <BriefCard title={solution.title} lineDelimiter={copyDelimiter}>{solution.copy}</BriefCard>
         </div>
       </div>
     </section>

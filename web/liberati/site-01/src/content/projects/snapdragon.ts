@@ -43,7 +43,7 @@ export default createProject({
         {
           contentType: "vimeo",
           vimeoId: "1170838807",
-          header: "Salmon",
+          header: "COD",
           subtext: "Dynamic rig test",
           layout: "full",
           variant: "hero",
@@ -51,8 +51,8 @@ export default createProject({
         {
           contentType: "vimeo",
           vimeoId: "1170838970",
-          header: "COD",
-          subtext: "Dynamic rig test",
+          header: "Flock Test",
+          subtext: "Testing group behavior",
           layout: "full",
           variant: "hero",
         },
@@ -75,8 +75,8 @@ export default createProject({
         {
           contentType: "vimeo",
           vimeoId: "1170838854",
-          header: "Flock Test",
-          subtext: "Testing group behavior",
+          header: "Salmon",
+          subtext: "Dynamic rig test",
           layout: "full",
           variant: "hero",
         },
@@ -87,4 +87,22 @@ export default createProject({
     // { contentType: "still", imageUrl: "/path/to/image.jpg", header: "...", layout: "split" },
     // { contentType: "gallery", sectionTitle: "Explorations & Stills", images: [{ imageUrl: "...", caption: "..." }] },
   ],
+  credit: {
+    copyDelimiter: ",",
+    context: {
+      title: "Credit",
+      copy:
+        "CG Design & Animation, Rigging, Tracking, Compositing, Rendering, Post-Production",
+    },
+    strategy: {
+      title: "Client",
+      copy:
+        "Trollbäck+Company",
+    },
+    solution: {
+      title: "Brand",
+      copy:
+        "Snapdragon",
+    },
+  },
 });

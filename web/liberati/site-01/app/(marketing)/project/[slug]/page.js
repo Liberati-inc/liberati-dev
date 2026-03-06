@@ -67,6 +67,12 @@ export default async function ProjectDetailPage({ params }) {
           {project.blocks?.length > 0 && (
             <ProjectBlocksSection blocks={project.blocks} />
           )}
+
+          {project.credit && (
+            <ProjectBriefSection
+              brief={{ ...project.credit, sectionTitle: "Credit" }}
+            />
+          )}
         </div>
       </main>
 

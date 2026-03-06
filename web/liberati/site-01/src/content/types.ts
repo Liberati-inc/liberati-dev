@@ -41,6 +41,8 @@ export interface ProjectBriefItem {
 export interface ProjectBrief {
   sectionTitle?: string;
   introCopy?: string;
+  /** When set, copy is split by this delimiter and each part rendered as a line. e.g. "," for comma-separated. */
+  copyDelimiter?: string;
   context: ProjectBriefItem;
   strategy: ProjectBriefItem;
   solution: ProjectBriefItem;
@@ -144,5 +146,7 @@ export interface Project {
   brief?: ProjectBrief;
   /** Modular content blocks for detail page; order = render order. */
   blocks?: ProjectBlock[];
+  /** Credit section below blocks; same structure as brief (e.g. Credit, Client, Brand). */
+  credit?: ProjectBrief;
 }
 
