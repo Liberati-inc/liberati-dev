@@ -1,4 +1,4 @@
-import { type, typeRole, typeServices } from "@/content/typography";
+import { type, typeRole, typeServices, typeBlockOverlay } from "@/content/typography";
 import ProjectCard from "@/components/molecules/ProjectCard";
 import BlockTitle from "@/components/molecules/BlockTitle";
 import BlockOverlay from "@/components/molecules/BlockOverlay";
@@ -7,8 +7,8 @@ import BlockOverlayCopy from "@/components/molecules/BlockOverlayCopy";
 /** Default aspect ratio for video/still containers. */
 const DEFAULT_ASPECT = "16:9";
 
-/** Shared bottom padding for overlay copy — use everywhere for consistency. */
-const OVERLAY_BOTTOM = "pb-16 md:pb-6";
+/** Shared bottom padding for overlay copy — responsive for safe area on mobile. */
+const OVERLAY_BOTTOM = "pb-6 pt-4 md:pb-6 md:pt-0";
 
 /** overlayPosition → figcaption position classes for still hero. */
 function getStillOverlayPositionClass(position) {
@@ -83,8 +83,8 @@ function BlockVimeo({ block, fill }) {
           meta={subtext}
           overlayPadding={
             block.overlayPaddingBottom
-              ? `px-6 lg:px-10 ${block.overlayPaddingBottom}`
-              : `px-6 lg:px-10 ${OVERLAY_BOTTOM}`
+              ? `px-4 sm:px-6 lg:px-10 ${block.overlayPaddingBottom}`
+              : `px-4 sm:px-6 lg:px-10 ${OVERLAY_BOTTOM}`
           }
           contentFadeOnHover
           overlayPosition={block.overlayPosition}
@@ -134,10 +134,12 @@ function BlockStill({ block, fill }) {
   }
 
   if (variant === "hero") {
+    if (!imageUrl) return null;
     const overlayOpacity = block.overlayOpacity ?? 0.4;
+    const overlayPadding = block.overlayPaddingBottom ?? OVERLAY_BOTTOM;
     return (
       <figure
-        className={`group relative overflow-hidden bg-black cursor-default ${fill ? "h-full w-full" : "w-full"}`}
+        className={`group relative overflow-hidden bg-black cursor-default ${fill ? "h-full w-full min-h-0" : "w-full"}`}
         style={fill ? undefined : aspectStyle}
       >
         <div
@@ -148,9 +150,9 @@ function BlockStill({ block, fill }) {
         <div className="absolute inset-0 z-[11] bg-gradient-to-t from-black/80 to-transparent pointer-events-none" />
         {(header || subtext) && (
           <figcaption
-            className={`absolute z-20 max-w-2xl opacity-0 transition-opacity duration-500 group-hover:opacity-100 ${getStillOverlayPositionClass(block.overlayPosition)} ${block.overlayPaddingBottom ? `px-6 md:px-10 ${block.overlayPaddingBottom}` : `px-6 md:px-10 ${OVERLAY_BOTTOM}`}`}
+            className={`absolute z-20 max-w-[85%] sm:max-w-2xl opacity-100 md:opacity-0 md:transition-opacity md:duration-500 md:group-hover:opacity-100 ${getStillOverlayPositionClass(block.overlayPosition)} ${block.overlayPaddingBottom ? `px-4 sm:px-6 lg:px-10 ${block.overlayPaddingBottom}` : `px-4 sm:px-6 lg:px-10 ${overlayPadding}`}`}
           >
-            {header && <p className={`${type.scale.h2} ${type.mod.uppercase} text-white mb-2`}>{header}</p>}
+            {header && <p className={`${typeBlockOverlay.title} ${type.mod.white} mb-1 sm:mb-2`}>{header}</p>}
             {subtext && <p className={`${typeServices.meta} ${type.mod.whiteSoft}`}>{subtext}</p>}
           </figcaption>
         )}
@@ -159,10 +161,11 @@ function BlockStill({ block, fill }) {
   }
 
   // Default: video (image only) — overlay + hover copy like vimeo video
+  if (!imageUrl) return null;
   const overlayOpacity = block.overlayOpacity ?? 0.4;
   return (
     <section className={`group relative overflow-hidden bg-black cursor-default ${fill ? "h-full w-full" : "w-full py-12"}`}>
-      <div className={`relative ${fill ? "h-full w-full" : "w-full"}`} style={fill ? undefined : aspectStyle}>
+      <div className={`relative ${fill ? "h-full w-full min-h-0" : "w-full"}`} style={fill ? undefined : aspectStyle}>
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: `url(${imageUrl})` }}
@@ -182,28 +185,35 @@ function BlockStill({ block, fill }) {
 
 function BlockGallery({ block }) {
   const { sectionTitle, images } = block;
-  const cols = images.length >= 6 ? "grid-cols-2 md:grid-cols-3" : "grid-cols-1 md:grid-cols-3";
+  const validImages = (images ?? []).filter((img) => img?.imageUrl);
+  if (!validImages.length) return null;
+  const cols =
+    validImages.length >= 6
+      ? "grid-cols-2 sm:grid-cols-2 md:grid-cols-3"
+      : validImages.length >= 3
+        ? "grid-cols-1 sm:grid-cols-2 md:grid-cols-3"
+        : "grid-cols-1 sm:grid-cols-2";
 
   return (
-    <section className="py-24 px-6 md:px-16 bg-obsidian">
+    <section className="py-12 sm:py-16 md:py-24 px-4 sm:px-6 md:px-16 bg-obsidian">
       <div className="max-w-7xl mx-auto">
         {sectionTitle && <BlockTitle>{sectionTitle}</BlockTitle>}
-        <div className={`grid ${cols} gap-4 md:gap-8`}>
-          {images.map((img, i) => {
+        <div className={`grid ${cols} gap-3 sm:gap-4 md:gap-8`}>
+          {validImages.map((img, i) => {
             const aspectStyle = getAspectStyle({ ...block, ...img });
             return (
-            <div key={i} className="group relative overflow-hidden bg-white/5" style={aspectStyle}>
-              <div
-                className="w-full h-full bg-cover bg-center group-hover:scale-110 transition-transform duration-700"
-                style={{ backgroundImage: `url(${img.imageUrl})` }}
-              />
-              {img.caption && (
-                <div className="absolute bottom-4 left-4">
-                  <p className={`${typeRole.disclaimer} text-white`}>{img.caption}</p>
-                </div>
-              )}
-            </div>
-          );
+              <div key={i} className="group relative overflow-hidden bg-white/5 min-h-0 aspect-video" style={aspectStyle}>
+                <div
+                  className="absolute inset-0 bg-cover bg-center group-hover:scale-110 transition-transform duration-700"
+                  style={{ backgroundImage: `url(${img.imageUrl})` }}
+                />
+                {img.caption && (
+                  <div className="absolute bottom-2 left-2 sm:bottom-4 sm:left-4">
+                    <p className={`${typeRole.disclaimer} text-white`}>{img.caption}</p>
+                  </div>
+                )}
+              </div>
+            );
           })}
         </div>
       </div>
@@ -238,9 +248,9 @@ function BlockGroup({ block }) {
   const gridClass =
     layout === "cols"
       ? useRatio
-        ? "grid grid-cols-1 gap-4 md:gap-6 md:aspect-video md:[grid-template-columns:var(--group-ratio)]"
-        : `grid grid-cols-1 ${COLS_CLASS[count]} gap-4 md:gap-6`
-      : "flex flex-col gap-4 md:gap-6";
+        ? "grid grid-cols-1 gap-3 sm:gap-4 md:gap-6 md:aspect-video md:[grid-template-columns:var(--group-ratio)]"
+        : `grid grid-cols-1 ${COLS_CLASS[count]} gap-3 sm:gap-4 md:gap-6`
+      : "flex flex-col gap-3 sm:gap-4 md:gap-6";
   const gridStyle = useRatio
     ? { "--group-ratio": ratio.map((r) => `${r}fr`).join(" ") }
     : undefined;
@@ -249,7 +259,7 @@ function BlockGroup({ block }) {
       <div className={`max-w-7xl mx-auto ${gridClass}`} style={gridStyle}>
         {blocks.map((b, i) =>
           useRatio ? (
-            <div key={i} className="min-h-0 overflow-hidden md:h-full">
+            <div key={i} className="min-h-0 overflow-hidden aspect-video md:aspect-auto md:h-full">
               {renderBlock(b, i, { fill: true })}
             </div>
           ) : (

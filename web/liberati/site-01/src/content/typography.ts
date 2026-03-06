@@ -54,6 +54,11 @@ export const typeRole = {
   footerMetaUpper: `${type.scale.micro} ${type.mod.whiteSoft} ${type.mod.widestTrack} ${type.mod.uppercase}`,
 } as const;
 
+// Block overlay titles — responsive for mobile/iOS (smaller than h2)
+export const typeBlockOverlay = {
+  title: "text-xl sm:text-2xl md:text-4xl lg:text-5xl font-bold tracking-tight uppercase",
+} as const;
+
 // Domain roles – services/cards, etc.
 export const typeServices = {
   title: `${type.scale.h3} ${type.mod.white} ${type.mod.uppercase} ${type.mod.tightTrack}`,

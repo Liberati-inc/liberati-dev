@@ -8,7 +8,7 @@ import ProjectLink from "@/components/atoms/ProjectLink";
 import PrimaryButton from "@/components/atoms/PrimaryButton";
 import SecondaryButton from "@/components/atoms/SecondaryButton";
 import MediaSurface from "@/components/molecules/MediaSurface";
-import { type, typeRole, typeServices } from "@/content/typography";
+import { type, typeRole, typeServices, typeBlockOverlay } from "@/content/typography";
 
 /**
  * Variant → playback. Single source of truth.
@@ -120,7 +120,7 @@ export default function ProjectCard({
         )}
         <div
           className={`relative z-10 max-w-7xl w-full ${contentAlignClass} ${
-            contentFadeOnHover ? "opacity-0 transition-opacity duration-500 group-hover:opacity-100 " : ""
+            contentFadeOnHover ? "opacity-100 md:opacity-0 md:transition-opacity md:duration-500 md:group-hover:opacity-100 " : ""
           }${
             overlayPadding ??
             (isLanding
@@ -128,7 +128,7 @@ export default function ProjectCard({
               : "px-6 lg:px-10 pb-9")
           }`}
         >
-          <div className={isLanding ? "max-w-5xl" : "max-w-2xl"}>
+          <div className={isLanding ? "max-w-5xl" : "max-w-[85%] sm:max-w-2xl"}>
             {isLanding ? (
               <>
                 <div
@@ -168,7 +168,7 @@ export default function ProjectCard({
               <>
                 {title && (
                   <h1
-                    className={`${type.scale.h2} ${type.mod.uppercase} mb-3 text-white`}
+                    className={`${typeBlockOverlay.title} ${type.mod.white} mb-2 md:mb-3`}
                   >
                     {title}
                   </h1>
