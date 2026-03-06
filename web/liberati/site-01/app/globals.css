@@ -156,17 +156,34 @@ textarea:-webkit-autofill {
   }
 }
 
-/* Hero video: compact (non-landing) — fills container; iOS override below */
+/* Hero video: compact (non-landing) — fills container. Uses container queries for iframe cover (object-fit doesn't work on iframes). */
 .hero-video-cover-compact {
   min-height: 100%;
   min-width: 100%;
+  container-type: size;
 }
 
-/* iOS: smaller scale for compact hero to avoid over-zoom (adjust % as needed) */
-@media (hover: none) and (pointer: coarse) {
-  .hero-video-cover-compact {
-    min-height: 90%;
-    min-width: 90%;
+.hero-video-cover-compact iframe {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+}
+
+/* Iframe cover: when container wider than 16:9, fill height; when taller, fill width. */
+@container (min-aspect-ratio: 16/9) {
+  .hero-video-cover-compact iframe {
+    width: 177.78cqh;
+    height: 100cqh;
+  }
+}
+
+@container (max-aspect-ratio: 16/9) {
+  .hero-video-cover-compact iframe {
+    width: 100cqw;
+    height: 56.25cqw;
   }
 }
 
