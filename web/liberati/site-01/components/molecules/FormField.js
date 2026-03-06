@@ -1,5 +1,8 @@
 import { typeServices } from "@/content/typography";
 
+export const toolkitExclude = false;
+export const toolkitOrder = 10;
+
 export default function FormField({
   label,
   type = "text",

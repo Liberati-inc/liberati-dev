@@ -6,6 +6,9 @@ import { footerCopy, footerLinkGroups } from "@/content/footer";
 import { footerSocial } from "@/content/nav";
 import { typeRole, typeServices, type } from "@/content/typography";
 
+export const toolkitExclude = false;
+export const toolkitOrder = 7;
+
 export default function Footer() {
   return (
     <footer
@@ -52,9 +55,7 @@ export default function Footer() {
               <ul className={`${typeRole.footerLink}`}>
                 {group.links.map((link) => (
                   <li key={link.label}>
-                    <TextNavButton href={link.href ?? "#"}>
-                      {link.label}
-                    </TextNavButton>
+                    <TextNavButton href={link.href ?? "#"} label={link.label} />
                   </li>
                 ))}
               </ul>

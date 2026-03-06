@@ -1,8 +1,10 @@
 import { typeRole } from "@/content/typography";
 
-export default function BriefCard({ title, children, lineDelimiter }) {
-  const copy = typeof children === "string" ? children : String(children ?? "");
-  const parts = lineDelimiter ? copy.split(lineDelimiter).map((s) => s.trim()).filter(Boolean) : [copy];
+export const toolkitExclude = false;
+
+export default function BriefCard({ title, copy, lineDelimiter }) {
+  const copyText = typeof copy === "string" ? copy : String(copy ?? "");
+  const parts = lineDelimiter ? copyText.split(lineDelimiter).map((s) => s.trim()).filter(Boolean) : [copyText];
   return (
     <div>
       <h6 className={`${typeRole.disclaimer} mb-4`}>{title}</h6>

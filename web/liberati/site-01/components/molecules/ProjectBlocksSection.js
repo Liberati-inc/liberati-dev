@@ -16,6 +16,9 @@ function renderBlock(block, i, opts = {}) {
 /**
  * Renders project blocks (from project.blocks). Maps block data to BlockCopy, BlockVimeo, BlockStill, BlockGallery, BlockGroup.
  */
+export const toolkitExclude = true; // composition-only
+export const toolkitOrder = 999;
+
 export default function ProjectBlocksSection({ blocks }) {
   if (!blocks?.length) return null;
 

@@ -7,6 +7,9 @@ import ProjectCard from "@/components/molecules/ProjectCard";
 import { featuredCopy, featuredProjectSlugs } from "@/content/home";
 import { getProjectBySlug } from "@/content/projects";
 
+export const toolkitExclude = false;
+export const toolkitOrder = 5;
+
 export default function FeaturedSection() {
   const featured = featuredProjectSlugs
     .map((slug) => getProjectBySlug(slug))
@@ -25,7 +28,7 @@ export default function FeaturedSection() {
   return (
     <section className="bg-obsidian py-24">
       <div className="max-w-7xl mx-auto px-6 lg:px-10 space-y-10">
-        <EyebrowLabel>{featuredCopy.eyebrow}</EyebrowLabel>
+        <EyebrowLabel label={featuredCopy.eyebrow} />
         <div className="relative rounded overflow-hidden">
           {featured.length > 1 && (
             <>

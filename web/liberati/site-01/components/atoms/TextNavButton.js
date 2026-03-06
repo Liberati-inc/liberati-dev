@@ -1,7 +1,10 @@
 import { typeRole } from "@/content/typography";
 
+export const toolkitExclude = false;
+export const toolkitOrder = 5;
+
 export default function TextNavButton({
-  children,
+  label,
   href = "#",
   active = false,
   className = "",
@@ -14,7 +17,7 @@ export default function TextNavButton({
 
   return (
     <a href={href} className={`${base} ${colors} ${className}`}>
-      {children}
+      {label}
     </a>
   );
 }

@@ -1,3 +1,6 @@
+export const toolkitExclude = false;
+export const toolkitOrder = 10;
+
 export default function ColorSwatch({ name, hex, swatchClass, nameClass }) {
   return (
     <div className="space-y-2">
@@ -7,4 +10,3 @@ export default function ColorSwatch({ name, hex, swatchClass, nameClass }) {
     </div>
   );
 }
-

@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { typeServices } from "@/content/typography";
 
+export const toolkitExclude = false;
+
 /**
  * Category filter tabs for projects gallery (Brands, Series & Film, Interactive, All).
  * Active tab uses liberatiRed underline; inactive use muted with hover to white.

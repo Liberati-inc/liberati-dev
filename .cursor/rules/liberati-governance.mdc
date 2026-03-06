@@ -26,6 +26,10 @@ When working in the `liberati-dev` workspace:
   - Do not hack atom visuals at call sites (no extra rounding, font overrides, or tracking tweaks on CTAs); if the look needs to change, update the atom + toolkit once, then reuse.
   - Preserve the original HTML’s responsive behavior (breakpoints, grid/flex patterns) when componentizing; refactors can abstract layout, but should not silently change how sections behave at different viewport sizes.
   - Keep `/toolkit` grouped and ordered like a design-system browser: tokens/atoms first (color, type, buttons, pills, iconography, form fields), then molecules/layouts (cards, grids, briefs), and finally organisms (navigation, hero, composite layouts) with footer last.
+  - **All components must export `toolkitExclude` and `toolkitOrder`**: `toolkitExclude = false` for visible, `true` for composition-only; `toolkitOrder` controls sort (lower = first). No implicit defaults.
+  - **Toolkit PROPS use the prop name as the value**: Use the prop name itself (e.g. label, title, header, copy, meta, content, sample, items[0].label) so users know which prop controls what. Never project-specific names.
+  - **Prefer semantic prop names over children**: Use `label` for button/link text, `copy` for body text, `content` for wrappers, `sample` for typography samples.
+  - **Organisms use real site data in toolkit**: Same props as marketing pages (e.g. services, servicesNote, servicesCta).
   - Every showcased toolkit example should include a lightweight label indicating the component name/path, for reference only, not to be copied into marketing pages.
   - **Never change `distDir` or `.next`** in Next.js config; keep the default build output path (Vercel and tooling depend on it).
   - **Push back on requests** when a change would violate proper workflows, industry standards, or this governance: explain why it’s inadvisable and suggest an alternative that fits the codebase and benefits the user; only then implement if the user insists.

@@ -12,6 +12,9 @@ const POSITION_ALIGN = {
 /**
  * Copy below block media. Fades in on hover (desktop); always visible on touch.
  */
+export const toolkitExclude = true; // composition-only
+export const toolkitOrder = 999;
+
 export default function BlockOverlayCopy({ header, subtext, position }) {
   if (!header && !subtext) return null;
   const alignClass = position ? POSITION_ALIGN[position] : "text-center";

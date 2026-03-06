@@ -10,6 +10,9 @@ import { useHeaderVisibility } from "@/components/providers/HeaderVisibilityProv
 import { mainNav } from "@/content/nav";
 import { headerPrimaryCta } from "@/content/cta";
 
+export const toolkitExclude = false;
+export const toolkitOrder = 1;
+
 /**
  * Site header. On landing, visibility from HeaderVisibilityProvider (mouse + scroll).
  * Hamburger menu for mobile (below md).
@@ -78,16 +81,12 @@ export default function SiteHeader({ slideOnScroll = false, position = "fixed" }
                       ? pathname === "/" && aboutInView
                       : pathname === "/" && item.href.startsWith("/#");
                 return (
-                  <TextNavButton key={item.id} href={item.href} active={active}>
-                    {item.label}
-                  </TextNavButton>
+                  <TextNavButton key={item.id} href={item.href} active={active} label={item.label} />
                 );
               })}
             </nav>
 
-            <PrimaryButton href={headerPrimaryCta.href} className="py-2 px-6">
-              {headerPrimaryCta.label}
-            </PrimaryButton>
+            <PrimaryButton href={headerPrimaryCta.href} className="py-2 px-6" label={headerPrimaryCta.label} />
           </div>
 
           <button
@@ -135,9 +134,8 @@ export default function SiteHeader({ slideOnScroll = false, position = "fixed" }
               href={headerPrimaryCta.href}
               onClick={closeMenu}
               className="w-full py-4 justify-center"
-            >
-              {headerPrimaryCta.label}
-            </PrimaryButton>
+              label={headerPrimaryCta.label}
+            />
           </div>
         </div>
       </div>

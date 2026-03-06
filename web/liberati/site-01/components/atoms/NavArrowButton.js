@@ -2,6 +2,9 @@
 
 import SvgIcon from "@/components/atoms/SvgIcon";
 
+export const toolkitExclude = false;
+export const toolkitOrder = 6;
+
 /**
  * Nav arrow for carousels (prev/next). Use in FeaturedSection, galleries, etc.
  */

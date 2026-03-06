@@ -1,5 +1,7 @@
 import { type, typeServices } from "@/content/typography";
 
+export const toolkitExclude = false;
+
 /**
  * Section header for the projects gallery (title + description).
  * Copy comes from content/projectsPage.ts gallerySection.

@@ -1,6 +1,8 @@
 import SvgIcon from "@/components/atoms/SvgIcon";
 import { typeServices, typeRole } from "@/content/typography";
 
+export const toolkitExclude = false;
+
 export default function ServiceCard({ iconVariant, title, description, items = [] }) {
   return (
     <div className="group">

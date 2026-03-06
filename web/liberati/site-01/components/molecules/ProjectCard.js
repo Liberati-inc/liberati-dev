@@ -22,6 +22,8 @@ const VARIANT_PLAY_DEFAULTS = {
   thumb: { playMode: "auto", loop: true },
 };
 
+export const toolkitExclude = false;
+
 export default function ProjectCard({
   variant = "thumb", // "thumb" | "hero" | "video"
   fill,
@@ -151,12 +153,8 @@ export default function ProjectCard({
                 )}
                 {primaryCta && secondaryCta && (
                   <div className="flex flex-col sm:flex-row gap-4 justify-start">
-                    <PrimaryButton href={primaryCta.href}>
-                      {primaryCta.label}
-                    </PrimaryButton>
-                    <SecondaryButton href={secondaryCta.href}>
-                      {secondaryCta.label}
-                    </SecondaryButton>
+                    <PrimaryButton href={primaryCta.href} label={primaryCta.label} />
+                    <SecondaryButton href={secondaryCta.href} label={secondaryCta.label} />
                   </div>
                 )}
               </>
@@ -177,9 +175,7 @@ export default function ProjectCard({
                   </p>
                 )}
                 {href && (
-                  <ProjectLink href={href} className="mt-9">
-                    {ctaLabel?.trim() || "VIEW PROJECT"}
-                  </ProjectLink>
+                  <ProjectLink href={href} className="mt-9" label={ctaLabel?.trim() || "VIEW PROJECT"} />
                 )}
               </>
             )}

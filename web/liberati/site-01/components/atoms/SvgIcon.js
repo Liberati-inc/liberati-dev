@@ -57,6 +57,9 @@ const ICONS = {
   },
 };
 
+export const toolkitExclude = false;
+export const toolkitOrder = 7;
+
 export default function SvgIcon({
   variant,
   asButton = false,

@@ -7,6 +7,9 @@ import ProjectCard from "@/components/molecules/ProjectCard";
 import { getProjectsByClass } from "@/content/projects";
 import { gallerySection, galleryDefaultKey } from "@/content/projectsPage";
 
+export const toolkitExclude = false;
+export const toolkitOrder = 6;
+
 /**
  * Projects section: header (title + description), optional category filter, grid of ProjectCards.
  * When filterItems + galleryCategoryClasses + gallerySections are passed, the filter is interactive and

@@ -2,6 +2,8 @@ import BlockTitle from "@/components/molecules/BlockTitle";
 import { typeRole } from "@/content/typography";
 import { getAspectStyle } from "./blockUtils";
 
+export const toolkitExclude = false;
+
 export default function BlockGallery({ block = {} }) {
   const { sectionTitle, images } = block;
   const validImages = (images ?? []).filter((img) => img?.imageUrl);
@@ -16,7 +18,7 @@ export default function BlockGallery({ block = {} }) {
   return (
     <section className="py-12 sm:py-16 md:py-24 px-4 sm:px-6 md:px-16 bg-obsidian">
       <div className="max-w-7xl mx-auto">
-        {sectionTitle && <BlockTitle>{sectionTitle}</BlockTitle>}
+        {sectionTitle && <BlockTitle label={sectionTitle} />}
         <div className={`grid ${cols} gap-3 sm:gap-4 md:gap-8`}>
           {validImages.map((img, i) => {
             const aspectStyle = getAspectStyle({ ...block, ...img });

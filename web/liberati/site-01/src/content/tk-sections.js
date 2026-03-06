@@ -31,7 +31,7 @@ function wrapSection(Component, label, props = {}, renderContent) {
     return (
       <section className="py-20 border-b border-white/5">
         <div className="space-y-6">
-          <SectionLabel>{label}</SectionLabel>
+          <SectionLabel label={label} />
           <div className="mt-6">
             {content}
           </div>
@@ -45,104 +45,104 @@ const hoverLabel = "text-white/30 text-xs mb-2 block";
 
 const PROPS = {
   PrimaryButton: {
-    children: "Label",
+    label: "label",
     _render: (Comp) => (
       <div className="flex flex-wrap gap-8">
         <div>
           <span className={hoverLabel}>Default</span>
-          <Comp>Label</Comp>
+          <Comp label="label" />
         </div>
         <div>
           <span className={hoverLabel}>Hover → white bg, black text</span>
-          <Comp className="!bg-white !text-black">Label</Comp>
+          <Comp className="!bg-white !text-black" label="label" />
         </div>
       </div>
     ),
   },
   SecondaryButton: {
-    children: "Secondary",
+    label: "label",
     _render: (Comp) => (
       <div className="flex flex-wrap gap-8">
         <div>
           <span className={hoverLabel}>Default</span>
-          <Comp>Secondary</Comp>
+          <Comp label="label" />
         </div>
         <div>
           <span className={hoverLabel}>Hover → brighter bg</span>
-          <Comp className="!bg-white/20">Secondary</Comp>
+          <Comp className="!bg-white/20" label="label" />
         </div>
       </div>
     ),
   },
   ProjectLink: {
     href: "#",
-    children: "View Project",
+    label: "label",
     _render: (Comp) => (
       <div className="flex flex-wrap gap-8">
         <div>
           <span className={hoverLabel}>Default</span>
-          <Comp href="#">View Project</Comp>
+          <Comp href="#" label="label" />
         </div>
         <div>
           <span className={hoverLabel}>Hover → red text</span>
-          <Comp href="#" className="!text-liberatiRed">View Project</Comp>
+          <Comp href="#" className="!text-liberatiRed" label="label" />
         </div>
       </div>
     ),
   },
   TextNavButton: {
     href: "#",
-    children: "Work",
+    label: "label",
     _render: (Comp) => (
       <div className="flex flex-wrap gap-8">
         <div>
           <span className="text-white/30 text-xs mb-2 block">Default (hover → white)</span>
-          <Comp href="#" active={false}>Work</Comp>
+          <Comp href="#" active={false} label="label" />
         </div>
         <div>
           <span className="text-white/30 text-xs mb-2 block">Active (border red)</span>
-          <Comp href="#" active>Work</Comp>
+          <Comp href="#" active label="label" />
         </div>
       </div>
     ),
   },
-  EyebrowLabel: { children: "Eyebrow" },
+  EyebrowLabel: { label: "label" },
   FilterPill: {
-    children: "Filter",
+    label: "label",
     _render: (Comp) => (
       <div className="flex flex-wrap gap-8">
         <div>
           <span className={hoverLabel}>Idle (hover → light bg)</span>
-          <Comp state="idle">Filter</Comp>
+          <Comp state="idle" label="label" />
         </div>
         <div>
           <span className={hoverLabel}>Hover</span>
-          <Comp state="hover">Filter</Comp>
+          <Comp state="hover" label="label" />
         </div>
         <div>
           <span className={hoverLabel}>Active</span>
-          <Comp state="active">Filter</Comp>
+          <Comp state="active" label="label" />
         </div>
       </div>
     ),
   },
-  FormField: { label: "Example", placeholder: "..." },
+  FormField: { label: "label", placeholder: "placeholder" },
   NavArrowButton: {
     direction: "next",
     onClick: () => {},
-    ariaLabel: "Next",
+    ariaLabel: "ariaLabel",
     _render: (Comp) => (
       <div className="flex flex-wrap gap-8 justify-start">
         <div>
           <span className={hoverLabel}>Default</span>
           <div className="relative h-14 w-14 flex items-center justify-center flex-shrink-0">
-            <Comp direction="prev" onClick={() => {}} ariaLabel="Prev" className="!relative !top-0 !translate-y-0 !left-0 !right-0" />
+            <Comp direction="prev" onClick={() => {}} ariaLabel="ariaLabel" className="!relative !top-0 !translate-y-0 !left-0 !right-0" />
           </div>
         </div>
         <div>
           <span className={hoverLabel}>Hover → white text, red border</span>
           <div className="relative h-14 w-14 flex items-center justify-center flex-shrink-0">
-            <Comp direction="next" onClick={() => {}} ariaLabel="Next" className="!relative !top-0 !translate-y-0 !left-0 !right-0 !text-white !border-liberatiRed" />
+            <Comp direction="next" onClick={() => {}} ariaLabel="ariaLabel" className="!relative !top-0 !translate-y-0 !left-0 !right-0 !text-white !border-liberatiRed" />
           </div>
         </div>
       </div>
@@ -151,80 +151,103 @@ const PROPS = {
   SvgIcon: { variant: "wing", sizeClass: "w-10 h-10", colorClass: "text-white" },
   SvgButton: {
     materialIcon: "camera",
-    label: "Camera",
+    label: "label",
     _render: (Comp) => (
       <div className="flex flex-wrap gap-8">
         <div>
           <span className={hoverLabel}>Circle default</span>
-          <Comp materialIcon="camera" label="Camera" kind="circle" />
+          <Comp materialIcon="camera" label="label" kind="circle" />
         </div>
         <div>
           <span className={hoverLabel}>Circle hover → white bg</span>
-          <Comp materialIcon="camera" label="Camera" kind="circle" className="!bg-white !text-black" />
+          <Comp materialIcon="camera" label="label" kind="circle" className="!bg-white !text-black" />
         </div>
         <div>
           <span className={hoverLabel}>Footer default</span>
-          <Comp materialIcon="camera" label="Camera" kind="footer" />
+          <Comp materialIcon="camera" label="label" kind="footer" />
         </div>
         <div>
           <span className={hoverLabel}>Footer hover → red text</span>
-          <Comp materialIcon="camera" label="Camera" kind="footer" className="!text-liberatiRed" />
+          <Comp materialIcon="camera" label="label" kind="footer" className="!text-liberatiRed" />
         </div>
       </div>
     ),
   },
-  FadeOnHover: { children: "Hover" },
-  PageContainer: { children: "Content" },
-  ServiceCard: () => {
-    const s = services?.[0];
-    return s
-      ? { iconVariant: s.iconVariant, title: s.title, description: s.description, items: s.items ?? [] }
-      : { iconVariant: "direction", title: "Example", description: "—", items: [] };
-  },
-  ProjectCard: { title: "Project", meta: "Tagline", vimeoId: "727899592" },
-  BlockCopy: { block: { header: "Example", subtext: "Subtext copy." } },
+  FadeOnHover: { content: "content" },
+  PageContainer: { content: "content" },
+  ServiceCard: () => ({
+    iconVariant: "direction",
+    title: "title",
+    description: "description",
+    items: ["items[0]", "items[1]"],
+  }),
+  ProjectCard: { title: "title", meta: "meta", vimeoId: "727899592" },
+  BlockCopy: { block: { header: "header", subtext: "subtext" } },
   BlockGallery: {
     block: {
-      sectionTitle: "Gallery",
+      sectionTitle: "sectionTitle",
       images: [
-        { imageUrl: "https://via.placeholder.com/800x600", caption: "Caption 1" },
-        { imageUrl: "https://via.placeholder.com/800x600", caption: "Caption 2" },
+        { imageUrl: "https://via.placeholder.com/800x600", caption: "caption" },
+        { imageUrl: "https://via.placeholder.com/800x600", caption: "caption" },
       ],
     },
   },
   BlockGroup: {
     block: {
-      blocks: [{ contentType: "copy", header: "Example", subtext: "Block group copy." }],
       layout: "cols",
+      ratio: [1, 1.25],
+      blocks: [
+        { contentType: "copy", header: "header", subtext: "subtext" },
+        { contentType: "still", imageUrl: "/assets/img/projects/snapdragon/snap_bts_01.png", header: "header", subtext: "subtext", variant: "hero", overlayPosition: "bottom-left" },
+      ],
     },
   },
   BlockStill: {
     block: {
       imageUrl: "/assets/img/projects/snapdragon/snap_bts_01.png",
-      header: "Example Still",
-      subtext: "Subtext copy.",
+      header: "header",
+      subtext: "subtext",
       variant: "hero",
       overlayPosition: "bottom-left",
     },
   },
   BlockVimeo: {
     block: {
-      vimeoId: "1170838807",
-      header: "COD",
-      subtext: "Dynamic rig test",
+      vimeoId: "727899592",
+      header: "header",
+      subtext: "subtext",
       variant: "hero",
       overlayPosition: "bottom-left",
     },
   },
-  GalleryCategoryFilter: {
-    items: galleryCategories ?? [],
-    activeKey: galleryDefaultKey ?? "all",
-  },
-  ServicesSection: {
+  BriefCard: { title: "title", copy: "copy" },
+  ColorSwatch: { name: "name", hex: "hex", swatchClass: "bg-obsidian border border-white/10" },
+  ProjectBriefSection: () => ({
+    brief: {
+      sectionTitle: "sectionTitle",
+      introCopy: "introCopy",
+      copyDelimiter: "\n",
+      context: { title: "title", copy: "copy" },
+      strategy: { title: "title", copy: "copy" },
+      solution: { title: "title", copy: "copy" },
+    },
+    meta: "meta",
+    description: "description",
+  }),
+  ProjectsGalleryHeader: { title: "title", description: "description" },
+  GalleryCategoryFilter: () => ({
+    items: [
+      { key: "all", label: "items[0].label", href: "#" },
+      { key: "a", label: "items[1].label", href: "#" },
+      { key: "b", label: "items[2].label", href: "#" },
+    ],
+    activeKey: "all",
+  }),
+  ServicesSection: () => ({
     services: services ?? [],
-    note: servicesNote ?? "",
-    cta: servicesCta ?? { label: "CTA" },
-  },
+    note: servicesNote,
+    cta: servicesCta ?? {},
+  }),
   ProjectsSection: {
     projects: projectsForGallery ?? [],
     filterItems: galleryCategories ?? [],
@@ -235,29 +258,35 @@ const PROPS = {
   SiteHeader: { position: "static", slideOnScroll: false },
 };
 
+const DEFAULT_ORDER = 999; // components without toolkitOrder sort last
+
 function discover(context, excludeRe, wrap = true, excludeTkPrefix = true) {
   const seen = new Set();
-  return context
+  const items = context
     .keys()
     .filter((k) => !excludeRe.test(k))
     .map((k) => {
       const mod = context(k);
       const Component = mod.default;
       if (!Component || typeof Component !== "function") return null;
-      if (mod.toolkitExclude) return null;
+      if (mod.toolkitExclude !== false) return null; // must explicitly set false to be visible
       const name = baseName(k); // dedupe by filename only (webpack can return ./X.js and components/atoms/X.js)
       if (name === "index" || (excludeTkPrefix && name.startsWith("TK_"))) return null;
       if (seen.has(name)) return null;
       seen.add(name);
-      if (!wrap) return Component;
+      const order = typeof mod.toolkitOrder === "number" ? mod.toolkitOrder : DEFAULT_ORDER;
+      if (!wrap) return { Component, order };
       const label = labelFromPath(k);
       const propsRaw = PROPS[name];
       const props = typeof propsRaw === "function" ? propsRaw() : propsRaw || {};
       const { _render, ...rest } = props;
       const finalProps = _render ? rest : props;
-      return wrapSection(Component, label, finalProps, _render ? (Comp) => _render(Comp) : undefined);
+      const Section = wrapSection(Component, label, finalProps, _render ? (Comp) => _render(Comp) : undefined);
+      return { Section, order };
     })
     .filter(Boolean);
+  const sorted = items.sort((a, b) => a.order - b.order);
+  return sorted.map((x) => x.Component ?? x.Section);
 }
 
 const excludeAtomsMolecules = /(^\.\/index\.|^\.\/TK_)/i;

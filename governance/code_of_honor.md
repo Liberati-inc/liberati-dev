@@ -51,7 +51,23 @@
   - Prefer `ServiceCard`, `ProjectGrid`, `SectionLabel` over generic `Card`, `Container`, `Box`.
   - Variants reflect semantics (`"direction"`, `"motion"`) not presentation (`"redIcon"`, `"bigIcon"`).
 
-### 5a. Toolkit Page Conventions
+### 5a. Toolkit Exports – Required on Every Component
+- **All components** (atoms, molecules, organisms, brand) **must export**:
+  - `toolkitExclude`: `boolean` — `false` = visible in toolkit, `true` = hidden (composition-only).
+  - `toolkitOrder`: `number` — sort index; lower = first. Use `999` for excluded components.
+- **Rule**: Every component declares its toolkit visibility and position. No implicit defaults.
+- **Example**:
+  ```js
+  export const toolkitExclude = false;  // visible in toolkit
+  export const toolkitOrder = 1;        // sort position
+  export default function PrimaryButton({ ... }) { ... }
+  ```
+- **Excluded components** (e.g. `SectionLabel`, `FadeOnHover`, `BlockOverlay`): set `toolkitExclude = true` and `toolkitOrder = 999`.
+- **Toolkit PROPS use the prop name as the value**: Use the prop name itself, so users see which prop controls what. Examples: `label` → "label", `title` → "title", `header` → "header", `copy` → "copy", `meta` → "meta", `content` → "content", `sample` → "sample". For nested props use paths like `items[0].label` or `brief.context.title`. Never use project-specific names (e.g. "Snapdragon XR", "COD"). This keeps the toolkit as a design-system reference where developers can map UI to props at a glance.
+- **Prefer semantic prop names over `children`**: Use `label` for button/link/nav text, `copy` for body text, `content` for wrapper slots, `sample` for typography samples. This makes the API self-documenting.
+- **Organisms in toolkit use real site data**: Organisms (e.g. `ServicesSection`, `ProjectsSection`) receive the same props the marketing pages use (`services`, `servicesNote`, `servicesCta`, `projectsForGallery`, etc.). Prop names are already visible in the nested molecules; organisms show the real look and feel.
+
+### 5b. Toolkit Page Conventions
 - **Section headers**:
   - All toolkit sections use a consistent grid layout: label in the first column (`SectionLabel`), content in a `md:col-span-3` wrapper.
   - Numbering follows the atomic hierarchy:
@@ -63,7 +79,7 @@
   - Any primary CTA in the toolkit (e.g. “Schedule a Call”, “Get in Touch”, “Send Message”, “View Showreel”) must use the shared `PrimaryButton` atom, optionally extended via `className` (spacing/width only, not font size or tracking).
   - Secondary/ghost CTAs (e.g. “Our Work”) must use a dedicated secondary button atom (e.g. `SecondaryButton`), and that atom must be surfaced in the toolkit UI elements section as the single source of truth.
 
-### 5b. React‑ifying HTML (landing → toolkit)
+### 5c. React‑ifying HTML (landing → toolkit)
 - When converting a static HTML section (hero, about, services, etc.) into React:
   - **First search existing atoms/molecules/organisms** before writing new JSX. Reuse:
     - `PrimaryButton` / `SecondaryButton` for CTAs
@@ -82,14 +98,14 @@
     - Carry over breakpoint behavior (`sm:`, `md:`, `lg:` grid/flex rules) from the original HTML into the React component unless there is an explicit decision to change the design.
     - Prefer moving common layout patterns into shared helpers (e.g. `PageContainer`, grid molecules), but the end result must respond the same way across viewports as the source HTML.
 
-### 5c. Toolkit grouping & ordering
+### 5d. Toolkit grouping & ordering
 - Treat `/toolkit` as the on-site “storybook”:
   - **Token/atom sections first**: color palette (`01. Color Palette`), typography (`02. Typography`), then core UI atoms/molecules like buttons, pills, iconography, form fields.
   - **Molecule/layout sections next**: service cards, project grids, brief/video/gallery blocks.
   - **Organism sections last**: navigations, heroes, composite layouts – with `TopNavSection` first within this group and the page/footer organisms rendered last.
   - Each showcased element should include a small text label with its component name/path for reference (e.g. `PrimaryButton — components/atoms/PrimaryButton`), used only inside `/toolkit` as documentation, never copied into marketing pages.
 
-### 5d. Next.js – No distDir or .next Changes
+### 5e. Next.js – No distDir or .next Changes
 - **Never change `distDir`** in `next.config`. Keep the default `.next`. Custom `distDir` breaks Vercel and other platforms that expect the standard output path.
 - **Do not rename or relocate `.next`**. It is the canonical Next.js build output; tooling and deployment assume it.
 

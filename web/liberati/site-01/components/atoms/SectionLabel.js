@@ -1,8 +1,9 @@
 import { typeRole } from "@/content/typography";
 
-export const toolkitExclude = true;
+export const toolkitExclude = true; // toolkit chrome only
+export const toolkitOrder = 999;
 
-export default function SectionLabel({ children }) {
-  return <span className={typeRole.sectionLabel}>{children}</span>;
+export default function SectionLabel({ label }) {
+  return <span className={typeRole.sectionLabel}>{label}</span>;
 }
 

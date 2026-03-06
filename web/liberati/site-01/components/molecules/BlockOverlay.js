@@ -2,6 +2,9 @@
  * Black overlay for block media. Fades in when mouse hovers over parent (group).
  * Use with group/group-hover on parent. opacity: 0–1, default 0.4.
  */
+export const toolkitExclude = true; // composition-only
+export const toolkitOrder = 999;
+
 export default function BlockOverlay({ opacity = 0.4, className = "" }) {
   return (
     <div

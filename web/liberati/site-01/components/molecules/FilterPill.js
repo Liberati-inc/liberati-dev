@@ -1,7 +1,9 @@
 import { typeRole } from "@/content/typography";
 
+export const toolkitExclude = false;
+
 export default function FilterPill({
-  children,
+  label,
   active = false,
   variant = "filter", // "filter" (03. UI Elements) or "nav" (top nav)
   state, // optional: "idle" | "hover" | "active" for docs/toolkit
@@ -12,7 +14,7 @@ export default function FilterPill({
 
     return (
       <button className={`${base} ${active ? activeClasses : ""}`}>
-        {children}
+        {label}
       </button>
     );
   }
@@ -29,7 +31,7 @@ export default function FilterPill({
 
   return (
     <button className={`${base} ${stateClasses}`}>
-      {children}
+      {label}
     </button>
   );
 }

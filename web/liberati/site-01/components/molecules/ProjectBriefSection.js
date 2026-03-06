@@ -1,6 +1,8 @@
 import BriefCard from "@/components/molecules/BriefCard";
 import { type, typeRole } from "@/content/typography";
 
+export const toolkitExclude = false;
+
 /**
  * Context / Strategy / Solution block. Data from project.brief (editable in project .ts).
  * Header: title, meta (below title), description (below meta).
@@ -28,9 +30,9 @@ export default function ProjectBriefSection({ brief, meta, description }) {
           )}
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-          <BriefCard title={context.title} lineDelimiter={copyDelimiter}>{context.copy}</BriefCard>
-          <BriefCard title={strategy.title} lineDelimiter={copyDelimiter}>{strategy.copy}</BriefCard>
-          <BriefCard title={solution.title} lineDelimiter={copyDelimiter}>{solution.copy}</BriefCard>
+          <BriefCard title={context.title} copy={context.copy} lineDelimiter={copyDelimiter} />
+          <BriefCard title={strategy.title} copy={strategy.copy} lineDelimiter={copyDelimiter} />
+          <BriefCard title={solution.title} copy={solution.copy} lineDelimiter={copyDelimiter} />
         </div>
       </div>
     </section>

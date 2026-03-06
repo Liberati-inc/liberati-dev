@@ -5,6 +5,8 @@ import FadeOnHover from "@/components/atoms/FadeOnHover";
 import { type, typeServices, typeBlockOverlay } from "@/content/typography";
 import { getAspectStyle, getStillOverlayPositionClass, OVERLAY_BOTTOM } from "./blockUtils";
 
+export const toolkitExclude = false;
+
 export default function BlockStill({ block, fill }) {
   const { imageUrl, header, subtext } = block;
   const variant = block.variant ?? "video";

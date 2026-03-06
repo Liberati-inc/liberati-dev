@@ -1,5 +1,8 @@
 import SectionLabel from "@/components/atoms/SectionLabel";
-import ColorSwatch from "@/components/molecules/ColorSwatch";
+import ColorSwatch from "@/components/atoms/ColorSwatch";
+
+export const toolkitExclude = false;
+export const toolkitOrder = 1;
 
 export default function TK_ColorPaletteSection() {
   return (
@@ -8,7 +11,7 @@ export default function TK_ColorPaletteSection() {
       data-purpose="colors-section"
     >
       <div className="space-y-6">
-        <SectionLabel>Color Palette</SectionLabel>
+        <SectionLabel label="Color Palette" />
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
           <ColorSwatch
             name="Obsidican"

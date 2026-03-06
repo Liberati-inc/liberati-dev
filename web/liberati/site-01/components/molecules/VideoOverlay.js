@@ -1,3 +1,5 @@
+export const toolkitExclude = false;
+
 export default function VideoOverlay() {
   return (
     <div className="relative aspect-video bg-white/5 group cursor-pointer overflow-hidden">

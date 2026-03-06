@@ -1,3 +1,6 @@
+export const toolkitExclude = true; // composition-only
+export const toolkitOrder = 999;
+
 export default function MediaSurface({
   vimeoId,
   imageUrl,

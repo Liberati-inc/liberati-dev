@@ -3,6 +3,8 @@ import BlockOverlay from "@/components/molecules/BlockOverlay";
 import BlockOverlayCopy from "@/components/molecules/BlockOverlayCopy";
 import { getAspectStyle, OVERLAY_BOTTOM } from "./blockUtils";
 
+export const toolkitExclude = false;
+
 export default function BlockVimeo({ block, fill }) {
   const { vimeoId, header, subtext } = block;
   const variant = block.variant ?? "video";

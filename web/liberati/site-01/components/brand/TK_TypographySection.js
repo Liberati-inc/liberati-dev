@@ -7,6 +7,9 @@ import {
   typeServices,
 } from "@/content/typography";
 
+export const toolkitExclude = false;
+export const toolkitOrder = 2;
+
 const SAMPLE = {
   scale: "Cinematic Motion & Design",
   role: "We create visual narratives that resonate with global audiences.",
@@ -29,15 +32,16 @@ function renderGroup(title, entries, defaultSample = SAMPLE.role) {
             label={key}
             as={["h0", "h1", "h2", "h3", "h4", "landing"].includes(key) ? "h1" : "p"}
             className={className}
-          >
-            {["body", "landing"].includes(key)
-              ? SAMPLE.role
-              : key.includes("micro") || key.includes("disclaimer") || key.includes("Label") || key.includes("eyebrow") || key.includes("footer") || key.includes("Meta") || key.includes("Cta") || key.includes("navLink")
-                ? SAMPLE.micro
-                : key.includes("title") || key.includes("overlay") || key.includes("projectCard")
-                  ? SAMPLE.overlay
-                  : SAMPLE.scale}
-          </TypographySample>
+            sample={
+              ["body", "landing"].includes(key)
+                ? SAMPLE.role
+                : key.includes("micro") || key.includes("disclaimer") || key.includes("Label") || key.includes("eyebrow") || key.includes("footer") || key.includes("Meta") || key.includes("Cta") || key.includes("navLink")
+                  ? SAMPLE.micro
+                  : key.includes("title") || key.includes("overlay") || key.includes("projectCard")
+                    ? SAMPLE.overlay
+                    : SAMPLE.scale
+            }
+          />
         ))}
       </div>
     </div>
@@ -51,7 +55,7 @@ export default function TK_TypographySection() {
       data-purpose="typography-section"
     >
       <div className="space-y-6">
-        <SectionLabel>Typography</SectionLabel>
+        <SectionLabel label="Typography" />
         <div className="space-y-16">
           {renderGroup("type.scale", type.scale, SAMPLE.scale)}
           {renderGroup("type.mod (sample)", {

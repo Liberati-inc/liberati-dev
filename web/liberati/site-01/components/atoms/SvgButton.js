@@ -1,5 +1,8 @@
 import SvgIcon from "@/components/atoms/SvgIcon";
 
+export const toolkitExclude = false;
+export const toolkitOrder = 8;
+
 export default function SvgButton({
   variant,
   materialIcon,

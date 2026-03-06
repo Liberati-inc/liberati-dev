@@ -1,5 +1,8 @@
 import { typeServices } from "@/content/typography";
 
+export const toolkitExclude = true; // unused – ServiceCard uses SvgIcon
+export const toolkitOrder = 999;
+
 export default function ServiceIcon({ icon, label }) {
   return (
     <div className="flex flex-col items-center gap-4">
