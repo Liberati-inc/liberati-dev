@@ -143,16 +143,40 @@ textarea:-webkit-autofill {
   }
 }
 
-/* Hero video: full viewport cover (landing) */
+/* Hero video: full viewport cover (landing). Uses container queries for iframe cover (object-fit doesn't work on iframes). */
 .hero-video-cover {
   min-height: 100vh;
   min-height: 100dvh;
   min-width: 100vw;
+  container-type: size;
 }
 
 @media (hover: none) and (pointer: coarse) {
   .hero-video-cover {
     min-height: -webkit-fill-available;
+  }
+}
+
+.hero-video-cover iframe {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+}
+
+@container (min-aspect-ratio: 16/9) {
+  .hero-video-cover iframe {
+    width: 177.78cqh;
+    height: 100cqh;
+  }
+}
+
+@container (max-aspect-ratio: 16/9) {
+  .hero-video-cover iframe {
+    width: 100cqw;
+    height: 56.25cqw;
   }
 }
 
