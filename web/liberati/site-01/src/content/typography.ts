@@ -62,6 +62,7 @@ export const typeBlockOverlay = {
 // Domain roles – services/cards, etc.
 export const typeServices = {
   title: `${type.scale.h3} ${type.mod.white} ${type.mod.uppercase} ${type.mod.tightTrack}`,
+  body: `${type.scale.body} ${type.mod.muted}`,
   meta: `${type.scale.micro} ${type.mod.muted} ${type.mod.uppercase} ${type.mod.widestTrack}`,
   projectCardTitle: `text-lg font-bold uppercase ${type.mod.mediumTrack} `,
 } as const;

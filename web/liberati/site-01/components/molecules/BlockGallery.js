@@ -2,7 +2,7 @@ import BlockTitle from "@/components/molecules/BlockTitle";
 import { typeRole } from "@/content/typography";
 import { getAspectStyle } from "./blockUtils";
 
-export default function BlockGallery({ block }) {
+export default function BlockGallery({ block = {} }) {
   const { sectionTitle, images } = block;
   const validImages = (images ?? []).filter((img) => img?.imageUrl);
   if (!validImages.length) return null;

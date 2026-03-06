@@ -18,6 +18,8 @@ import type { Project, ProjectBlock, ProjectClass } from "../types";
  * - vimeo/still: variant, overlayOpacity, overlayPosition, overlayPaddingBottom (e.g. "pb-8" for lower), aspectRatio
  *
  * Hero video is project-level (previewVimeoId), not a block. Add blocks in order.
+ *
+ * showOnProjectsPage: when false, project is excluded from /projects gallery. Default true.
  */
 export type { Project, ProjectBlock, ProjectClass };
 

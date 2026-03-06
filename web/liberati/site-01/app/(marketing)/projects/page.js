@@ -1,11 +1,11 @@
 import { cookies } from "next/headers";
 import PageContainer from "@/components/atoms/PageContainer";
-import SiteHeader from "@/components/organisms/marketing/SiteHeader";
+import SiteHeader from "@/components/organisms/SiteHeader";
 import ProjectCard from "@/components/molecules/ProjectCard";
-import ProjectsSection from "@/components/organisms/marketing/ProjectsSection";
-import Footer from "@/components/organisms/marketing/Footer";
+import ProjectsSection from "@/components/organisms/ProjectsSection";
+import Footer from "@/components/organisms/Footer";
 import SetLastHeroCookie from "./SetLastHeroCookie";
-import { getProjectBySlug, projects } from "@/content/projects";
+import { getProjectBySlug, projectsForGallery } from "@/content/projects";
 import {
   projectsHero,
   galleryCategories,
@@ -31,7 +31,7 @@ function getHeroProject(projectsList, config, excludeSlug) {
 export default async function ProjectsPage() {
   const cookieStore = await cookies();
   const lastSlug = cookieStore.get(LAST_HERO_COOKIE)?.value;
-  const heroProject = getHeroProject(projects, projectsHero, lastSlug);
+  const heroProject = getHeroProject(projectsForGallery, projectsHero, lastSlug);
 
   return (
     <div className="bg-obsidian text-white min-h-screen">
@@ -59,7 +59,7 @@ export default async function ProjectsPage() {
         <section className="py-16">
           <PageContainer>
             <ProjectsSection
-              projects={projects}
+              projects={projectsForGallery}
               filterItems={galleryCategories}
               filterActiveKey={galleryDefaultKey}
               galleryCategoryClasses={galleryCategoryClasses}

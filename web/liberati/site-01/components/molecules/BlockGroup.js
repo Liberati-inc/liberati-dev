@@ -4,7 +4,7 @@ import BlockVimeo from "./BlockVimeo";
 import BlockStill from "./BlockStill";
 import BlockGallery from "./BlockGallery";
 
-export default function BlockGroup({ block }) {
+export default function BlockGroup({ block = {} }) {
   const { blocks, layout = "cols", ratio } = block;
   if (!blocks?.length) return null;
 

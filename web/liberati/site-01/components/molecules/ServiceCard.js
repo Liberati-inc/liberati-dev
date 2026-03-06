@@ -1,7 +1,7 @@
 import SvgIcon from "@/components/atoms/SvgIcon";
 import { typeServices, typeRole } from "@/content/typography";
 
-export default function ServiceCard({ iconVariant, title, description, items }) {
+export default function ServiceCard({ iconVariant, title, description, items = [] }) {
   return (
     <div className="group">
       <div className="mb-6 flex items-center gap-3">

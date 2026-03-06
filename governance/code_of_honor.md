@@ -89,7 +89,11 @@
   - **Organism sections last**: navigations, heroes, composite layouts – with `TopNavSection` first within this group and the page/footer organisms rendered last.
   - Each showcased element should include a small text label with its component name/path for reference (e.g. `PrimaryButton — components/atoms/PrimaryButton`), used only inside `/toolkit` as documentation, never copied into marketing pages.
 
-### 5. Styling & Tokens
+### 5d. Next.js – No distDir or .next Changes
+- **Never change `distDir`** in `next.config`. Keep the default `.next`. Custom `distDir` breaks Vercel and other platforms that expect the standard output path.
+- **Do not rename or relocate `.next`**. It is the canonical Next.js build output; tooling and deployment assume it.
+
+### 6. Styling & Tokens
 - **Tokens > custom values**:
   - Use Tailwind’s design tokens or project-specific tokens before arbitrary values.
   - When you must introduce a new value, add it to tokens first, then use it.

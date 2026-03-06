@@ -5,10 +5,12 @@ export default createProject({
   title: "This is MARA",
   meta: "Various • MARA",
   class: "brand",
+  showOnProjectsPage: true,
   vimeoId: "727899592",
   previewVimeoId: "727899592",
   detailPlayMode: "manual",
   stillImage: undefined,
+  showOnProjectsPage: false,
   brief: {
     context: {
       title: "Context",

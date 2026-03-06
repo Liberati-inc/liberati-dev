@@ -2,7 +2,7 @@ import { createProject } from "./template";
 
 export default createProject({
   slug: "obi-wan",
-  title: "Porsche x Obi-Wan Kenobi: Parallels 03",
+  title: "Parallels 03",
   meta: "Promo • Porsche + Disney ",
   class: "brand",
   vimeoId: "727899592",

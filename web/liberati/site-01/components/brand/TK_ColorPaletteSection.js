@@ -1,6 +1,5 @@
 import SectionLabel from "@/components/atoms/SectionLabel";
 import ColorSwatch from "@/components/molecules/ColorSwatch";
-import { typeServices } from "@/content/typography";
 
 export default function TK_ColorPaletteSection() {
   return (
@@ -9,8 +8,7 @@ export default function TK_ColorPaletteSection() {
       data-purpose="colors-section"
     >
       <div className="space-y-6">
-        <SectionLabel>1.0 Color Palette</SectionLabel>
-
+        <SectionLabel>Color Palette</SectionLabel>
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
           <ColorSwatch
             name="Obsidican"
@@ -35,12 +33,7 @@ export default function TK_ColorPaletteSection() {
             nameClass="text-white"
           />
         </div>
-
-        <p className={typeServices.meta}>
-          ColorSwatch &mdash; components/molecules/ColorSwatch
-        </p>
       </div>
     </section>
   );
 }
-

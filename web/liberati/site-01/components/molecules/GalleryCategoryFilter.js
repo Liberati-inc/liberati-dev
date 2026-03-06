@@ -6,7 +6,7 @@ import { typeServices } from "@/content/typography";
  * Active tab uses liberatiRed underline; inactive use muted with hover to white.
  * When onSelect is provided, tabs are buttons and call onSelect(key); otherwise they are Links.
  */
-export default function GalleryCategoryFilter({ items, activeKey, onSelect }) {
+export default function GalleryCategoryFilter({ items = [], activeKey, onSelect }) {
   const baseClass = `px-4 py-2 ${typeServices.meta} transition-colors`;
 
   return (

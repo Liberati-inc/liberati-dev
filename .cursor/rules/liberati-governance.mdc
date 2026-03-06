@@ -27,6 +27,7 @@ When working in the `liberati-dev` workspace:
   - Preserve the original HTML’s responsive behavior (breakpoints, grid/flex patterns) when componentizing; refactors can abstract layout, but should not silently change how sections behave at different viewport sizes.
   - Keep `/toolkit` grouped and ordered like a design-system browser: tokens/atoms first (color, type, buttons, pills, iconography, form fields), then molecules/layouts (cards, grids, briefs), and finally organisms (navigation, hero, composite layouts) with footer last.
   - Every showcased toolkit example should include a lightweight label indicating the component name/path, for reference only, not to be copied into marketing pages.
+  - **Never change `distDir` or `.next`** in Next.js config; keep the default build output path (Vercel and tooling depend on it).
   - **Push back on requests** when a change would violate proper workflows, industry standards, or this governance: explain why it’s inadvisable and suggest an alternative that fits the codebase and benefits the user; only then implement if the user insists.
 
 Use the `Governance/` files as the **source of truth** for design, component structure, and asset handling in this repo.

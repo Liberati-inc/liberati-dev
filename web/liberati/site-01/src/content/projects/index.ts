@@ -20,6 +20,11 @@ export type { ProjectBlock, ProjectClass } from "../types";
 export { createProject } from "./template";
 export const projects = projectList;
 
+/** Projects included in /projects gallery. Excludes those with showOnProjectsPage: false. */
+export const projectsForGallery = projectList.filter(
+  (p) => p.showOnProjectsPage !== false
+);
+
 export function getProjectBySlug(slug: string): Project | undefined {
   return projectList.find((p) => p.slug === slug);
 }

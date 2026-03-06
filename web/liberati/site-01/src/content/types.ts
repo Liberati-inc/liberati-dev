@@ -148,5 +148,7 @@ export interface Project {
   blocks?: ProjectBlock[];
   /** Credit section below blocks; same structure as brief (e.g. Credit, Client, Brand). */
   credit?: ProjectBrief;
+  /** When false, project is excluded from the /projects gallery. Default true. */
+  showOnProjectsPage?: boolean;
 }
 

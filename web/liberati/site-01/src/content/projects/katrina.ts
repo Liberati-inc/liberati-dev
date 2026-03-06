@@ -9,6 +9,7 @@ export default createProject({
   previewVimeoId: "924881851",
   detailPlayMode: "manual",
   stillImage: undefined,
+  showOnProjectsPage: false,
   brief: {
     context: {
       title: "Context",

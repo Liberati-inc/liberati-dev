@@ -4,7 +4,7 @@ import PrimaryButton from "@/components/atoms/PrimaryButton";
 import { typeRole } from "@/content/typography";
 import { servicesCopy } from "@/content/services";
 
-export default function ServicesSection({ services, note, cta }) {
+export default function ServicesSection({ services = [], note, cta = {} }) {
   return (
     <section className="bg-obsidian py-24">
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
@@ -23,7 +23,7 @@ export default function ServicesSection({ services, note, cta }) {
 
         <div className="mt-20 flex flex-col md:flex-row items-center justify-between gap-8 border-t border-white/10 pt-12">
           <PrimaryButton className="flex items-center gap-3 group">
-            <span>{cta.label}</span>
+            <span>{cta?.label ?? "CTA"}</span>
             <span className="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">
               send
             </span>
@@ -36,4 +36,3 @@ export default function ServicesSection({ services, note, cta }) {
     </section>
   );
 }
-
