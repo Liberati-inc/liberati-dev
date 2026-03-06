@@ -40,17 +40,19 @@ export default async function ProjectDetailPage({ params }) {
     <div className="bg-obsidian text-white min-h-screen flex flex-col w-full min-w-0 overflow-x-hidden">
       <div className="sticky top-0 z-50 flex flex-col shrink-0">
         <SiteHeader position="static" />
-        <div className={`relative w-full ${aspectClass} shrink-0`}>
-          <ProjectCard
-            variant={heroVariant}
-            fill={heroVariant === "video"}
-            vimeoId={vimeoId}
-            stillImage={project.stillImage}
-            {...playOverrides}
-            title={project.title}
-            meta={project.meta}
-            overlayPadding="px-6 lg:px-10 pb-16 md:pb-24"
-          />
+        <div className="w-full shrink-0">
+          <div className={`relative w-full ${aspectClass} max-h-[calc(100vh-4rem)] max-h-[calc(100dvh-4rem)]`}>
+            <ProjectCard
+              variant={heroVariant}
+              fill={heroVariant === "video"}
+              vimeoId={vimeoId}
+              stillImage={project.stillImage}
+              {...playOverrides}
+              title={project.title}
+              meta={project.meta}
+              overlayPadding="px-6 lg:px-10 pb-16 md:pb-24"
+            />
+          </div>
         </div>
       </div>
 
