@@ -98,13 +98,7 @@ export default function ProjectCard({
           <MediaSurface
             vimeoId={vimeoId}
             imageUrl={thumbUrl || undefined}
-            className={
-              cover
-                ? "absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 aspect-video hero-video-cover-compact"
-                : `absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 aspect-video ${
-                    isLanding ? "hero-video-cover" : "hero-video-cover-compact"
-                  }`
-            }
+            className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 aspect-video hero-video-cover"
             playMode={effectivePlayMode}
             loop={effectiveLoop}
             blackTintOpacity={blackTintOpacity}

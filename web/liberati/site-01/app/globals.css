@@ -121,11 +121,13 @@ textarea:-webkit-autofill {
 /* ============================================================
    iOS / Mobile viewport fix
    ============================================================ */
+/* Base: desktop + mobile */
 .h-screen-safe {
   min-height: 100vh;
   height: 100vh;
 }
 
+/* Modern browsers: use dvh (ignores mobile browser chrome) */
 @supports (height: 100dvh) {
   .h-screen-safe {
     min-height: 100dvh;
@@ -133,7 +135,7 @@ textarea:-webkit-autofill {
   }
 }
 
-/* Touch devices (iOS, iPad): -webkit-fill-available for older Safari */
+/* Touch (iOS, iPad, Android): -webkit-fill-available for older Safari address bar */
 @media (hover: none) and (pointer: coarse) {
   .h-screen-safe {
     min-height: -webkit-fill-available;
@@ -143,18 +145,15 @@ textarea:-webkit-autofill {
   }
 }
 
-/* Hero video: full viewport cover (landing). Uses container queries for iframe cover (object-fit doesn't work on iframes). */
+/* ============================================================
+   Hero video iframe cover
+   Fills parent (landing viewport or block grid cell). object-fit doesn't work on iframes; use container queries.
+   ============================================================ */
+/* All viewports */
 .hero-video-cover {
-  min-height: 100vh;
-  min-height: 100dvh;
-  min-width: 100vw;
+  min-height: 100%;
+  min-width: 100%;
   container-type: size;
-}
-
-@media (hover: none) and (pointer: coarse) {
-  .hero-video-cover {
-    min-height: -webkit-fill-available;
-  }
 }
 
 .hero-video-cover iframe {
@@ -166,6 +165,7 @@ textarea:-webkit-autofill {
   height: 100%;
 }
 
+/* All viewports: fill height, extend width (cover) */
 @container (min-aspect-ratio: 16/9) {
   .hero-video-cover iframe {
     width: 177.78cqh;
@@ -175,39 +175,8 @@ textarea:-webkit-autofill {
 
 @container (max-aspect-ratio: 16/9) {
   .hero-video-cover iframe {
-    width: 100cqw;
-    height: 56.25cqw;
-  }
-}
-
-/* Hero video: compact (non-landing) — fills container. Uses container queries for iframe cover (object-fit doesn't work on iframes). */
-.hero-video-cover-compact {
-  min-height: 100%;
-  min-width: 100%;
-  container-type: size;
-}
-
-.hero-video-cover-compact iframe {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 100%;
-  height: 100%;
-}
-
-/* Iframe cover: when container wider than 16:9, fill height; when taller, fill width. */
-@container (min-aspect-ratio: 16/9) {
-  .hero-video-cover-compact iframe {
     width: 177.78cqh;
     height: 100cqh;
-  }
-}
-
-@container (max-aspect-ratio: 16/9) {
-  .hero-video-cover-compact iframe {
-    width: 100cqw;
-    height: 56.25cqw;
   }
 }
 
@@ -222,7 +191,7 @@ textarea:-webkit-autofill {
 
 .hover-arrow {
   transition: transform 0.3s ease;
-  color: #ae1e22;
+  color: var(--brand);
 }
 
 .group:hover .hover-arrow {
