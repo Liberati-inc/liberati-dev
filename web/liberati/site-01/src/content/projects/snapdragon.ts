@@ -56,6 +56,7 @@ export default createProject({
           layout: "full",
           variant: "hero",
         },
+        
       ],
     },
     {

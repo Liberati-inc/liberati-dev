@@ -4,7 +4,6 @@ import type { NavItem, SocialLink } from "./types";
 export const mainNav: NavItem[] = [
   { id: "about", label: "About", href: "/#about" },
   { id: "projects", label: "Projects", href: "/projects" },
-  { id: "interactive", label: "Interactive", href: "#interactive" },
 ];
 
 export const footerSocial: SocialLink[] = [
