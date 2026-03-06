@@ -70,7 +70,7 @@ export default async function ProjectDetailPage({ params }) {
 
           {project.credit && (
             <ProjectBriefSection
-              brief={{ ...project.credit, sectionTitle: "Credit" }}
+              brief={{ ...project.credit, sectionTitle: project.credit.sectionTitle ?? "Credit" }}
             />
           )}
         </div>

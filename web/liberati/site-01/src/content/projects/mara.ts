@@ -7,7 +7,7 @@ export default createProject({
   class: "brand",
   vimeoId: "727899592",
   previewVimeoId: "727899592",
-  detailPlayMode: "loop",
+  detailPlayMode: "manual",
   stillImage: undefined,
   brief: {
     context: {

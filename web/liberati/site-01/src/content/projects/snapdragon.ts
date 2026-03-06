@@ -89,6 +89,7 @@ export default createProject({
     // { contentType: "gallery", sectionTitle: "Explorations & Stills", images: [{ imageUrl: "...", caption: "..." }] },
   ],
   credit: {
+    sectionTitle: "",
     copyDelimiter: ",",
     context: {
       title: "Credit",
