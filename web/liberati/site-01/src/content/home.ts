@@ -10,7 +10,7 @@ export const heroFallbackImage =
 export const heroRandomize = true;
 
 export const aboutCopy = {
-  eyebrow: "What We Do",
+  eyebrow: "About Us",
   heading: "We partner with\nbrands & beyond",
   body:
   "Liberati is a remote studio crafting motion and interactive experiences, led by award-winning director and designer Ming Hsiung. He brings ideas to life with a focus on craft, curiosity, and clarity—approaching every project with the same energy he brings to his own."  

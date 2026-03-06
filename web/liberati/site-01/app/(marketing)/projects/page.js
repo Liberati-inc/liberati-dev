@@ -2,7 +2,7 @@ import { cookies } from "next/headers";
 import PageContainer from "@/components/atoms/PageContainer";
 import SiteHeader from "@/components/organisms/marketing/SiteHeader";
 import ProjectCard from "@/components/molecules/ProjectCard";
-import ProjectGallery from "@/components/organisms/marketing/ProjectGallery";
+import ProjectsSection from "@/components/organisms/marketing/ProjectsSection";
 import Footer from "@/components/organisms/marketing/Footer";
 import SetLastHeroCookie from "./SetLastHeroCookie";
 import { getProjectBySlug, projects } from "@/content/projects";
@@ -44,20 +44,21 @@ export default async function ProjectsPage() {
         {heroProject && (
           <div className="h-[32vh] w-full">
             <ProjectCard
-            variant="hero"
-            vimeoId={heroProject.vimeoId}
-            stillImage={heroProject.stillImage}
-            title={heroProject.title}
-            meta={heroProject.meta}
-            href={`/project/${heroProject.slug}`}
-            ctaLabel={heroProject.ctaLabel}
-          />
+              variant="hero"
+              vimeoId={heroProject.vimeoId}
+              stillImage={heroProject.stillImage}
+              title={heroProject.title}
+              meta={heroProject.meta}
+              href={`/project/${heroProject.slug}`}
+              ctaLabel={heroProject.ctaLabel}
+              showOverlay={false}
+            />
           </div>
         )}
 
         <section className="py-16">
           <PageContainer>
-            <ProjectGallery
+            <ProjectsSection
               projects={projects}
               filterItems={galleryCategories}
               filterActiveKey={galleryDefaultKey}

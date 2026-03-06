@@ -35,6 +35,7 @@ export default function ProjectCard({
   overlayPadding,
   contentFadeOnHover,
   overlayPosition,
+  showOverlay = true,
   cover,
   href,
   heading,
@@ -112,6 +113,7 @@ export default function ProjectCard({
             }}
           />
         )}
+        {showOverlay && (
         <div
           className={`relative z-10 max-w-7xl w-full ${contentAlignClass} ${
             contentFadeOnHover ? "opacity-100 md:opacity-0 md:transition-opacity md:duration-500 md:group-hover:opacity-100 " : ""
@@ -183,6 +185,7 @@ export default function ProjectCard({
             )}
           </div>
         </div>
+        )}
       </section>
     );
   }

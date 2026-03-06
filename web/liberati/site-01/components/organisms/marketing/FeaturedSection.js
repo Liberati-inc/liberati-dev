@@ -7,7 +7,7 @@ import ProjectCard from "@/components/molecules/ProjectCard";
 import { featuredCopy, featuredProjectSlugs } from "@/content/home";
 import { getProjectBySlug } from "@/content/projects";
 
-export default function FeaturedSection() {
+export default function FeaturedSection({ showOverlay = false }) {
   const featured = featuredProjectSlugs
     .map((slug) => getProjectBySlug(slug))
     .filter(Boolean);
@@ -44,7 +44,8 @@ export default function FeaturedSection() {
             meta={project.meta}
             href={`/project/${project.slug}`}
             ctaLabel={project.ctaLabel}
-            overlayPadding="px-8 lg:px-32 pb-12"  // adjust as needed
+            overlayPadding="px-8 lg:px-32 pb-12"
+            showOverlay={showOverlay}
           />
           </div>
         </div>

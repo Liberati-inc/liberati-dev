@@ -1,11 +1,14 @@
 import ServiceCard from "@/components/molecules/ServiceCard";
+import EyebrowLabel from "@/components/atoms/EyebrowLabel";
 import PrimaryButton from "@/components/atoms/PrimaryButton";
 import { typeRole } from "@/content/typography";
+import { servicesCopy } from "@/content/services";
 
 export default function ServicesSection({ services, note, cta }) {
   return (
     <section className="bg-obsidian py-24">
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
+        <EyebrowLabel className="mb-8">{servicesCopy.eyebrow}</EyebrowLabel>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           {services.map((service) => (
             <ServiceCard

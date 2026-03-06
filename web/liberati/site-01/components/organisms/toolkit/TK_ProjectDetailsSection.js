@@ -1,7 +1,7 @@
 import SectionLabel from "@/components/atoms/SectionLabel";
 import ProjectCard from "@/components/molecules/ProjectCard";
-import ProjectBriefSection from "@/components/organisms/marketing/ProjectBriefSection";
-import ProjectBlocksSection from "@/components/organisms/marketing/ProjectBlocksSection";
+import ProjectBriefSection from "@/components/molecules/ProjectBriefSection";
+import ProjectBlocksSection from "@/components/molecules/ProjectBlocksSection";
 import { typeServices } from "@/content/typography";
 
 /** 2.3 approved brief — Context / Strategy / Solution. */
@@ -67,9 +67,9 @@ export default function TK_ProjectDetailsSection() {
           <p className={`mt-8 ${typeServices.meta}`}>
             ProjectCard (hero variant) — components/molecules/ProjectCard
             <br />
-            ProjectBriefSection — components/organisms/marketing/ProjectBriefSection
+            ProjectBriefSection — components/molecules/ProjectBriefSection
             <br />
-            ProjectBlocksSection — components/organisms/marketing/ProjectBlocksSection
+            ProjectBlocksSection — components/molecules/ProjectBlocksSection
           </p>
         </div>
       </div>

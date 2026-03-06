@@ -1,5 +1,9 @@
 import type { Service, CTA } from "./types";
 
+export const servicesCopy = {
+  eyebrow: "What We Do",
+};
+
 export const services: Service[] = [
   {
     id: "direction",

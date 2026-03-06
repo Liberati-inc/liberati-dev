@@ -1,6 +1,6 @@
 import SectionLabel from "@/components/atoms/SectionLabel";
 import GalleryCategoryFilter from "@/components/molecules/GalleryCategoryFilter";
-import ProjectGallery from "@/components/organisms/marketing/ProjectGallery";
+import ProjectsSection from "@/components/organisms/marketing/ProjectsSection";
 import { projects } from "@/content";
 import { typeServices } from "@/content/typography";
 
@@ -17,12 +17,12 @@ export default function TK_ProjectGallerySection() {
       <div className="space-y-6">
         <SectionLabel>3.5 Project Gallery</SectionLabel>
         <p className={`${typeServices.meta} mb-4`}>
-          GalleryCategoryFilter + ProjectGallery — components/molecules/GalleryCategoryFilter,
-          components/organisms/marketing/ProjectGallery
+          GalleryCategoryFilter + ProjectsSection — components/molecules/GalleryCategoryFilter,
+          components/organisms/marketing/ProjectsSection
         </p>
         <div className="flex flex-col gap-12">
           <GalleryCategoryFilter items={sampleCategories} activeKey="brands" />
-          <ProjectGallery projects={projects} />
+          <ProjectsSection projects={projects} />
         </div>
       </div>
     </section>

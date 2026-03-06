@@ -1,8 +1,8 @@
 import { notFound } from "next/navigation";
 import SiteHeader from "@/components/organisms/marketing/SiteHeader";
 import ProjectCard from "@/components/molecules/ProjectCard";
-import ProjectBriefSection from "@/components/organisms/marketing/ProjectBriefSection";
-import ProjectBlocksSection from "@/components/organisms/marketing/ProjectBlocksSection";
+import ProjectBriefSection from "@/components/molecules/ProjectBriefSection";
+import ProjectBlocksSection from "@/components/molecules/ProjectBlocksSection";
 import Footer from "@/components/organisms/marketing/Footer";
 import { getProjectBySlug } from "@/content/projects";
 
