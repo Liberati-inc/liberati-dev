@@ -1,6 +1,18 @@
 /** Default aspect ratio for video/still containers. */
 export const DEFAULT_ASPECT = "16:9";
 
+/** Gap between blocks in stack. Uses tokens from globals.css (--block-gap*). */
+export const BLOCK_GAP = "gap-block sm:gap-block-sm md:gap-block-md";
+
+/** Section padding for block sections. Uses tokens from globals.css (--block-pad-*). */
+export const BLOCK_SECTION_PAD = "px-block-x py-block-y md:px-block-x-md";
+
+/** Content padding for individual blocks (BlockCopy, BlockVimeo thumb, BlockStill thumb). */
+export const BLOCK_CONTENT_PAD = "px-block-x py-block-content-y md:px-block-x-md md:py-block-content-y-md";
+
+/** Vertical-only padding for blocks that fill width (BlockVimeo/BlockStill user variant). */
+export const BLOCK_CONTENT_PAD_Y = "py-block-content-y md:py-block-content-y-md";
+
 /** Shared bottom padding for overlay copy — responsive for safe area on mobile. */
 export const OVERLAY_BOTTOM = "pb-6 pt-4 md:pb-6 md:pt-0";
 

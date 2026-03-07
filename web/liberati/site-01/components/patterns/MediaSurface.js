@@ -1,15 +1,15 @@
 "use client";
 
-import { useRef, useEffect, useState } from "react";
+import { useId, useRef, useEffect, useState } from "react";
 import Player from "@vimeo/player";
 
-export const toolkitExclude = true; // composition-only
+export const toolkitExclude = true;
 export const toolkitOrder = 999;
 
 /**
- * Uses Vimeo Player SDK to create embed with options (per official docs).
- * Embed options only apply when creating a new embed via SDK, not when attaching to iframe.
- * @see https://developer.vimeo.com/player/sdk/embed
+ * Vimeo embed via SDK. Poster fades when video is playing (playing event + poll fallback).
+ * Unique container id per instance to avoid duplicate conflicts.
+ * @see https://github.com/vimeo/player.js
  */
 export default function MediaSurface({
   vimeoId,
@@ -17,24 +17,38 @@ export default function MediaSurface({
   useFallbackImage = false,
   className = "",
   iframeClassName = "absolute inset-0 w-full h-full pointer-events-none object-cover",
-  heroCover = false, // when true, hero-video-cover handles iframe layout; skip [&_iframe] positioning
+  heroCover = false,
   iframeStyle,
   playMode = "auto",
   loop = true,
   posterFadeMs = 1500,
+  playingPollMs = 150,
   blackTintOpacity,
   tintClassName,
 }) {
   const showPoster = useFallbackImage && imageUrl && vimeoId;
   const showFallbackOnly = useFallbackImage && imageUrl && !vimeoId;
   const [videoPlaying, setVideoPlaying] = useState(false);
+  const instanceId = useId().replace(/:/g, "-");
   const containerRef = useRef(null);
+  const pollRef = useRef(null);
 
   useEffect(() => {
     if (!vimeoId || !containerRef.current) return;
-    setVideoPlaying(false); // Reset when vimeoId changes
 
-    const options = {
+    const container = containerRef.current;
+    let cancelled = false;
+
+    const fadePoster = () => {
+      if (cancelled) return;
+      setVideoPlaying(true);
+      if (pollRef.current) {
+        clearInterval(pollRef.current);
+        pollRef.current = null;
+      }
+    };
+
+    const player = new Player(container, {
       id: vimeoId,
       autoplay: playMode === "auto",
       muted: true,
@@ -43,39 +57,38 @@ export default function MediaSurface({
       playsinline: true,
       preload: "auto",
       autopause: false,
-    };
+    });
 
-    const player = new Player(containerRef.current, options);
-
-    let pollId;
-    const fadePoster = () => {
-      setVideoPlaying(true);
-      if (pollId) clearInterval(pollId);
-    };
     player.on("playing", fadePoster);
 
-    if (playMode === "auto") {
-      player.ready().then(() => player.play().catch(() => {}));
-      // Fallback: poll getPaused() — when false, video is playing (covers cases where events don't fire)
-      pollId = setInterval(() => {
-        player.getPaused().then((paused) => {
-          if (!paused) fadePoster();
-        }).catch(() => {});
-      }, 300);
-      const timeout = setTimeout(fadePoster, 4000); // Fade after 4s regardless — avoid stuck poster
-      return () => {
-        clearInterval(pollId);
-        clearTimeout(timeout);
-        player.off("playing", fadePoster);
-        player.destroy();
-      };
-    }
+    const startPoll = () => {
+      if (cancelled) return;
+      if (playMode === "auto") {
+        pollRef.current = setInterval(() => {
+          if (cancelled) return;
+          if (!containerRef.current || !document.contains(containerRef.current)) return;
+          player.getPaused()
+            .then((paused) => {
+              if (cancelled) return;
+              if (!paused) fadePoster();
+            })
+            .catch(() => {});
+        }, playingPollMs);
+      }
+    };
+
+    player.ready().then(startPoll).catch(() => {});
 
     return () => {
+      cancelled = true;
+      if (pollRef.current) {
+        clearInterval(pollRef.current);
+        pollRef.current = null;
+      }
       player.off("playing", fadePoster);
-      player.destroy();
+      player.destroy().catch(() => {});
     };
-  }, [vimeoId, playMode, loop]);
+  }, [vimeoId, playMode, playingPollMs]);
 
   const posterOpacity = showPoster && videoPlaying ? 0 : 1;
 
@@ -111,6 +124,7 @@ export default function MediaSurface({
       {vimeoId && (
         <div
           ref={containerRef}
+          id={`vimeo-container-${instanceId}`}
           className={
             heroCover
               ? `absolute inset-0 [&_iframe]:pointer-events-none ${iframeClassName}`

@@ -9,8 +9,8 @@ export const toolkitOrder = 4;
 
 export default function ServicesSection({ services = [], note, cta = {} }) {
   return (
-    <section className="bg-obsidian py-24">
-      <div className="max-w-7xl mx-auto px-6 lg:px-10">
+    <section className="bg-obsidian py-section-y">
+      <div className="max-w-7xl mx-auto">
         <EyebrowLabel className="mb-8" label={servicesCopy.eyebrow} />
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           {services.map((service) => (

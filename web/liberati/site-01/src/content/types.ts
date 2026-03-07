@@ -57,11 +57,11 @@ export type ProjectClass =
   | "documentary"
   | "other";
 
-/** Layout hint for block-level organisms (full-bleed, split, stacked). */
-export type ProjectBlockLayout = "full" | "split" | "stack";
+/** Block display variant: preview (hero overlay), user (embed), thumb (card). */
+export type ProjectBlockVariant = "preview" | "user" | "thumb";
 
-/** Block display variant: hero (overlay), video (embed only), thumb (card). Matches ProjectCard. */
-export type ProjectBlockVariant = "hero" | "video" | "thumb";
+/** Overlay style: landing (hero), featured (bottom-left + link when slug), none. */
+export type BlockOverlayStyle = "landing" | "featured" | "none";
 
 /** Content blocks for project detail pages. contentType = block kind; variant = display style. */
 export type ProjectBlock =
@@ -69,21 +69,25 @@ export type ProjectBlock =
       contentType: "copy";
       header: string;
       subtext?: string;
-      layout?: ProjectBlockLayout;
     }
   | {
       contentType: "vimeo";
       vimeoId: string;
       header?: string;
       subtext?: string;
-      layout?: ProjectBlockLayout;
-      /** hero = overlay; video = embed only; thumb = card. Default video. */
+      /** Project slug for View Project link. Link shown when slug or href is set. */
+      slug?: string;
+      /** View Project href override. When set, overrides slug-based /project/{slug}. */
+      href?: string;
+      /** preview = hero overlay; user = embed; thumb = card. Default user. */
       variant?: ProjectBlockVariant;
-      /** Black overlay opacity 0–1. Default 0.4. Fades in/out on scroll. */
+      /** landing = hero overlay; featured = bottom-left + link when slug; none = no overlay. Default featured for user. */
+      overlay?: BlockOverlayStyle;
+      /** Black overlay opacity 0–1. Default 0.4. */
       overlayOpacity?: number;
       /** Copy position in overlay. Default bottom-left. */
       overlayPosition?: "bottom-left" | "bottom-right" | "top-left" | "top-right" | "center";
-      /** Override bottom padding for overlay copy (e.g. "pb-8" or "pb-6 md:pb-8" for lower). Default pb-16 md:pb-24. */
+      /** Override bottom padding for overlay copy. */
       overlayPaddingBottom?: string;
       /** Aspect ratio: "16:9" or { width, height }. */
       aspectRatio?: string | { width: number; height: number };
@@ -93,22 +97,17 @@ export type ProjectBlock =
       imageUrl: string;
       header?: string;
       subtext?: string;
-      layout?: ProjectBlockLayout;
-      /** hero = full-bleed overlay; video = image only; thumb = card. Default video. */
+      /** preview = full-bleed overlay; user = image only; thumb = card. Default user. */
       variant?: ProjectBlockVariant;
-      /** Black overlay opacity 0–1. Default 0.4. Fades in/out on scroll. */
+      /** featured = overlay; none = no overlay. Default featured for user. */
+      overlay?: BlockOverlayStyle;
+      /** Black overlay opacity 0–1. Default 0.4. */
       overlayOpacity?: number;
       /** Copy position in overlay. Default bottom-left. */
       overlayPosition?: "bottom-left" | "bottom-right" | "top-left" | "top-right" | "center";
       /** Override bottom padding for overlay copy (e.g. "pb-8" for lower). Default pb-16 md:pb-24. */
       overlayPaddingBottom?: string;
       aspectRatio?: string | { width: number; height: number };
-    }
-  | {
-      contentType: "gallery";
-      sectionTitle?: string;
-      images: { imageUrl: string; caption?: string }[];
-      layout?: ProjectBlockLayout;
     }
   | {
       contentType: "group";
@@ -139,7 +138,7 @@ export interface Project {
   /** Detail page video: "loop" = autoplay muted loop; "manual" = play button. */
   detailPlayMode?: "loop" | "manual";
   /** Detail page hero: "hero" = overlay with title/meta; "video" = video only, no overlay. */
-  detailHeroVariant?: "hero" | "video";
+  detailHeroVariant?: "preview" | "user";
   /** Detail hero video aspect ratio; default "16/9". */
   heroAspectRatio?: "16/9" | "4/3" | "21/9" | "1/1";
   /** Context / Strategy / Solution section; title + copy editable per project. */

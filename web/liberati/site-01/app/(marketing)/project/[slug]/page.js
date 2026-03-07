@@ -5,6 +5,7 @@ import ProjectBriefSection from "@/components/patterns/ProjectBriefSection";
 import ProjectBlocksSection from "@/components/patterns/ProjectBlocksSection";
 import Footer from "@/components/sections/Footer";
 import { getProjectBySlug } from "@/content/projects";
+import { enrichProjectWithThumbnail } from "@/lib/enrichProjects";
 
 export async function generateMetadata({ params }) {
   const { slug } = await params;
@@ -18,17 +19,18 @@ export async function generateMetadata({ params }) {
 
 export default async function ProjectDetailPage({ params }) {
   const { slug } = await params;
-  const project = getProjectBySlug(slug);
-  if (!project) notFound();
+  const raw = getProjectBySlug(slug);
+  if (!raw) notFound();
+  const project = await enrichProjectWithThumbnail(raw);
 
   const vimeoId = project.previewVimeoId ?? project.vimeoId;
-  const heroVariant =
+  const heroPlayMode =
     project.detailHeroVariant ??
-    (project.detailPlayMode === "manual" ? "video" : "hero");
-  const playOverrides =
+    (project.detailPlayMode === "manual" ? "user" : "preview");
+  const playbackOverride =
     project.detailPlayMode === "manual"
-      ? { playMode: "manual", loop: false }
-      : undefined;
+      ? { playback: "manual", loop: false }
+      : {};
   const aspectClass = {
     "16/9": "aspect-video",
     "4/3": "aspect-[4/3]",
@@ -43,13 +45,14 @@ export default async function ProjectDetailPage({ params }) {
         <div className="w-full shrink-0">
           <div className={`relative w-full ${aspectClass} max-h-[calc(100vh-4rem)] max-h-[calc(100dvh-4rem)]`}>
             <ProjectCard
-              variant={heroVariant}
-              fill={heroVariant === "video"}
+              playMode={heroPlayMode}
+              fill={heroPlayMode === "video"}
               vimeoId={vimeoId}
               stillImage={project.stillImage}
-              {...playOverrides}
+              {...playbackOverride}
               title={project.title}
               meta={project.meta}
+              overlay={heroPlayMode === "preview" ? "landing" : "none"}
               overlayPadding="px-6 lg:px-10 pb-16 md:pb-24"
             />
           </div>

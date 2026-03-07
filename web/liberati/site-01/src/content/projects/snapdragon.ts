@@ -1,5 +1,10 @@
 import { createProject } from "./template";
 
+const IMAGE_BASE =
+  process.env.NEXT_PUBLIC_IMAGE_BASE ??
+  "https://raw.githubusercontent.com/Liberati-inc/liberati-dev/main/assets/images/img";
+const snapBts01 = `${IMAGE_BASE}/projects/snapdragon/snap_bts_01.png`;
+
 export default createProject({
   slug: "snapdragon",
   title: "Snapdragon XR",
@@ -67,7 +72,7 @@ export default createProject({
         
         {
           contentType: "still",
-          imageUrl: "/assets/img/projects/snapdragon/snap_bts_01.png",
+          imageUrl: snapBts01,
           header: "Beluga Whale",
           subtext: "Cinema 4D",
           layout: "full",

@@ -12,7 +12,7 @@ export default function ToolkitPage() {
   return (
     <main className="min-h-screen bg-obsidian text-pureWhite">
       <TK_Header selected={selected} onSelect={setSelected} />
-      <div className="max-w-7xl mx-auto px-6 lg:px-10 pb-32">
+      <div className="max-w-7xl mx-auto px-page-x lg:px-page-x-lg pb-32">
         {sections.map((Section, i) => (
           <Section key={i} />
         ))}

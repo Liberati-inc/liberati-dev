@@ -4,6 +4,11 @@
  */
 import SectionLabel from "@/components/blocks/SectionLabel";
 import { services, servicesNote, servicesCta } from "@/content";
+
+const IMAGE_BASE =
+  process.env.NEXT_PUBLIC_IMAGE_BASE ??
+  "https://raw.githubusercontent.com/Liberati-inc/liberati-dev/main/assets/images/img";
+const snapBts01 = `${IMAGE_BASE}/projects/snapdragon/snap_bts_01.png`;
 import { projectsForGallery } from "@/content/projects";
 import {
   galleryCategories,
@@ -199,13 +204,13 @@ const PROPS = {
       ratio: [1, 1.25],
       blocks: [
         { contentType: "copy", header: "header", subtext: "subtext" },
-        { contentType: "still", imageUrl: "/assets/img/projects/snapdragon/snap_bts_01.png", header: "header", subtext: "subtext", variant: "hero", overlayPosition: "bottom-left" },
+        { contentType: "still", imageUrl: snapBts01, header: "header", subtext: "subtext", variant: "hero", overlayPosition: "bottom-left" },
       ],
     },
   },
   BlockStill: {
     block: {
-      imageUrl: "/assets/img/projects/snapdragon/snap_bts_01.png",
+      imageUrl: snapBts01,
       header: "header",
       subtext: "subtext",
       variant: "hero",

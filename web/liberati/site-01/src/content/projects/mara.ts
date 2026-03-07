@@ -33,7 +33,6 @@ export default createProject({
       contentType: "copy",
       header: "This is MARA",
       subtext: "Brand and content work.",
-      layout: "stack",
     },
     // { contentType: "vimeo", vimeoId: "...", header: "MARA IN MOTION", subtext: "Smart Cities", layout: "full", variant: "video" },
     // { contentType: "gallery", sectionTitle: "Oil & Gas Infographics", images: [...] },

@@ -11,35 +11,41 @@ import MediaSurface from "@/components/patterns/MediaSurface";
 import FadeOnHover from "@/components/blocks/FadeOnHover";
 import { type, typeRole, typeBlockOverlay, typeProjectCard } from "@/content/typography";
 
+
+export const toolkitExclude = false;
+export const toolkitOrder = 0;
+
 /**
- * Variant → playback. Single source of truth.
- * hero: autoplay muted loop | video: manual, no loop | thumb: autoplay loop (hover preview)
- * Override via playMode/loop props only when a page needs different behavior.
+ * playMode → playback. Keys: preview | user | thumb.
+ * preview: autoplay muted loop | user: manual, no loop | thumb: autoplay loop (hover preview)
+ * Override via playback/loop props only when a page needs different behavior.
+ * Text overlays are controlled solely by the overlay prop, not playMode.
  */
-const VARIANT_PLAY_DEFAULTS = {
-  hero: { playMode: "auto", loop: true },
-  video: { playMode: "manual", loop: false },
+const PLAY_MODE_DEFAULTS = {
+  preview: { playMode: "auto", loop: true },
+  user: { playMode: "manual", loop: false },
   thumb: { playMode: "auto", loop: true },
 };
 
-export const toolkitExclude = false;
-export const toolkitOrder = 11;
 
 export default function ProjectCard({
-  variant = "thumb", // "thumb" | "hero" | "video"
+  playMode = "thumb", // "thumb" | "preview" | "user" — controls playback/layout only
   fill,
   title,
   meta,
   stillImage,
   vimeoId,
   loop,
-  playMode,
+  playback, // "auto" | "manual" — override playMode default
   blackTintOpacity,
+  playingPollMs,
+  overlay, // "landing" | "featured" | "none" — only prop controlling text overlays
   overlayOpacity,
   overlayPadding,
   contentFadeOnHover,
   overlayPosition,
   showOverlay = true,
+  showOverlayCta = true, // false = hide "View Project" link (e.g. when whole card is clickable)
   cover,
   href,
   heading,
@@ -48,14 +54,14 @@ export default function ProjectCard({
   secondaryCta,
   ctaLabel,
 }) {
-  const defaults = VARIANT_PLAY_DEFAULTS[variant] ?? VARIANT_PLAY_DEFAULTS.thumb;
-  const effectivePlayMode = playMode ?? defaults.playMode;
+  const pm = playMode ?? "thumb";
+  const defaults = PLAY_MODE_DEFAULTS[pm] ?? PLAY_MODE_DEFAULTS.thumb;
+  const effectivePlayMode = playback ?? defaults.playMode;
   const effectiveLoop = loop ?? defaults.loop;
 
   const [heroHovered, setHeroHovered] = useState(false);
   const { headerVisible } = useHeaderVisibility();
-  const thumbUrl =
-    stillImage ?? (vimeoId ? `https://vumbnail.com/${vimeoId}.jpg` : null);
+  const thumbUrl = stillImage ?? null;
   const showLoop = effectiveLoop && vimeoId;
   const isLanding = Boolean(heading);
   useEffect(() => {
@@ -94,7 +100,8 @@ export default function ProjectCard({
         : "mx-auto flex flex-col items-center"
     : "mx-auto";
 
-  if (variant === "hero") {
+  const showTextOverlay = overlay !== "none" && (overlay ?? (pm === "preview" ? "landing" : null));
+  if (pm === "preview") {
     return (
       <section
         className={`relative w-full flex flex-col overflow-hidden h-full min-h-full ${positionClass}`}
@@ -108,6 +115,7 @@ export default function ProjectCard({
             className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 aspect-video hero-video-cover"
             playMode={effectivePlayMode}
             loop={effectiveLoop}
+            playingPollMs={playingPollMs}
             blackTintOpacity={blackTintOpacity}
           />
         </div>
@@ -119,7 +127,7 @@ export default function ProjectCard({
             }}
           />
         )}
-        {showOverlay && (
+        {showOverlay && showTextOverlay && (
         <FadeOnHover
           when={contentFadeOnHover}
           className={`relative z-10 max-w-7xl w-full ${contentAlignClass} ${
@@ -129,7 +137,7 @@ export default function ProjectCard({
               : "px-6 lg:px-10 pb-9")
           }`}
         >
-          <div className={isLanding ? "max-w-5xl" : "max-w-[85%] sm:max-w-2xl"}>
+          <div className={isLanding ? "max-w-5xl" : "w-full"}>
             {isLanding ? (
               <>
                 <div
@@ -162,25 +170,33 @@ export default function ProjectCard({
                 )}
               </>
             ) : (
-              <>
-                {title && (
-                  <h1
-                    className={`${typeBlockOverlay.header} ${type.mod.white} mb-2 md:mb-3`}
-                  >
-                    {title}
-                  </h1>
-                )}
+              <div className="w-full">
                 {meta && (
                   <p
-                    className={`${typeProjectCard.meta} ${type.mod.whiteSoft} mt-0`}
+                    className={`${typeProjectCard.meta} ${type.mod.whiteSoft} mb-1 md:mb-0`}
                   >
                     {meta}
                   </p>
                 )}
-                {href && (
+                <div className="flex justify-between items-end gap-4 w-full">
+                  {title && (
+                    <h1
+                      className={`${typeBlockOverlay.header} ${type.mod.white} mt-0 min-w-0 max-w-[85%] sm:max-w-2xl`}
+                    >
+                      {title}
+                    </h1>
+                  )}
+                  <SvgIcon
+                    variant="northEast"
+                    sizeClass="w-8 h-8 md:w-10 md:h-10"
+                    colorClass="text-white"
+                    className="shrink-0"
+                  />
+                </div>
+                {href && showOverlayCta && (
                   <ProjectLink href={href} className="mt-9" label={ctaLabel?.trim() || "VIEW PROJECT"} />
                 )}
-              </>
+              </div>
             )}
           </div>
         </FadeOnHover>
@@ -189,7 +205,7 @@ export default function ProjectCard({
     );
   }
 
-  if (variant === "video") {
+  if (pm === "user") {
     if (!vimeoId) return null;
     return (
       <div
@@ -220,6 +236,7 @@ export default function ProjectCard({
         className="aspect-video mb-4"
         playMode={effectivePlayMode}
         loop={effectiveLoop}
+        playingPollMs={playingPollMs}
         blackTintOpacity={blackTintOpacity}
       />
       <div className="flex justify-between items-start">
@@ -237,7 +254,7 @@ export default function ProjectCard({
           variant="northEast"
           sizeClass="w-5 h-5"
           colorClass="text-white group-hover:text-liberatiRed transition-colors"
-          className="shrink-0"
+          className="shrink-0 mt-1"
         />
       </div>
     </>

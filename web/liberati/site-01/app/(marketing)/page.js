@@ -8,9 +8,11 @@ import Footer from "@/components/sections/Footer";
 import SetLastLandingHeroCookie from "./SetLastLandingHeroCookie";
 import SetLastLandingHeroImageCookie from "./SetLastLandingHeroImageCookie";
 import { services, servicesNote, servicesCta } from "@/content";
-import { heroRandomize } from "@/content/home";
+import { heroRandomize, featuredProjectSlugs } from "@/content/home";
 import { getHeroVimeoIdExcluding } from "@/content/videos";
 import { getHeroFallbackImageExcluding } from "@/content/home";
+import { getProjectBySlug } from "@/content/projects";
+import { enrichProjectsWithThumbnails } from "@/lib/enrichProjects";
 
 const LAST_LANDING_HERO_COOKIE = "last_landing_hero";
 const LAST_LANDING_HERO_IMAGE_COOKIE = "last_landing_hero_image";
@@ -28,6 +30,11 @@ export default async function Home() {
   const lastImageRaw = cookieStore.get(LAST_LANDING_HERO_IMAGE_COOKIE)?.value;
   const lastImage = lastImageRaw ? decodeURIComponent(lastImageRaw) : undefined;
   heroFallbackImage = getHeroFallbackImageExcluding(lastImage);
+
+  const featuredRaw = featuredProjectSlugs
+    .map((s) => getProjectBySlug(s))
+    .filter(Boolean);
+  const featuredProjects = await enrichProjectsWithThumbnails(featuredRaw);
 
   return (
     <div className="bg-obsidian text-white min-h-screen">
@@ -53,7 +60,7 @@ export default async function Home() {
           note={servicesNote}
           cta={servicesCta}
         />
-        <FeaturedSection />
+        <FeaturedSection featuredProjects={featuredProjects} />
       </main>
 
       <Footer />

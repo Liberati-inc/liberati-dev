@@ -4,15 +4,21 @@ export const heroCopy = {
     "High-end visuals for global brands that demand distinction. We transform concepts into immersive digital experiences.",
 };
 
-/** Hero poster images — one picked at random per load. Add files to public/assets/img/landing/ and list here. */
+/** Hero poster images — URL refs to Git assets (no bundling). Override base via NEXT_PUBLIC_IMAGE_BASE. */
+const IMAGE_BASE =
+  process.env.NEXT_PUBLIC_IMAGE_BASE ??
+  "https://raw.githubusercontent.com/Liberati-inc/liberati-dev/main/assets/images/img";
+
 export const heroFallbackImages: string[] = [
-  "/assets/img/landing/landing-01.jpg",
-  "/assets/img/landing/landing_02.webp",
-  "/assets/img/landing/landing_03.jpg",
-  "/assets/img/landing/landing_04.jpg",
-  "/assets/img/landing/landing_bg_06.png",
-  "/assets/img/landing/FTC_Concept_03.webp",
-  "/assets/img/landing/2013-06-19%2011.35.18-2.jpg",
+  `${IMAGE_BASE}/landing/landing-01.jpg`,
+  `${IMAGE_BASE}/landing/landing_02.webp`,
+  `${IMAGE_BASE}/landing/landing_03.jpg`,
+  `${IMAGE_BASE}/landing/landing_04.jpg`,
+  `${IMAGE_BASE}/landing/landing_bg_06.png`,
+  `${IMAGE_BASE}/landing/FTC_Concept_03.webp`,
+  `${IMAGE_BASE}/landing/2013-06-19%2011.35.18-2.jpg`,
+  `${IMAGE_BASE}/landing/Hornet_GRABS_01.jpg`,
+  `${IMAGE_BASE}/landing/Hornet_GRABS_02.jpg`,
 ];
 
 /** Returns a random hero fallback image excluding the given one (for cookie memory). */

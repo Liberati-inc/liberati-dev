@@ -2,7 +2,7 @@ import SvgIcon from "@/components/blocks/SvgIcon";
 import { typeServices, typeRole } from "@/content/typography";
 
 export const toolkitExclude = false;
-export const toolkitOrder = 12;
+export const toolkitOrder = 0.3;
 
 export default function ServiceCard({ iconVariant, title, description, items = [] }) {
   return (

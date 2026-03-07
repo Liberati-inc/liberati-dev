@@ -2,7 +2,7 @@ import BriefCard from "@/components/patterns/BriefCard";
 import { type, typeRole, typeSectionBlock } from "@/content/typography";
 
 export const toolkitExclude = false;
-export const toolkitOrder = 9;
+export const toolkitOrder = 0.2;
 
 /**
  * Context / Strategy / Solution block. Data from project.brief (editable in project .ts).
@@ -15,7 +15,7 @@ export default function ProjectBriefSection({ brief, meta, description }) {
   const desc = description ?? introCopy;
 
   return (
-    <section className="py-24 px-6 md:px-16 bg-obsidian" data-purpose="project-brief">
+    <section className="py-section-y bg-obsidian" data-purpose="project-brief">
       <div className="max-w-7xl mx-auto">
         <div className="mb-16">
           <h2 className={`${typeSectionBlock.title} mb-4`}>

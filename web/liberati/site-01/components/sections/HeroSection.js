@@ -13,7 +13,8 @@ export default function HeroSection({ vimeoId: vimeoIdProp, stillImage, overlayO
 
   return (
     <ProjectCard
-      variant="hero"
+      playMode="preview"
+      overlay="landing"
       vimeoId={vimeoId}
       stillImage={stillImage}
       heading={heroCopy.heading}

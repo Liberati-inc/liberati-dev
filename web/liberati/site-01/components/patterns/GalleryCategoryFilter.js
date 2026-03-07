@@ -2,7 +2,7 @@ import Link from "next/link";
 import { typeServices } from "@/content/typography";
 
 export const toolkitExclude = false;
-export const toolkitOrder = 7;
+export const toolkitOrder = 0.1;
 
 /**
  * Category filter tabs for projects gallery (Brands, Series & Film, Interactive, All).

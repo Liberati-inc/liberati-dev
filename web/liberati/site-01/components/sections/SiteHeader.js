@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
+import Logo from "@/components/brand/Logo";
 import SvgIcon from "@/components/blocks/SvgIcon";
 import PrimaryButton from "@/components/blocks/PrimaryButton";
 import PageContainer from "@/components/blocks/PageContainer";
@@ -77,30 +78,23 @@ export default function SiteHeader({ slideOnScroll = false, position = "fixed" }
         }`}
       >
         <PageContainer className="flex items-center justify-between py-4">
-          <div className="flex items-center gap-3">
-            <SvgIcon variant="wing" sizeClass="h-6 w-auto" />
-            <a
-              href="/#top"
-              className="inline-flex items-center"
-              aria-label="Liberati home"
-              onClick={(e) => {
-                if (pathname === "/") {
-                  e.preventDefault();
-                  if (atTop) {
-                    window.location.href = "/";
-                  } else {
-                    document.getElementById("top")?.scrollIntoView({ behavior: "smooth" });
-                  }
+          <a
+            href="/#top"
+            className="inline-flex items-center"
+            aria-label="Liberati home"
+            onClick={(e) => {
+              if (pathname === "/") {
+                e.preventDefault();
+                if (atTop) {
+                  window.location.href = "/";
+                } else {
+                  document.getElementById("top")?.scrollIntoView({ behavior: "smooth" });
                 }
-              }}
-            >
-              <SvgIcon
-                variant="wordmark"
-                sizeClass="h-4 w-auto"
-                colorClass="text-white"
-              />
-            </a>
-          </div>
+              }
+            }}
+          >
+            <Logo />
+          </a>
 
           <div className="hidden items-center gap-12 md:flex">
             <nav className="flex items-center gap-12">

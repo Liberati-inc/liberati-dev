@@ -38,6 +38,20 @@
   --section-y: 96px;
   --nav-x: 80px;
   --container-max: 1280px;
+
+  /* — Block / Section spacing (atomic; adjust here, propagates everywhere) — */
+  --block-gap: 0.75rem;        /* 12px — gap between stacked blocks */
+  --block-gap-sm: 1rem;       /* 16px @ sm */
+  --block-gap-md: 1.5rem;      /* 24px @ md */
+  --block-pad-x: 1.5rem;      /* 24px — block section horizontal padding */
+  --block-pad-x-md: 4rem;     /* 64px @ md */
+  --block-pad-y: 0.75rem;     /* 12px — block section vertical padding */
+  --block-content-y: 3rem;    /* 48px — block content vertical (BlockCopy, BlockVimeo) */
+  --block-content-y-md: 4rem; /* 64px @ md */
+  --block-gallery-x: 1rem;    /* 16px — BlockGallery tight horizontal */
+  --section-pad-y: 6rem;      /* 96px — section vertical rhythm (py-24) */
+  --page-pad-x: 1.5rem;       /* 24px — page container horizontal */
+  --page-pad-x-lg: 2.5rem;    /* 40px @ lg */
 }
 
 /* ============================================================

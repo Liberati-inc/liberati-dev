@@ -1,4 +1,4 @@
-import SvgIcon from "@/components/blocks/SvgIcon";
+import Logo from "@/components/brand/Logo";
 import PageContainer from "@/components/blocks/PageContainer";
 import TextNavButton from "@/components/blocks/TextNavButton";
 import SvgButton from "@/components/blocks/SvgButton";
@@ -18,20 +18,9 @@ export default function Footer() {
       <PageContainer>
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-8">
           <div className="md:col-span-2">
-            <div className="flex items-center gap-3 mb-6">
-              <SvgIcon
-                variant="wing"
-                sizeClass="h-5 w-auto"
-                colorClass="text-liberatiRed"
-              />
-              <a href="/#top" className="inline-flex items-center" aria-label="Liberati home">
-                <SvgIcon
-                  variant="wordmark"
-                  sizeClass="h-4 w-auto"
-                  colorClass="text-white"
-                />
-              </a>
-            </div>
+            <a href="/" className="inline-flex items-center mb-6" aria-label="Liberati home">
+              <Logo size="sm" />
+            </a>
             <p className={`${typeServices.body} ${type.mod.muted} max-w-sm`}>
               {footerCopy.tagline}
             </p>

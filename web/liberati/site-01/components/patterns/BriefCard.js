@@ -1,7 +1,7 @@
 import { typeRole, typeSectionBlock } from "@/content/typography";
 
 export const toolkitExclude = false;
-export const toolkitOrder = 6;
+export const toolkitOrder = 0;
 
 export default function BriefCard({ title, copy, lineDelimiter }) {
   const copyText = typeof copy === "string" ? copy : String(copy ?? "");

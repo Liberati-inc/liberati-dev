@@ -1,8 +1,7 @@
-import { COLS_CLASS } from "./blockUtils";
+import { COLS_CLASS, BLOCK_GAP } from "./blockUtils";
 import BlockCopy from "./BlockCopy";
 import BlockVimeo from "./BlockVimeo";
 import BlockStill from "./BlockStill";
-import BlockGallery from "./BlockGallery";
 
 export const toolkitExclude = false;
 export const toolkitOrder = 3;
@@ -15,7 +14,6 @@ export default function BlockGroup({ block = {} }) {
     if (b.contentType === "copy") return <BlockCopy key={i} block={b} />;
     if (b.contentType === "vimeo") return <BlockVimeo key={i} block={b} fill={opts.fill} />;
     if (b.contentType === "still") return <BlockStill key={i} block={b} fill={opts.fill} />;
-    if (b.contentType === "gallery") return <BlockGallery key={i} block={b} />;
     if (b.contentType === "group") return <BlockGroup key={i} block={b} />;
     return null;
   };
@@ -27,15 +25,15 @@ export default function BlockGroup({ block = {} }) {
   const gridClass =
     layout === "cols"
       ? useRatio
-        ? "grid grid-cols-1 gap-3 sm:gap-4 md:gap-6 md:aspect-video md:[grid-template-columns:var(--group-ratio)]"
-        : `grid grid-cols-1 ${COLS_CLASS[count]} gap-3 sm:gap-4 md:gap-6`
-      : "flex flex-col gap-3 sm:gap-4 md:gap-6";
+        ? `grid grid-cols-1 ${BLOCK_GAP} md:aspect-video md:[grid-template-columns:var(--group-ratio)]`
+        : `grid grid-cols-1 ${COLS_CLASS[count]} ${BLOCK_GAP}`
+      : `flex flex-col ${BLOCK_GAP}`;
   const gridStyle = useRatio
     ? { "--group-ratio": ratio.map((r) => `${r}fr`).join(" ") }
     : undefined;
 
   return (
-    <section className="w-full px-6 py-3 md:px-16 md:py-3">
+    <section className="w-full">
       <div className={`max-w-7xl mx-auto ${gridClass}`} style={gridStyle}>
         {blocks.map((b, i) =>
           useRatio ? (
@@ -43,7 +41,7 @@ export default function BlockGroup({ block = {} }) {
               {renderBlock(b, i, { fill: true })}
             </div>
           ) : (
-            <div key={i}>{renderBlock(b, i)}</div>
+            <div key={i} className="w-full min-w-0">{renderBlock(b, i)}</div>
           )
         )}
       </div>

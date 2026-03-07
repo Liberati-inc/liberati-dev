@@ -7,13 +7,13 @@ import type { Project, ProjectBlock, ProjectClass } from "../types";
  * Detail brief: description (below title + meta).
  * Detail page:
  *   - class, previewVimeoId (hero), detailPlayMode ("loop" | "manual")
- *   - detailHeroVariant: optional override; manual playMode → video variant by default
+ *   - detailHeroVariant: optional override; manual playMode → user variant by default
  *   - heroAspectRatio: "16/9" | "4/3" | "21/9" | "1/1" (default 16/9)
  *   - brief: context / strategy / solution (title + copy, editable)
  *   - blocks: modular sections (vimeo, copy, still, gallery)
  *
- * Blocks: contentType (block kind) + layout. vimeo/still add variant (hero | video | thumb):
- * - contentType: "copy" | "vimeo" | "still" | "gallery" | "group"
+ * Blocks: contentType (block kind). vimeo/still add variant (preview | user | thumb), overlay (landing | featured | none).
+ * - contentType: "copy" | "vimeo" | "still" | "group"
  * - group: layout "cols" | "stack", ratio? (e.g. [2, 1] for 2:1 cols), blocks[]
  * - vimeo/still: variant, overlayOpacity, overlayPosition, overlayPaddingBottom (e.g. "pb-8" for lower), aspectRatio
  *
