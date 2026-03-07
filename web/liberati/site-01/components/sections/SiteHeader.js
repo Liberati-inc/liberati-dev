@@ -57,6 +57,16 @@ export default function SiteHeader({ slideOnScroll = false, position = "fixed" }
 
   const closeMenu = () => setMenuOpen(false);
 
+  const handleHashClick = (e, href) => {
+    const hash = href?.match(/#(.+)/)?.[1];
+    if (hash && pathname === "/") {
+      e.preventDefault();
+      closeMenu();
+      window.history.pushState(null, "", href);
+      document.getElementById(hash)?.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <>
       <header
@@ -70,13 +80,17 @@ export default function SiteHeader({ slideOnScroll = false, position = "fixed" }
           <div className="flex items-center gap-3">
             <SvgIcon variant="wing" sizeClass="h-6 w-auto" />
             <a
-              href="/"
+              href="/#top"
               className="inline-flex items-center"
               aria-label="Liberati home"
               onClick={(e) => {
                 if (pathname === "/") {
                   e.preventDefault();
-                  window.location.href = "/";
+                  if (atTop) {
+                    window.location.href = "/";
+                  } else {
+                    document.getElementById("top")?.scrollIntoView({ behavior: "smooth" });
+                  }
                 }
               }}
             >
@@ -138,7 +152,12 @@ export default function SiteHeader({ slideOnScroll = false, position = "fixed" }
               <a
                 key={item.id}
                 href={item.href}
-                onClick={closeMenu}
+                onClick={(e) => {
+                  if (item.href?.startsWith("/#")) {
+                    handleHashClick(e, item.href);
+                  }
+                  closeMenu();
+                }}
                 className="block py-4 px-2 text-lg text-white hover:text-liberatiRed transition-colors border-b border-white/10 min-h-[44px] flex items-center"
               >
                 {item.label}

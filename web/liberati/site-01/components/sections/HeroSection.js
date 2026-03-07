@@ -1,21 +1,21 @@
 "use client";
 
 import ProjectCard from "@/components/patterns/ProjectCard";
-import { heroCopy, heroFallbackImage } from "@/content/home";
+import { heroCopy } from "@/content/home";
 import { heroPrimaryCta, heroSecondaryCta } from "@/content/cta";
 import { getRandomHeroVimeoId } from "@/content/videos";
 
 export const toolkitExclude = false;
 export const toolkitOrder = 2;
 
-export default function HeroSection({ vimeoId: vimeoIdProp, overlayOpacity }) {
+export default function HeroSection({ vimeoId: vimeoIdProp, stillImage, overlayOpacity }) {
   const vimeoId = vimeoIdProp ?? getRandomHeroVimeoId();
 
   return (
     <ProjectCard
       variant="hero"
       vimeoId={vimeoId}
-      stillImage={heroFallbackImage}
+      stillImage={stillImage}
       heading={heroCopy.heading}
       body={heroCopy.body}
       primaryCta={heroPrimaryCta}
