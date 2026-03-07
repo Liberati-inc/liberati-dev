@@ -70,13 +70,13 @@ export default function SiteHeader({ slideOnScroll = false, position = "fixed" }
           <div className="flex items-center gap-3">
             <SvgIcon variant="wing" sizeClass="h-6 w-auto" />
             <a
-              href="/#top"
+              href="/"
               className="inline-flex items-center"
               aria-label="Liberati home"
               onClick={(e) => {
-                if (pathname === "/" && atTop) {
+                if (pathname === "/") {
                   e.preventDefault();
-                  window.location.href = "/#top";
+                  window.location.href = "/";
                 }
               }}
             >

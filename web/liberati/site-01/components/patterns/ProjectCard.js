@@ -103,6 +103,8 @@ export default function ProjectCard({
           <MediaSurface
             vimeoId={vimeoId}
             imageUrl={thumbUrl || undefined}
+            useFallbackImage={Boolean(thumbUrl)}
+            heroCover
             className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 aspect-video hero-video-cover"
             playMode={effectivePlayMode}
             loop={effectiveLoop}
@@ -214,7 +216,7 @@ export default function ProjectCard({
       <MediaSurface
         vimeoId={showLoop ? vimeoId : undefined}
         imageUrl={thumbUrl || undefined}
-        useFallbackImage
+        useFallbackImage={Boolean(thumbUrl)}
         className="aspect-video mb-4"
         playMode={effectivePlayMode}
         loop={effectiveLoop}

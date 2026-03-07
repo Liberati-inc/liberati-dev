@@ -11,6 +11,7 @@
     "check:content": "node scripts/check-content.js"
   },
   "dependencies": {
+    "@vimeo/player": "^2.30.3",
     "next": "14.2.35",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
