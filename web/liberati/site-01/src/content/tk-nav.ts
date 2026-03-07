@@ -1,10 +1,10 @@
 /**
- * Toolkit page navigation. Organizes sections into Brand, Atoms, Molecules, Organisms.
+ * Toolkit page navigation. Organizes sections into Brand, Blocks, Patterns, Sections.
  * Used by TK_Header for in-page anchor links.
  */
 export const tkNav = [
   { id: "brand", label: "Brand", href: "#brand" },
-  { id: "atoms", label: "Atoms", href: "#atoms" },
-  { id: "molecules", label: "Molecules", href: "#molecules" },
-  { id: "organisms", label: "Organisms", href: "#organisms" },
+  { id: "blocks", label: "Blocks", href: "#blocks" },
+  { id: "patterns", label: "Patterns", href: "#patterns" },
+  { id: "sections", label: "Sections", href: "#sections" },
 ] as const;

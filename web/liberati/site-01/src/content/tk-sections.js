@@ -1,8 +1,8 @@
 /**
  * Auto-discovers components via webpack require.context (like projects/index.ts).
- * Scans brand/, atoms/, molecules/, organisms/. No meta text.
+ * Scans brand/, blocks/, patterns/, sections/. No meta text.
  */
-import SectionLabel from "@/components/atoms/SectionLabel";
+import SectionLabel from "@/components/blocks/SectionLabel";
 import { services, servicesNote, servicesCta } from "@/content";
 import { projectsForGallery } from "@/content/projects";
 import {
@@ -107,6 +107,7 @@ const PROPS = {
     ),
   },
   EyebrowLabel: { label: "label" },
+  BlockTitle: { children: "Gallery Header" },
   FilterPill: {
     label: "label",
     _render: (Comp) => (
@@ -270,7 +271,7 @@ function discover(context, excludeRe, wrap = true, excludeTkPrefix = true) {
       const Component = mod.default;
       if (!Component || typeof Component !== "function") return null;
       if (mod.toolkitExclude !== false) return null; // must explicitly set false to be visible
-      const name = baseName(k); // dedupe by filename only (webpack can return ./X.js and components/atoms/X.js)
+      const name = baseName(k); // dedupe by filename only (webpack can return ./X.js and components/blocks/X.js)
       if (name === "index" || (excludeTkPrefix && name.startsWith("TK_"))) return null;
       if (seen.has(name)) return null;
       seen.add(name);
@@ -294,15 +295,15 @@ const excludeOrganisms = /(^\.\/index\.)/i;
 const excludeBrand = /(^\.\/index\.)/i;
 
 const brandCtx = require.context("@/components/brand", false, /\.js$/);
-const atomsCtx = require.context("@/components/atoms", false, /\.js$/);
-const moleculesCtx = require.context("@/components/molecules", false, /\.js$/);
-const organismsCtx = require.context("@/components/organisms", false, /\.js$/);
+const blocksCtx = require.context("@/components/blocks", false, /\.js$/);
+const patternsCtx = require.context("@/components/patterns", false, /\.js$/);
+const sectionsCtx = require.context("@/components/sections", false, /\.js$/);
 
 const sectionsByCategory = {
   brand: discover(brandCtx, excludeBrand, false, false), // brand uses TK_* components, don't exclude
-  atoms: discover(atomsCtx, excludeAtomsMolecules, true),
-  molecules: discover(moleculesCtx, excludeAtomsMolecules, true),
-  organisms: discover(organismsCtx, excludeOrganisms, true),
+  blocks: discover(blocksCtx, excludeAtomsMolecules, true),
+  patterns: discover(patternsCtx, excludeAtomsMolecules, true),
+  sections: discover(sectionsCtx, excludeOrganisms, true),
 };
 
 export { sectionsByCategory };

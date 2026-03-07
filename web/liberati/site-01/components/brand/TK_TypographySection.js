@@ -1,9 +1,13 @@
-import SectionLabel from "@/components/atoms/SectionLabel";
-import TypographySample from "@/components/molecules/TypographySample";
+import BlockTitle from "@/components/blocks/BlockTitle";
+import SectionLabel from "@/components/blocks/SectionLabel";
+import TypographySample from "@/components/patterns/TypographySample";
 import {
   type,
   typeRole,
+  typeSectionBlock,
   typeBlockOverlay,
+  typeBlockTitle,
+  typeProjectCard,
   typeServices,
 } from "@/content/typography";
 
@@ -11,10 +15,10 @@ export const toolkitExclude = false;
 export const toolkitOrder = 2;
 
 const SAMPLE = {
-  scale: "Cinematic Motion & Design",
-  role: "We create visual narratives that resonate with global audiences.",
-  micro: "Services availability may vary.",
-  overlay: "Immersive Digital Experiences.",
+  scale: "The quick brown fox jumps over the lazy dog",
+  role: "The quick brown fox jumps over the lazy dog",
+  micro: "The quick brown fox jumps",
+  overlay: "The quick brown fox jumps over the lazy dog",
 };
 
 function renderGroup(title, entries, defaultSample = SAMPLE.role) {
@@ -30,12 +34,12 @@ function renderGroup(title, entries, defaultSample = SAMPLE.role) {
           <TypographySample
             key={key}
             label={key}
-            as={["h0", "h1", "h2", "h3", "h4", "landing"].includes(key) ? "h1" : "p"}
+            as={["display", "h1", "h2", "h3", "h4", "landing"].includes(key) ? "h1" : "p"}
             className={className}
             sample={
               ["body", "landing"].includes(key)
                 ? SAMPLE.role
-                : key.includes("micro") || key.includes("disclaimer") || key.includes("Label") || key.includes("eyebrow") || key.includes("footer") || key.includes("Meta") || key.includes("Cta") || key.includes("navLink")
+                : key.includes("caption") || key.includes("disclaimer") || key.includes("Label") || key.includes("eyebrow") || key.includes("footer") || key.includes("Meta") || key.includes("button") || key.includes("navLink") || key.includes("bodySm")
                   ? SAMPLE.micro
                   : key.includes("title") || key.includes("overlay") || key.includes("projectCard")
                     ? SAMPLE.overlay
@@ -58,13 +62,25 @@ export default function TK_TypographySection() {
         <SectionLabel label="Typography" />
         <div className="space-y-16">
           {renderGroup("type.scale", type.scale, SAMPLE.scale)}
+          {renderGroup("type.font", type.font, SAMPLE.micro)}
           {renderGroup("type.mod (sample)", {
             uppercase: `${type.scale.h2} ${type.mod.uppercase}`,
             muted: `${type.scale.body} ${type.mod.muted}`,
-            red: `${type.scale.micro} ${type.mod.red} ${type.mod.uppercase}`,
+            red: `${type.font.mono} ${type.scale.caption} ${type.mod.red} ${type.mod.uppercase}`,
           })}
           {renderGroup("typeRole", typeRole)}
+          {renderGroup("typeBlockTitle", { default: typeBlockTitle }, SAMPLE.micro)}
+          <div className="space-y-6">
+            <h3 className="text-white/50 text-sm font-bold uppercase tracking-wider">
+              BlockTitle (blocks/BlockTitle.js)
+            </h3>
+            <div className="border-b border-white/5 py-1" />
+            <BlockTitle>Gallery Header</BlockTitle>
+            <BlockTitle token={typeSectionBlock.label}>Section Label Token</BlockTitle>
+          </div>
+          {renderGroup("typeSectionBlock", typeSectionBlock, SAMPLE.scale)}
           {renderGroup("typeBlockOverlay", typeBlockOverlay, SAMPLE.overlay)}
+          {renderGroup("typeProjectCard", typeProjectCard, SAMPLE.overlay)}
           {renderGroup("typeServices", typeServices)}
         </div>
       </div>

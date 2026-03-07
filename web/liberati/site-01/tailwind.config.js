@@ -14,7 +14,8 @@ module.exports = {
         pureWhite: "#FFFFFF",
       },
       fontFamily: {
-        manrope: ["Manrope", "sans-serif"],
+        manrope: ["var(--font-manrope)", "Manrope", "sans-serif"],
+        mono: ["var(--font-mono)", "IBM Plex Mono", "monospace"],
       },
       borderRadius: {
         liberati: "4px",

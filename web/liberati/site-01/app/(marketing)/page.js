@@ -1,10 +1,10 @@
 import { cookies } from "next/headers";
-import SiteHeader from "@/components/organisms/SiteHeader";
-import HeroSection from "@/components/organisms/HeroSection";
-import AboutSection from "@/components/organisms/AboutSection";
-import ServicesSection from "@/components/organisms/ServicesSection";
-import FeaturedSection from "@/components/organisms/FeaturedSection";
-import Footer from "@/components/organisms/Footer";
+import SiteHeader from "@/components/sections/SiteHeader";
+import HeroSection from "@/components/sections/HeroSection";
+import AboutSection from "@/components/sections/AboutSection";
+import ServicesSection from "@/components/sections/ServicesSection";
+import FeaturedSection from "@/components/sections/FeaturedSection";
+import Footer from "@/components/sections/Footer";
 import SetLastLandingHeroCookie from "./SetLastLandingHeroCookie";
 import { services, servicesNote, servicesCta } from "@/content";
 import { heroRandomize } from "@/content/home";

@@ -1,6 +1,6 @@
 "use client";
 
-import PageContainer from "@/components/atoms/PageContainer";
+import PageContainer from "@/components/blocks/PageContainer";
 import { type, typeRole } from "@/content/typography";
 import { tkNav } from "@/content/tk-nav";
 

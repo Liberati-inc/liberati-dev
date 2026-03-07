@@ -9,7 +9,7 @@ let hasError = false;
 // UI labels are fine; paragraphs/copy should live in src/content/*.
 
 const targetFiles = [
-  path.join(root, "components/organisms/ServicesSection.js"),
+  path.join(root, "components/sections/ServicesSection.js"),
 ];
 
 const MAX_INLINE_LENGTH = 80;

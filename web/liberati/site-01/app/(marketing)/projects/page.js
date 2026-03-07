@@ -1,9 +1,9 @@
 import { cookies } from "next/headers";
-import PageContainer from "@/components/atoms/PageContainer";
-import SiteHeader from "@/components/organisms/SiteHeader";
-import ProjectCard from "@/components/molecules/ProjectCard";
-import ProjectsSection from "@/components/organisms/ProjectsSection";
-import Footer from "@/components/organisms/Footer";
+import PageContainer from "@/components/blocks/PageContainer";
+import SiteHeader from "@/components/sections/SiteHeader";
+import ProjectCard from "@/components/patterns/ProjectCard";
+import ProjectsSection from "@/components/sections/ProjectsSection";
+import Footer from "@/components/sections/Footer";
 import SetLastHeroCookie from "./SetLastHeroCookie";
 import { getProjectBySlug, projectsForGallery } from "@/content/projects";
 import {

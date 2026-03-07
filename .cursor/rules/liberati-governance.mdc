@@ -1,5 +1,5 @@
 ---
-description: Always read Liberati governance docs (atomic design, SVG rules) before making decisions.
+description: Always read Liberati governance docs (blocks/patterns/sections, SVG rules) before making decisions.
 alwaysApply: true
 ---
 
@@ -13,23 +13,23 @@ When working in the `liberati-dev` workspace:
 
 - **Key expectations (summarized)**:
   - **No bespoke coding**: Components share the same props; callers pass values. No branching on context (e.g. `isLanding ? x : y`). One component path, props control behavior.
-  - Follow the atomic/modular hierarchy: tokens → atoms → molecules → organisms → pages.
+  - Follow the web-style hierarchy: tokens → blocks → patterns → sections → pages.
   - Prefer refactors that enforce DRY over duplicating patterns.
   - All UI icons must go through `SvgIcon` (and wrappers like `SvgButton`) using inline SVG paths, not external `<img>` assets.
-  - Shared CTAs and patterns should use their atoms (`PrimaryButton`, `FormField`, `ProjectLink`, etc.), not ad‑hoc markup.
-  - Do not hardcode new UI (buttons, nav arrows, links). Create atom/molecule/organism and add to toolkit first.
-  - Typography tokens defined in `src/content/typography.ts` are the **only** place typography classes are defined; do **not** add extra Tailwind classes (font, size, tracking, casing, color) directly to `type.*` usages in atoms, molecules, organisms, or pages.
+  - Shared CTAs and patterns should use their blocks (`PrimaryButton`, `FormField`, `ProjectLink`, etc.), not ad‑hoc markup.
+  - Do not hardcode new UI (buttons, nav arrows, links). Create block/pattern/section and add to toolkit first.
+  - Typography tokens defined in `src/content/typography.ts` are the **only** place typography classes are defined; do **not** add extra Tailwind classes (font, size, tracking, casing, color) directly to `type.*` usages in blocks, patterns, sections, or pages.
   - When answering questions about existing code, **always read the actual file/lines in question before responding**; never rely on memory, inference, or assumptions when the source of truth is available in the repo.
-  - Toolkit section numbering/labels follow the atomic hierarchy (`1.x` atoms/tokens, `2.x` molecules/layouts, `3.x` organisms) and are **toolkit-only** chrome that must never be rendered on marketing/user-facing pages.
-  - When React‑ifying HTML sections, always look for existing toolkit atoms/molecules (buttons, cards, form fields, typography scales) and reuse them first; only introduce new variants (e.g. H0, SecondaryButton) by adding them to the toolkit and then consuming them.
-  - **Do not hardcode new UI elements** (buttons, nav arrows, links, icons). Create an atom/molecule/organism, add it to the toolkit in the appropriate section (e.g. 1.4 Icon Buttons for nav arrows, 1.2 UI Elements for CTAs), then consume it. This ensures single source of truth and discoverability.
-  - Do not hack atom visuals at call sites (no extra rounding, font overrides, or tracking tweaks on CTAs); if the look needs to change, update the atom + toolkit once, then reuse.
+  - Toolkit section numbering/labels follow the web-style hierarchy (`1.x` blocks/tokens, `2.x` patterns/layouts, `3.x` sections) and are **toolkit-only** chrome that must never be rendered on marketing/user-facing pages.
+  - When React‑ifying HTML sections, always look for existing toolkit blocks/patterns (buttons, cards, form fields, typography scales) and reuse them first; only introduce new variants (e.g. H0, SecondaryButton) by adding them to the toolkit and then consuming them.
+  - **Do not hardcode new UI elements** (buttons, nav arrows, links, icons). Create a block/pattern/section, add it to the toolkit in the appropriate section (e.g. 1.4 Icon Buttons for nav arrows, 1.2 UI Elements for CTAs), then consume it. This ensures single source of truth and discoverability.
+  - Do not hack block visuals at call sites (no extra rounding, font overrides, or tracking tweaks on CTAs); if the look needs to change, update the block + toolkit once, then reuse.
   - Preserve the original HTML’s responsive behavior (breakpoints, grid/flex patterns) when componentizing; refactors can abstract layout, but should not silently change how sections behave at different viewport sizes.
-  - Keep `/toolkit` grouped and ordered like a design-system browser: tokens/atoms first (color, type, buttons, pills, iconography, form fields), then molecules/layouts (cards, grids, briefs), and finally organisms (navigation, hero, composite layouts) with footer last.
+  - Keep `/toolkit` grouped and ordered like a design-system browser: tokens/blocks first (color, type, buttons, pills, iconography, form fields), then patterns/layouts (cards, grids, briefs), and finally sections (navigation, hero, composite layouts) with footer last.
   - **All components must export `toolkitExclude` and `toolkitOrder`**: `toolkitExclude = false` for visible, `true` for composition-only; `toolkitOrder` controls sort (lower = first). No implicit defaults.
   - **Toolkit PROPS use the prop name as the value**: Use the prop name itself (e.g. label, title, header, copy, meta, content, sample, items[0].label) so users know which prop controls what. Never project-specific names.
   - **Prefer semantic prop names over children**: Use `label` for button/link text, `copy` for body text, `content` for wrappers, `sample` for typography samples.
-  - **Organisms use real site data in toolkit**: Same props as marketing pages (e.g. services, servicesNote, servicesCta).
+  - **Sections use real site data in toolkit**: Same props as marketing pages (e.g. services, servicesNote, servicesCta).
   - Every showcased toolkit example should include a lightweight label indicating the component name/path, for reference only, not to be copied into marketing pages.
   - **Never change `distDir` or `.next`** in Next.js config; keep the default build output path (Vercel and tooling depend on it).
   - **Push back on requests** when a change would violate proper workflows, industry standards, or this governance: explain why it’s inadvisable and suggest an alternative that fits the codebase and benefits the user; only then implement if the user insists.

@@ -1,5 +1,5 @@
-import SectionLabel from "@/components/atoms/SectionLabel";
-import ColorSwatch from "@/components/atoms/ColorSwatch";
+import SectionLabel from "@/components/blocks/SectionLabel";
+import ColorSwatch from "@/components/blocks/ColorSwatch";
 
 export const toolkitExclude = false;
 export const toolkitOrder = 1;
